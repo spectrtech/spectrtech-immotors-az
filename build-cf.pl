@@ -178,15 +178,16 @@ H
 # Worker (сервер редактора из комплекта) и настройки Cloudflare
 copy('cms/kit/backend/worker.js', "$OUT/worker.js") or die $!;
 my $kv = -f "$OUT/kv-id.txt" ? (slurp("$OUT/kv-id.txt") =~ /([0-9a-f]{32})/ ? $1 : die "$OUT/kv-id.txt: нет id\n") : 'local-dev-kv';
-spit("$OUT/wrangler.toml", <<T);
+# одинаковые настройки в deploy/ (если в Workers Builds указан Path = deploy) и в корне репозитория (если Path не указан)
+my $wrangler = sub { my $p = shift; <<T };
 # IM Motors · сайт immotors.az на Cloudflare Workers + редактор SpectrTech (worker.js из комплекта, cms/kit/VERSION).
 # Генерирует build-cf.pl — правьте там. id хранилища KV — в deploy/kv-id.txt.
 name = "spectrtech-immotors-az"
-main = "worker.js"
+main = "${p}worker.js"
 compatibility_date = "2026-01-15"
 
 [assets]
-directory = "./public"
+directory = "./${p}public"
 binding = "ASSETS"
 # /l7 → l7.html; неизвестный адрес → 404.html с кодом 404
 html_handling = "auto-trailing-slash"
@@ -198,6 +199,8 @@ run_worker_first = ["/api/*", "/content/site.js", "/uploads/*"]
 binding = "ST_KV"
 id = "$kv"
 T
+spit("$OUT/wrangler.toml", $wrangler->(''));
+spit('wrangler.toml', $wrangler->("$OUT/"));
 
 my $bytes = 0; $bytes += -s "$PUB/img/$_" for keys %imgsrc;
 printf "deploy/public: %d страниц, ключей текстов %d (%s); фото %d (%.1f МБ, скачано %d, удалено лишних %d); kv=%s\n",

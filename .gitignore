@@ -22,3 +22,4 @@ pages/ls8/
 deploy/.dev.vars
 deploy/.wrangler/
 node_modules/
+.wrangler/
