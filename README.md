@@ -5,7 +5,7 @@
 
 ## Cloudflare и редактор SpectrTech (основной хостинг с ноября 2026)
 
-Сайт immotors.az — Cloudflare Worker `immotors-az`: страницы и фото отдаются как статика, Worker нужен только редактору.
+Сайт immotors.az — Cloudflare Worker `spectrtech-immotors-az`: страницы и фото отдаются как статика, Worker нужен только редактору.
 
 - **Сборка:** `bash build.sh && perl build-cf.pl` → `deploy/` (страницы, фото в `public/img/`, файлы редактора, sitemap, robots,
   `_redirects`, `_headers`, `worker.js`, `wrangler.toml`). Фото берутся с Tilda CDN по `tilda-import/cdn-map.tsv` и кешируются в `deploy/public/img/`.

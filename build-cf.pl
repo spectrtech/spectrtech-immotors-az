@@ -181,7 +181,7 @@ my $kv = -f "$OUT/kv-id.txt" ? (slurp("$OUT/kv-id.txt") =~ /([0-9a-f]{32})/ ? $1
 spit("$OUT/wrangler.toml", <<T);
 # IM Motors · сайт immotors.az на Cloudflare Workers + редактор SpectrTech (worker.js из комплекта, cms/kit/VERSION).
 # Генерирует build-cf.pl — правьте там. id хранилища KV — в deploy/kv-id.txt.
-name = "immotors-az"
+name = "spectrtech-immotors-az"
 main = "worker.js"
 compatibility_date = "2026-01-15"
 
