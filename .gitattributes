@@ -1,0 +1,6 @@
+# Переносы строк — как в Linux (сборка и Cloudflare), независимо от настроек Git в Windows
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ttf binary
