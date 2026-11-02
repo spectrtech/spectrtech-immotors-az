@@ -1,0 +1,18 @@
+# IM Motors · сайт immotors.az на Cloudflare Workers + редактор SpectrTech (worker.js из комплекта, cms/kit/VERSION).
+# Генерирует build-cf.pl — правьте там. id хранилища KV — в deploy/kv-id.txt.
+name = "immotors-az"
+main = "worker.js"
+compatibility_date = "2026-01-15"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+# /l7 → l7.html; неизвестный адрес → 404.html с кодом 404
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+# Worker нужен только редактору: API, файл правок и загруженные фото; страницы и фото Cloudflare отдаёт сам
+run_worker_first = ["/api/*", "/content/site.js", "/uploads/*"]
+
+[[kv_namespaces]]
+binding = "ST_KV"
+id = "df0d5051028947df961f6d0ba2787d1e"

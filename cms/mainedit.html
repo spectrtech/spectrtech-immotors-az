@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="same-origin">
+<title>IM Motors Azərbaycan — SpectrTech editor©</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}</style>
+<link rel="stylesheet" href="/assets/st-editor.css">
+<script src="/content/site.js"></script>
+<script src="/assets/st-config.js"></script>
+</head>
+<body>
+<noscript><p style="padding:24px">Redaktor üçün JavaScript lazımdır. / Для редактора нужен JavaScript. / The editor needs JavaScript.</p></noscript>
+
+<div class="login" id="login" hidden>
+  <div class="box">
+    <p class="wm" lang="en">IM Motors Azərbaycan</p>
+    <p class="sub" data-u="loginSub">SpectrTech editor©</p>
+    <form id="loginForm" novalidate>
+      <h1 data-u="loginTitle">Redaktora giriş</h1>
+      <div class="fld">
+        <label class="l" for="pw" data-u="password">Parol</label>
+        <div class="pw"><input class="inp" id="pw" name="password" type="password" autocomplete="current-password" required><button type="button" id="pwShow" data-u-aria="showPw" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+      </div>
+      <label class="chk"><input type="checkbox" id="remember"> <span data-u="remember">Bu cihazda 30 gün yadda saxla</span></label>
+      <p class="err" id="loginErr" role="alert"></p>
+      <button class="btn primary" type="submit" id="loginBtn" data-u="signIn">Daxil ol</button>
+    </form>
+    <div id="notConf" hidden>
+      <h1 data-u="notConfT">Redaktor hələ quraşdırılmayıb</h1>
+      <p data-u="notConfP">Sayt administratoru ilkin parolu təyin etməlidir.</p>
+    </div>
+    <p class="foot" data-u="loginFoot">Parolu unutmusunuzsa, saytı quraşdıran şəxsə müraciət edin.</p>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <header class="bar">
+    <div class="brand"><b lang="en">IM Motors</b><span data-u="editor">SpectrTech editor©</span></div>
+    <label class="vh" for="pageSel" data-u="page">Səhifə</label>
+    <select class="sel pgsel" id="pageSel"></select>
+    <div class="seg wide-only" id="langSeg" role="group" data-u-aria="previewLang"></div>
+    <div class="seg wide-only" id="devSeg" role="group" data-u-aria="device"></div>
+    <div class="seg" id="toolSeg" role="group"></div>
+    <div class="grow"></div>
+    <span class="status" id="status" aria-live="polite"></span>
+    <button class="btn wide-only" type="button" id="discardBtn" data-u="discard">Dəyişiklikləri ləğv et</button>
+    <button class="btn gold" type="button" id="publishBtn" disabled data-u="publish">Dərc et</button>
+    <div class="menu-wrap">
+      <button class="btn icon ghost" type="button" id="menuBtn" aria-haspopup="true" aria-expanded="false" data-u-aria="more"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></svg></button>
+      <div class="menu" id="menu" hidden></div>
+    </div>
+  </header>
+  <div class="work">
+    <section class="stage" id="stage">
+      <p class="toolhint" id="toolHint"></p>
+      <div class="frame-wrap" id="fw">
+        <iframe id="frame" data-u-title="frameTitle" title="Səhifənin önbaxışı"></iframe>
+        <div class="frame-load" data-u="loading">Yüklənir…</div>
+      </div>
+    </section>
+    <aside class="panel" id="panel" data-u-aria="panelL">
+      <div class="sheet-head"><span class="t" id="sheetT"></span><button class="btn icon sm ghost" type="button" id="sheetTog" aria-expanded="false" aria-controls="panel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button></div>
+      <div class="ptabs" role="tablist" id="ptabs"></div>
+      <div class="pbody" id="pbody" role="tabpanel"></div>
+    </aside>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog class="dlg" id="dlg"></dialog>
+<script src="/assets/st-editor.js"></script>
+</body>
+</html>

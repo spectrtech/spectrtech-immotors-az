@@ -1,0 +1,199 @@
+<!-- ════════════════════════════════════
+  07-4ws.html — T123. Отступы блока = 0.
+  Полноуправляемое шасси: видео на всю ширину (YouTube, без звука, по кругу) с крупной цифрой 18°,
+  ниже — схема «вид сверху», где колёса поворачиваются по режимам: Город / Трасса / Краб.
+  Другое видео: замените ID в data-yt (и в адресе обложки i.ytimg.com).
+════════════════════════════════════ -->
+<style>
+.imx-ws{background:var(--imx-bg);padding:clamp(60px,7vw,110px) 0 clamp(80px,9vw,140px);overflow:hidden;}
+
+/* видео: от края до края, широкий кадр 21:9 (обрезает чёрные поля и подпись внизу ролика) */
+.imx-ws__video{position:relative;width:100%;aspect-ratio:21/9;max-height:86vh;min-height:420px;overflow:hidden;background:var(--imx-bg2);isolation:isolate;}
+.imx-ws__poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
+.imx-ws__frame{position:absolute;top:50%;left:50%;width:100%;aspect-ratio:16/9;min-height:100%;transform:translate(-50%,-50%) scale(1.22);transform-origin:50% 42%;border:0;pointer-events:none;z-index:-1;opacity:0;transition:opacity 1.2s;}
+.imx-ws__frame.is-on{opacity:1;}
+.imx-ws__video::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,var(--imx-bg) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 50%,rgba(10,10,11,.9) 100%),linear-gradient(90deg,rgba(10,10,11,.6) 0%,rgba(10,10,11,0) 50%);}
+.imx-ws__over{position:absolute;left:0;right:0;bottom:clamp(32px,4.5vw,72px);}
+.imx-ws__row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;}
+.imx-ws__row .imx-h2{margin-top:22px;}
+.imx-ws__deg{font:200 clamp(90px,13vw,220px)/.8 var(--imx-display);letter-spacing:-.06em;color:var(--imx-fg);display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
+.imx-ws__deg sup{font-size:.45em;vertical-align:top;color:var(--imx-accent);margin-left:.02em;}
+.imx-ws__deg small{font:500 11px/1.4 var(--imx-text);letter-spacing:.2em;text-transform:uppercase;color:var(--imx-mute);text-align:right;}
+
+/* схема + описание режима */
+.imx-ws__body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,110px);align-items:center;margin-top:clamp(56px,7vw,110px);}
+.imx-ws__plan{position:relative;background:var(--imx-bg2);border-radius:6px;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden;}
+.imx-ws__plan::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(244,242,238,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(244,242,238,.05) 1px,transparent 1px);background-size:28px 28px;background-position:center;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 30%,transparent 75%);mask-image:radial-gradient(circle at 50% 50%,#000 30%,transparent 75%);}
+.imx-ws__svg{position:relative;width:62%;height:auto;overflow:visible;}
+.imx-ws__car{transition:transform 1.4s var(--imx-ease);}
+.imx-ws__wh{transform-box:fill-box;transform-origin:center;transition:transform 1s var(--imx-ease);}
+.imx-ws__trail{fill:none;stroke-width:1.5;stroke-dasharray:4 6;opacity:0;transition:opacity .6s;}
+.imx-ws__rear{fill:var(--imx-accent);}
+.imx-ws__ang{font:500 13px/1 var(--imx-display);fill:var(--imx-accent);opacity:0;transition:opacity .6s .4s;}
+
+/* режимы: колёса и траектория */
+.imx-ws__svg[data-m="city"] .imx-ws__wh--f{transform:rotate(24deg);}
+.imx-ws__svg[data-m="city"] .imx-ws__wh--r{transform:rotate(-18deg);}
+.imx-ws__svg[data-m="city"] .imx-ws__trail--city{opacity:1;}
+.imx-ws__svg[data-m="city"] .imx-ws__ang--city{opacity:1;}
+.imx-ws__svg[data-m="road"] .imx-ws__wh--f{transform:rotate(8deg);}
+.imx-ws__svg[data-m="road"] .imx-ws__wh--r{transform:rotate(5deg);}
+.imx-ws__svg[data-m="road"] .imx-ws__trail--road{opacity:1;}
+.imx-ws__svg[data-m="crab"] .imx-ws__wh{transform:rotate(18deg);}
+.imx-ws__svg[data-m="crab"] .imx-ws__trail--crab{opacity:1;}
+.imx-ws__svg[data-m="crab"] .imx-ws__ang--crab{opacity:1;}
+.imx-ws__svg[data-m="crab"] .imx-ws__car{animation:imxWsCrab 3.2s var(--imx-ease) .9s infinite;}
+@keyframes imxWsCrab{0%,12%{transform:translate(0,0);}50%,62%{transform:translate(34px,-11px);}100%{transform:translate(0,0);}}
+
+.imx-ws__tabs{display:inline-flex;gap:4px;padding:4px;border-radius:999px;border:1px solid var(--imx-line);margin-bottom:clamp(28px,3vw,40px);}
+.imx-ws__tabs button{appearance:none;border:0;background:none;color:var(--imx-mute);font:500 13px/1 var(--imx-text);letter-spacing:.02em;padding:12px 20px;border-radius:999px;cursor:pointer;transition:background .35s,color .35s;}
+.imx-ws__tabs button:hover{color:var(--imx-fg);}
+.imx-ws__tabs button.is-on{background:var(--imx-fg);color:var(--imx-ink);}
+.imx-ws__txt{display:none;}
+.imx-ws__txt.is-on{display:block;animation:imxWsIn .7s var(--imx-ease);}
+@keyframes imxWsIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.imx-ws__tag{font:500 11px/1 var(--imx-text);letter-spacing:.2em;text-transform:uppercase;color:var(--imx-accent);}
+.imx-ws__t{font:300 clamp(28px,2.8vw,44px)/1.05 var(--imx-display);letter-spacing:-.035em;margin:16px 0 18px;}
+.imx-ws__t b{font-weight:500;}
+.imx-ws__d{font-size:clamp(15px,1.1vw,17px);line-height:1.65;color:var(--imx-mute);max-width:520px;}
+.imx-ws__stats{display:flex;gap:clamp(28px,4vw,64px);margin-top:clamp(32px,4vw,52px);padding-top:clamp(24px,2.6vw,34px);border-top:1px solid var(--imx-line);}
+.imx-ws__stats b{display:block;font:300 clamp(30px,3vw,46px)/1 var(--imx-display);letter-spacing:-.04em;}
+.imx-ws__stats span{display:block;margin-top:10px;font:500 10.5px/1.4 var(--imx-text);letter-spacing:.16em;text-transform:uppercase;color:var(--imx-dim);}
+.imx-ws__note{font-size:11px;color:var(--imx-dim);margin-top:22px;}
+
+@media (max-width:900px){
+  .imx-ws__video{aspect-ratio:4/5;max-height:none;min-height:0;}
+  /* обложка ролика с чёрными полями и подписью внизу — увеличиваем, чтобы их срезать */
+  .imx-ws__poster{transform:scale(1.45);transform-origin:50% 35%;}
+  .imx-ws__frame{width:auto;height:100%;min-width:100%;transform:translate(-50%,-50%) scale(1.15);}
+  .imx-ws__video::after{background:linear-gradient(180deg,var(--imx-bg) 0%,rgba(10,10,11,0) 18%,rgba(10,10,11,0) 40%,rgba(10,10,11,.92) 100%);}
+  .imx-ws__row{flex-direction:column;align-items:flex-start;gap:24px;}
+  .imx-ws__deg{align-items:flex-start;flex-direction:row;align-items:flex-end;gap:16px;font-size:88px;}
+  .imx-ws__deg small{text-align:left;}
+  .imx-ws__body{grid-template-columns:1fr;}
+  .imx-ws__plan{aspect-ratio:4/3;}
+  .imx-ws__svg{width:auto;height:84%;}
+  .imx-ws__tabs{display:flex;width:100%;}
+  .imx-ws__tabs button{flex:1;padding:12px 8px;}
+}
+/* кнопка видео — только на телефоне, где фон не проигрывается */
+.imx-ws__play{display:none;}
+@media (max-width:700px){.imx-ws__play{position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:var(--imx-fg);background:rgba(244,242,238,.14);border:1px solid rgba(244,242,238,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}.imx-ws__play svg{width:18px;height:18px;margin-left:3px;}}
+@media (prefers-reduced-motion:reduce){.imx-ws__svg[data-m="crab"] .imx-ws__car{animation:none;}}
+</style>
+
+<section class="imx imx-ws" id="imxSteer">
+  <div class="imx-ws__video" id="imxWsVideo" data-yt="-w-xLCal-9c">
+    <img class="imx-ws__poster" loading="lazy" alt="IM — arxa təkərlərin idarəsi" src="https://i.ytimg.com/vi/-w-xLCal-9c/sddefault.jpg" />
+    <a class="imx-ws__play" href="https://www.youtube.com/watch?v=-w-xLCal-9c" target="_blank" rel="noopener" aria-label="Video"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9.5-5.5z"/></svg></a>
+    <div class="imx-ws__over">
+      <div class="imx-wrap imx-ws__row">
+        <div class="imx-r">
+          <span class="imx-eyebrow"><span data-l="az">Rəqəmsal şassi</span><span data-l="ru">Цифровое шасси</span><span data-l="en">Digital chassis</span></span>
+          <h2 class="imx-h2"><span data-l="az">Arxa təkərlər<br><b>də dönür.</b></span><span data-l="ru">Задние колёса<br><b>тоже рулят.</b></span><span data-l="en">The rear wheels<br><b>steer too.</b></span></h2>
+        </div>
+        <div class="imx-ws__deg imx-r" data-d="1">
+          <span>18<sup>°</sup></span>
+          <small><span data-l="az">arxa təkərlərin<br>dönmə bucağı</span><span data-l="ru">угол поворота<br>задних колёс</span><span data-l="en">rear-wheel<br>steering angle</span></small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="imx-wrap imx-ws__body">
+    <div class="imx-ws__plan imx-r">
+      <svg class="imx-ws__svg" id="imxWsSvg" data-m="city" viewBox="0 0 220 340" aria-hidden="true">
+        <!-- траектории режимов -->
+        <path class="imx-ws__trail imx-ws__trail--city" stroke="var(--imx-accent)" d="M110 300 C110 150 150 60 215 20"/>
+        <path class="imx-ws__trail imx-ws__trail--road" stroke="var(--imx-accent)" d="M95 320 C95 200 125 140 125 10"/>
+        <path class="imx-ws__trail imx-ws__trail--crab" stroke="var(--imx-accent)" d="M110 170 L215 135"/>
+        <g class="imx-ws__car">
+          <!-- кузов, вид сверху -->
+          <rect x="62" y="40" width="96" height="260" rx="40" fill="rgba(244,242,238,.06)" stroke="rgba(244,242,238,.55)" stroke-width="1.2"/>
+          <path d="M76 120 Q110 100 144 120 L140 168 Q110 160 80 168 Z" fill="rgba(244,242,238,.08)" stroke="rgba(244,242,238,.35)" stroke-width="1"/>
+          <path d="M80 236 Q110 228 140 236 L144 262 Q110 276 76 262 Z" fill="rgba(244,242,238,.08)" stroke="rgba(244,242,238,.35)" stroke-width="1"/>
+          <line x1="110" y1="52" x2="110" y2="88" stroke="rgba(244,242,238,.25)"/>
+          <!-- колёса -->
+          <rect class="imx-ws__wh imx-ws__wh--f" x="48" y="72" width="16" height="44" rx="4" fill="var(--imx-fg)"/>
+          <rect class="imx-ws__wh imx-ws__wh--f" x="156" y="72" width="16" height="44" rx="4" fill="var(--imx-fg)"/>
+          <rect class="imx-ws__wh imx-ws__wh--r imx-ws__rear" x="48" y="224" width="16" height="44" rx="4"/>
+          <rect class="imx-ws__wh imx-ws__wh--r imx-ws__rear" x="156" y="224" width="16" height="44" rx="4"/>
+          <text class="imx-ws__ang imx-ws__ang--city" x="186" y="252">−18°</text>
+          <text class="imx-ws__ang imx-ws__ang--crab" x="186" y="252">18°</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="imx-r" data-d="1">
+      <div class="imx-ws__tabs" role="tablist">
+        <button type="button" class="is-on" data-m="city"><span data-l="az">Şəhər</span><span data-l="ru">Город</span><span data-l="en">City</span></button>
+        <button type="button" data-m="road"><span data-l="az">Trassa</span><span data-l="ru">Трасса</span><span data-l="en">Highway</span></button>
+        <button type="button" data-m="crab"><span data-l="az">Yengəc</span><span data-l="ru">Краб</span><span data-l="en">Crab</span></button>
+      </div>
+
+      <div class="imx-ws__txt is-on" data-m="city">
+        <span class="imx-ws__tag"><span data-l="az">Aşağı sürətdə</span><span data-l="ru">На малой скорости</span><span data-l="en">At low speed</span></span>
+        <div class="imx-ws__t"><span data-l="az">Böyük avtomobil,<br><b>kiçik dönmə radiusu.</b></span><span data-l="ru">Большой автомобиль,<br><b>маленький радиус.</b></span><span data-l="en">A big car,<br><b>a tight turn.</b></span></div>
+        <p class="imx-ws__d"><span data-l="az">Arxa təkərlər ön təkərlərin əksinə dönür. Dar küçədə, U-dönüşdə və parkinqdə avtomobil özündən xeyli kiçik hiss olunur.</span><span data-l="ru">Задние колёса поворачивают в противоположную сторону от передних. В узком переулке, на развороте и на парковке автомобиль ощущается заметно компактнее.</span><span data-l="en">The rear wheels turn opposite to the front. In narrow streets, U-turns and car parks the car feels far smaller than it is.</span></p>
+      </div>
+      <div class="imx-ws__txt" data-m="road">
+        <span class="imx-ws__tag"><span data-l="az">Yüksək sürətdə</span><span data-l="ru">На высокой скорости</span><span data-l="en">At high speed</span></span>
+        <div class="imx-ws__t"><span data-l="az">Zolaq dəyişmək —<br><b>bir hərəkətlə.</b></span><span data-l="ru">Смена полосы —<br><b>одним движением.</b></span><span data-l="en">Lane changes —<br><b>in one fluid move.</b></span></div>
+        <p class="imx-ws__d"><span data-l="az">Arxa təkərlər ön təkərlərlə eyni istiqamətə dönür. Avtomobil yana yalnız sürüşür, gövdə yırğalanmır — sərnişinlər manevri demək olar ki, hiss etmir.</span><span data-l="ru">Задние колёса поворачивают в ту же сторону, что и передние. Автомобиль плавно смещается вбок без раскачки кузова — пассажиры почти не чувствуют манёвра.</span><span data-l="en">The rear wheels turn the same way as the front. The car glides sideways without body sway — passengers barely feel the manoeuvre.</span></p>
+      </div>
+      <div class="imx-ws__txt" data-m="crab">
+        <span class="imx-ws__tag"><span data-l="az">Parklanma</span><span data-l="ru">Парковка</span><span data-l="en">Parking</span></span>
+        <div class="imx-ws__t"><span data-l="az">Yengəc kimi —<br><b>yan-yana.</b></span><span data-l="ru">Как краб —<br><b>боком.</b></span><span data-l="en">Like a crab —<br><b>sideways.</b></span></div>
+        <p class="imx-ws__d"><span data-l="az">Dörd təkər eyni bucaqla dönür və avtomobil çəpinə hərəkət edir. Sıx sıradakı yerə girmək və ya çıxmaq üçün — videoda olduğu kimi.</span><span data-l="ru">Все четыре колеса поворачивают на один угол, и автомобиль движется по диагонали. Чтобы заехать в плотный ряд или выехать из него — как на видео.</span><span data-l="en">All four wheels turn to the same angle and the car moves diagonally — to slip into or out of a tight row, just like in the film.</span></p>
+      </div>
+
+      <div class="imx-ws__stats">
+        <div><b>18°</b><span><span data-l="az">Arxa təkərlər</span><span data-l="ru">Задние колёса</span><span data-l="en">Rear wheels</span></span></div>
+        <div><b>4.69 m</b><span><span data-l="az">Dönmə radiusu, IM L6</span><span data-l="ru">Радиус разворота, IM L6</span><span data-l="en">Turning radius, IM L6</span></span></div>
+        <div><b>4WS</b><span><span data-l="az">Tam idarəolunan şassi</span><span data-l="ru">Полноуправляемое шасси</span><span data-l="en">Four-wheel steering</span></span></div>
+      </div>
+      <p class="imx-ws__note"><span data-l="az">* Funksiyaların mövcudluğu modelə və versiyaya görə fərqlənir. Videoda funksiyanın nümayişi göstərilir.</span><span data-l="ru">* Наличие функций зависит от модели и версии. На видео — демонстрация функции.</span><span data-l="en">* Availability depends on model and version. The film shows a demonstration of the feature.</span></p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // режимы схемы
+  var svg=document.getElementById('imxWsSvg'); if(!svg) return;
+  var sec=document.getElementById('imxSteer');
+  var btns=sec.querySelectorAll('.imx-ws__tabs button'), txts=sec.querySelectorAll('.imx-ws__txt');
+  var order=['city','road','crab'], auto=null;
+  function set(m){
+    svg.setAttribute('data-m',m);
+    btns.forEach(function(b){b.classList.toggle('is-on',b.getAttribute('data-m')===m);});
+    txts.forEach(function(t){t.classList.toggle('is-on',t.getAttribute('data-m')===m);});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){clearInterval(auto);auto=null;set(b.getAttribute('data-m'));});});
+  // пока посетитель сам не нажал — режимы листаются сами, когда схема на экране
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      if(es[0].isIntersecting && auto===null && !sec.hasAttribute('data-touched')){
+        auto=setInterval(function(){set(order[(order.indexOf(svg.getAttribute('data-m'))+1)%3]);},5000);
+      } else if(!es[0].isIntersecting && auto){clearInterval(auto);auto=null;}
+    },{threshold:.4}).observe(svg);
+    btns.forEach(function(b){b.addEventListener('click',function(){sec.setAttribute('data-touched','');});});
+  }
+
+  // фоновое видео без звука, по кругу; в превью-ссылке чужие плееры не открываются — остаётся обложка
+  var box=document.getElementById('imxWsVideo'), id=box.getAttribute('data-yt');
+  // на телефоне YouTube поверх короткого зацикленного ролика показывает свои кнопки — там оставляем обложку и кнопку
+  if(matchMedia('(max-width:700px)').matches || document.documentElement.hasAttribute('data-imx-preview') || matchMedia('(prefers-reduced-motion:reduce)').matches || !('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){
+    if(!es[0].isIntersecting) return; io.disconnect();
+    var f=document.createElement('iframe');
+    f.className='imx-ws__frame'; f.title='IM 4WS'; f.setAttribute('tabindex','-1'); f.allow='autoplay; encrypted-media';
+    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&cc_load_policy=0&enablejsapi=1';
+    function noCc(){try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:'unloadModule',args:['captions']}),'*');}catch(e){}}
+    f.addEventListener('load',function(){[600,1500,3000,6000].forEach(function(t){setTimeout(noCc,t);});setTimeout(function(){f.classList.add('is-on');},1800);});
+    box.insertBefore(f,box.querySelector('.imx-ws__poster').nextSibling);
+  },{rootMargin:'300px'});
+  io.observe(box);
+})();
+</script>

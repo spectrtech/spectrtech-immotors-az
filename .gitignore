@@ -1,0 +1,24 @@
+# Секрет посредника turbo.az — только в Apps Script и закладке; для сборки нужен лишь пример данных
+turbo-proxy/*
+!turbo-proxy/sample.json
+# Перенос в Tilda: для build-cf.pl нужна только карта фото
+tilda-import/*
+!tilda-import/cdn-map.tsv
+# Превью, черновики, исходные фото (на сайт идут копии из deploy/public/img), чужой демо-образец редактора
+preview/
+_github-photos/
+_removed/
+photos/
+cms/kit/improtex/
+# Собранные страницы (build.sh, build-pages.pl) — итоговый сайт лежит в deploy/public
+/*.html
+pages/l7/
+pages/ls7/
+pages/l6/
+pages/ls6/
+pages/ls9/
+pages/ls8/
+# Локальный запуск Cloudflare: пароли и состояние
+deploy/.dev.vars
+deploy/.wrangler/
+node_modules/

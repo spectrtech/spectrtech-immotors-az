@@ -1,0 +1,65 @@
+<!-- ════════════════════════════════════
+  o1-contact.html — страница /office. Tilda: отдельный блок, отступы блока = 0.
+  Салон ONVOLT: адрес, телефоны, WhatsApp, почта, соцсети и карта Google (тёмная).
+════════════════════════════════════ -->
+<style>
+.imx-of__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px clamp(32px,5vw,96px);align-items:stretch;padding-bottom:clamp(80px,9vw,140px);margin-top:clamp(40px,5vw,72px);}
+.imx-of__list{list-style:none;}
+.imx-of__list li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:22px 0;border-top:1px solid var(--imx-line);}
+.imx-of__list li:last-child{border-bottom:1px solid var(--imx-line);}
+.imx-of__list small{font:500 10.5px/1.6 var(--imx-text);letter-spacing:.16em;text-transform:uppercase;color:var(--imx-dim);}
+.imx-of__list div{display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.5;}
+.imx-of__list a:hover{color:var(--imx-accent);}
+.imx-of__big{font:300 26px/1.15 var(--imx-display);letter-spacing:-.02em;}
+.imx-of__list .imx-of__soc{flex-direction:row;gap:10px;flex-wrap:wrap;}
+.imx-of__soc a{padding:10px 16px;border:1px solid var(--imx-line);border-radius:999px;font-size:13px;transition:border-color .3s,color .3s;}
+.imx-of__soc a:hover{border-color:var(--imx-fg);color:var(--imx-fg);}
+.imx-of__note{font-size:13px;color:var(--imx-mute);margin-top:22px;line-height:1.6;}
+.imx-of__map{position:relative;min-height:460px;border-radius:6px;overflow:hidden;background:var(--imx-bg2);}
+.imx-of__map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) hue-rotate(180deg) contrast(.9);}
+.imx-of__map-cta{position:absolute;left:20px;bottom:20px;right:20px;display:flex;gap:10px;flex-wrap:wrap;z-index:1;}
+.imx-of__map-fb{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;padding:32px;background:radial-gradient(ellipse at 70% 40%,#25252a 0%,#111113 70%);}
+.imx-of__map-fb b{font:300 clamp(26px,2.4vw,36px)/1.1 var(--imx-display);letter-spacing:-.02em;}
+.imx-of__map.is-fb .imx-of__map-fb{display:flex;}
+.imx-of__map.is-fb iframe{display:none;}
+@media (max-width:1000px){.imx-of__grid{grid-template-columns:1fr;}.imx-of__map{min-height:380px;}}
+@media (max-width:600px){.imx-of__list li{grid-template-columns:1fr;gap:8px;}.imx-of__map-cta .imx-btn{flex:1 1 auto;}}
+</style>
+
+<section class="imx imx-ph imx-of" id="imxOffice">
+  <div class="imx-wrap">
+    <span class="imx-eyebrow imx-r"><span data-l="az">Salon · ONVOLT</span><span data-l="ru">Салон · ONVOLT</span><span data-l="en">Showroom · ONVOLT</span></span>
+    <h1 class="imx-ph__t imx-r" data-d="1"><span data-l="az">Bizi<br><b>ziyarət edin.</b></span><span data-l="ru">Приезжайте<br><b>к нам.</b></span><span data-l="en">Come and<br><b>see us.</b></span></h1>
+    <p class="imx-lead imx-r" data-d="2"><span data-l="az">ONVOLT — IM Motors avtomobillərinin Azərbaycanda rəsmi idxalçısı. Salonda bütün modellərə baxa, test sürüşü edə və servis üçün yazıla bilərsiniz.</span><span data-l="ru">ONVOLT — официальный импортёр автомобилей IM Motors в Азербайджане. В салоне можно увидеть все модели, пройти тест-драйв и записаться на сервис.</span><span data-l="en">ONVOLT is the official importer of IM Motors in Azerbaijan. Visit the showroom to see every model, take a test drive or book a service.</span></p>
+  </div>
+
+  <div class="imx-wrap imx-of__grid">
+    <div class="imx-r">
+      <ul class="imx-of__list">
+        <li><small><span data-l="az">Ünvan</span><span data-l="ru">Адрес</span><span data-l="en">Address</span></small><div><span class="imx-of__big"><span data-l="az">Ceyhun Hacıbəyli 194</span><span data-l="ru">Джейхун Гаджибейли 194</span><span data-l="en">194 Jeyhun Hajibeyli St</span></span><span data-l="az">Bakı, Azərbaycan</span><span data-l="ru">Баку, Азербайджан</span><span data-l="en">Baku, Azerbaijan</span></div></li>
+        <li><small><span data-l="az">Telefon</span><span data-l="ru">Телефон</span><span data-l="en">Phone</span></small><div><a class="imx-of__big" href="tel:+994994400007">+994 99 440 00 07</a><a href="tel:+994124400007">+994 12 440 00 07</a></div></li>
+        <li><small>WhatsApp</small><div><a href="https://wa.me/994994400007" target="_blank" rel="noopener">+994 99 440 00 07 →</a></div></li>
+        <li><small><span data-l="az">E-poçt</span><span data-l="ru">Почта</span><span data-l="en">Email</span></small><div><a href="mailto:sales@onvolt.az">sales@onvolt.az</a></div></li>
+        <li><small><span data-l="az">Sosial şəbəkələr</span><span data-l="ru">Соцсети</span><span data-l="en">Social</span></small><div class="imx-of__soc"><a href="https://instagram.com/immotors.azerbaijan" target="_blank" rel="noopener">Instagram</a><a href="https://tiktok.com/@immotors.az" target="_blank" rel="noopener">TikTok</a><a href="https://facebook.com/immotors.az" target="_blank" rel="noopener">Facebook</a><a href="https://www.youtube.com/@IMMotorsAzerbaijan" target="_blank" rel="noopener">YouTube</a></div></li>
+      </ul>
+      <p class="imx-of__note"><span data-l="az">Gəlməzdən əvvəl zəng edin — istədiyiniz modeli hazırlayaq.</span><span data-l="ru">Позвоните перед визитом — мы подготовим нужную модель.</span><span data-l="en">Call before you come and we'll have your model ready.</span></p>
+    </div>
+
+    <div class="imx-of__map imx-r" data-d="1" id="imxOfMap">
+      <iframe loading="lazy" title="ONVOLT — Ceyhun Hacıbəyli 194, Bakı" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ceyhun%20Hac%C4%B1b%C9%99yli%20194%2C%20Bak%C4%B1&amp;z=15&amp;output=embed"></iframe>
+      <div class="imx-of__map-fb"><span class="imx-eyebrow"><span data-l="az">Xəritə</span><span data-l="ru">Карта</span><span data-l="en">Map</span></span><b><span data-l="az">Ceyhun Hacıbəyli 194, Bakı</span><span data-l="ru">Джейхун Гаджибейли 194, Баку</span><span data-l="en">194 Jeyhun Hajibeyli St, Baku</span></b></div>
+      <div class="imx-of__map-cta">
+        <a class="imx-btn imx-btn--solid imx-btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Ceyhun+Hac%C4%B1b%C9%99yli+194+Bak%C4%B1" target="_blank" rel="noopener">Google Maps</a>
+        <a class="imx-btn imx-btn--ghost imx-btn--sm" href="https://waze.com/ul?q=Ceyhun%20Hacibeyli%20194%20Baku&amp;navigate=yes" target="_blank" rel="noopener">Waze</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // в превью-ссылке чужие карты не открываются — показываем адрес и кнопки
+  var map=document.getElementById('imxOfMap');
+  if(map&&document.documentElement.hasAttribute('data-imx-preview')) map.classList.add('is-fb');
+})();
+</script>

@@ -1,0 +1,156 @@
+<!-- ════════════════════════════════════
+  01-header.html — T123, первый блок страницы. Отступы блока = 0.
+  Фиксированная шапка: прозрачная над hero, стекло после скролла. Мобильное меню на весь экран.
+════════════════════════════════════ -->
+<style>
+.imx-hdr{position:fixed;top:0;left:0;right:0;z-index:9990;transition:background .5s,border-color .5s,transform .5s var(--imx-ease);border-bottom:1px solid transparent;}
+.imx-hdr.is-scrolled{background:rgba(10,10,11,.72);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-bottom-color:var(--imx-line);}
+.imx-hdr.is-hidden{transform:translateY(-100%);}
+/* backdrop-filter делает шапку контейнером для fixed-меню — при открытом меню отключаем */
+.imx-hdr.is-open{background:var(--imx-bg);backdrop-filter:none;-webkit-backdrop-filter:none;}
+.imx-hdr__in{height:76px;display:flex;align-items:center;gap:32px;}
+.imx-hdr__logo{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.imx-hdr__logo{color:var(--imx-fg);transition:opacity .3s;}
+.imx-hdr__logo:hover{opacity:.75;}
+.imx-hdr__logo-svg{display:block;height:34px;width:auto;aspect-ratio:760/154;}
+.imx-hdr__nav{display:flex;gap:30px;margin:0 auto;}
+.imx-hdr__nav a{font-size:13px;color:var(--imx-mute);position:relative;padding:6px 0;transition:color .3s;}
+.imx-hdr__nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--imx-fg);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--imx-ease);}
+.imx-hdr__nav a:hover{color:var(--imx-fg);}
+.imx-hdr__nav a:hover::after{transform:scaleX(1);transform-origin:left;}
+.imx-hdr__right{display:flex;align-items:center;gap:18px;}
+.imx-lang{display:flex;gap:2px;padding:3px;border:1px solid var(--imx-line);border-radius:999px;}
+.imx-lang button{font:500 11px/1 var(--imx-text);letter-spacing:.08em;padding:7px 9px;border-radius:999px;color:var(--imx-dim);transition:color .3s,background .3s;}
+.imx-lang button:hover{color:var(--imx-fg);}
+.imx-lang button.is-on{background:var(--imx-fg);color:var(--imx-ink);}
+.imx-hdr__tel{font-size:13px;color:var(--imx-mute);transition:color .3s;}
+.imx-hdr__tel:hover{color:var(--imx-fg);}
+.imx-burger{display:none;width:44px;height:44px;position:relative;}
+.imx-burger span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--imx-fg);transition:transform .45s var(--imx-ease),top .45s var(--imx-ease);}
+.imx-burger span:nth-child(1){top:17px;} .imx-burger span:nth-child(2){top:25px;}
+.imx-hdr.is-open .imx-burger span:nth-child(1){top:21px;transform:rotate(45deg);}
+.imx-hdr.is-open .imx-burger span:nth-child(2){top:21px;transform:rotate(-45deg);}
+
+/* мобильное меню */
+.imx-menu{position:fixed;inset:0;z-index:-1;background:var(--imx-bg);padding:100px var(--imx-pad) 32px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;overflow-y:auto;}
+.imx-hdr.is-open .imx-menu{opacity:1;visibility:visible;}
+.imx-menu__models{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--imx-line);border:1px solid var(--imx-line);margin-bottom:32px;}
+.imx-menu__models a{background:var(--imx-bg);padding:18px 16px;font:700 22px/1 var(--imx-brand);letter-spacing:0;}
+.imx-menu__models a small{display:block;font:400 11px/1.3 var(--imx-text);color:var(--imx-dim);margin-top:6px;letter-spacing:0;}
+.imx-menu__links a{display:block;font:300 30px/1.25 var(--imx-display);letter-spacing:-.02em;padding:6px 0;opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s var(--imx-ease);}
+.imx-hdr.is-open .imx-menu__links a{opacity:1;transform:none;}
+.imx-hdr.is-open .imx-menu__links a:nth-child(2){transition-delay:.05s;}
+.imx-hdr.is-open .imx-menu__links a:nth-child(3){transition-delay:.1s;}
+.imx-hdr.is-open .imx-menu__links a:nth-child(4){transition-delay:.15s;}
+.imx-hdr.is-open .imx-menu__links a:nth-child(5){transition-delay:.2s;}
+.imx-menu__foot{margin-top:auto;padding-top:32px;display:flex;flex-direction:column;gap:16px;}
+.imx-menu__foot .imx-btn{width:100%;}
+
+@media (max-width:1100px){.imx-hdr__tel{display:none;}.imx-hdr__nav{gap:22px;}}
+@media (max-width:900px){
+  .imx-hdr__in{height:64px;}
+  .imx-hdr__nav,.imx-hdr__cta{display:none;}
+  .imx-hdr__right{margin-left:auto;gap:8px;}
+  .imx-burger{display:block;}
+}
+@media (max-width:900px){.imx-hdr__logo-svg{height:28px;}}
+</style>
+
+<header class="imx imx-hdr" id="imxHdr">
+  <div class="imx-wrap imx-hdr__in">
+    <a href="/" class="imx-hdr__logo" aria-label="IM Motors Azerbaijan">
+      <!-- логотип IM 2026, цвет берётся из color (белый на тёмной шапке) -->
+      <svg class="imx-hdr__logo-svg" viewBox="70 372 760 154" fill="currentColor" aria-hidden="true">
+        <rect x="353.08" y="379.64" width="17.09" height="60.73"/>
+        <path d="M446.78,440.33L446.78,440.33h0.03c11.28,0,18.76-6.68,22.22-19.88l7.78-22.24c0.68-1.77,2.31-2.89,4.19-2.89 c2.46,0,4.48,2.02,4.48,4.49l0.04,40.56h16.79v-40.62c0-10.88-8.59-19.88-19.14-20.07h-0.42c-3.27,0-6.08,0.63-8.45,1.59 c-5.38,2.17-9.49,6.64-11.64,12.03l-10.71,26.85c0,0-0.6,1.49-0.7,1.69c-1.73,3.62-7.18,3.62-8.92,0 c-0.09-0.19-0.7-1.69-0.7-1.69l-10.71-26.85c-2.15-5.39-6.26-9.86-11.64-12.03c-2.37-0.96-5.18-1.59-8.45-1.59h-0.42 c-10.56,0.19-19.14,9.19-19.14,20.07v40.62h16.79l0.04-40.56c0-2.47,2.01-4.49,4.48-4.49c1.88,0,3.51,1.12,4.19,2.89l7.78,22.24 c3.46,13.2,10.94,19.88,22.22,19.88H446.78z"/>
+        <path d="M477.32,463.81c-22.08,0-36.79,4.81-36.79,28.27c0,23.46,14.71,28.27,36.79,28.27c22.03,0,36.71-4.81,36.71-28.27 C514.03,468.62,499.35,463.81,477.32,463.81z M506.14,492.08c0,17.49-9.7,20.68-28.82,20.68c-19.17,0-28.9-3.2-28.9-20.68 c0-17.42,9.73-20.61,28.9-20.61C496.43,471.48,506.14,474.66,506.14,492.08z"/>
+        <path d="M630.91,463.81c-22.08,0-36.79,4.81-36.79,28.27c0,23.46,14.71,28.27,36.79,28.27c22.03,0,36.71-4.81,36.71-28.27 C667.62,468.62,652.95,463.81,630.91,463.81z M659.73,492.08c0,17.49-9.7,20.68-28.82,20.68c-19.17,0-28.9-3.2-28.9-20.68 c0-17.42,9.73-20.61,28.9-20.61C650.03,471.48,659.73,474.66,659.73,492.08z"/>
+        <path d="M428.24,520.36h-7.88v-46.03c0-1.32-0.96-1.81-1.38-1.96c-0.38-0.14-1.33-0.35-2.14,0.46l-15.35,26.71 c-0.11,0.19-0.23,0.36-0.36,0.53c-2.6,3.17-6.43,4.99-10.53,5c-0.01,0-0.01,0-0.02,0c-4.11-0.01-7.95-1.83-10.54-5.02 c-0.14-0.17-0.26-0.34-0.37-0.53l-15.19-26.61c-0.8-0.81-1.75-0.6-2.14-0.46c-0.42,0.15-1.38,0.63-1.38,1.96v45.96h-7.88V474.4 c0-4.27,2.6-7.95,6.62-9.38c4.03-1.43,8.36-0.21,11.06,3.1c0.14,0.17,0.26,0.34,0.36,0.53l15.21,26.63 c1.08,1.21,2.62,1.9,4.25,1.9c0,0,0,0,0.01,0c1.63,0,3.17-0.68,4.25-1.89l15.37-26.73c0.11-0.19,0.23-0.36,0.37-0.53 c2.7-3.3,7.03-4.51,11.05-3.07c4.01,1.43,6.61,5.11,6.61,9.38V520.36z"/>
+        <rect x="518.53" y="464.36" width="71.09" height="7.88"/>
+        <rect x="550.14" y="464.36" width="7.88" height="55.52"/>
+        <path d="M687.79,520.36h-7.88V468.3c0-2.18,1.76-3.94,3.94-3.94h45.38c9.89,0,17.94,8.05,17.94,17.94 c0,9.89-8.05,17.94-17.94,17.94h-41.44V520.36z M687.79,492.37h41.44c5.55,0,10.06-4.51,10.06-10.06 c0-5.55-4.52-10.06-10.06-10.06h-41.44V492.37z"/>
+        <path d="M747.17,520.36h-7.88v-8.61c0-6.35-5.16-11.51-11.51-11.51h-43.07v-7.88h43.07c10.69,0,19.39,8.7,19.39,19.38V520.36z"/>
+        <path d="M810.95,520.36h-49.76v-7.85h49.76c3.62,0,6.56-2.93,6.56-6.54c0-3.22-2.31-5.93-5.5-6.45l-38.71-6.3 c-7.01-1.14-12.11-7.12-12.11-14.2v-0.26c0-7.93,6.48-14.39,14.44-14.39h49.76v7.85h-49.76c-3.62,0-6.56,2.93-6.56,6.54v0.26 c0,3.22,2.31,5.93,5.5,6.45l38.71,6.3c7.01,1.14,12.11,7.12,12.11,14.2C825.39,513.9,818.91,520.36,810.95,520.36z"/>
+        <path fill-rule="evenodd" d="M85.476 479.262C73.733 492.644 73.81 502.936 84.866 513.564C96.074 524.024 106.366 523.521 119.098 510.988C132.06 498.125 192.673 434.043 204.795 420.311C216.538 406.93 216.461 396.637 205.406 386.009C194.197 375.55 183.905 376.052 171.173 388.586C158.135 401.448 97.598 465.531 85.476 479.262ZM122.454 401.555C122.454 386.2 114.828 378.637 99.504 378.637C84.179 378.637 76.631 386.2 76.631 401.555C76.631 416.903 84.179 424.467 99.504 424.467C114.828 424.467 122.454 416.903 122.454 401.555ZM259.462 498.01C259.462 513.366 267.083 520.922 282.41 520.922C297.737 520.922 305.361 513.366 305.361 498.01C305.361 482.655 297.737 475.092 282.41 475.092C267.083 475.092 259.462 482.655 259.462 498.01ZM176.51 513.564C165.454 502.936 165.377 492.644 177.12 479.262C189.242 465.531 249.856 401.448 262.817 388.586C275.55 376.052 285.839 375.55 297.045 386.009C308.108 396.637 308.18 406.93 296.445 420.311C284.313 434.043 223.78 498.125 210.742 510.988C198.01 523.521 187.718 524.024 176.51 513.564Z"/>
+      </svg>
+    </a>
+
+    <nav class="imx-hdr__nav" aria-label="Main">
+      <a href="/#imxModels"><span data-l="az">Modellər</span><span data-l="ru">Модели</span><span data-l="en">Models</span></a>
+      <a href="/#imxStock"><span data-l="az">Salonda</span><span data-l="ru">В наличии</span><span data-l="en">In stock</span></a>
+      <a href="/#imxTech"><span data-l="az">Texnologiya</span><span data-l="ru">Технологии</span><span data-l="en">Technology</span></a>
+      <a href="/#imxService"><span data-l="az">Servis</span><span data-l="ru">Сервис</span><span data-l="en">Service</span></a>
+      <a href="#imxContact"><span data-l="az">Əlaqə</span><span data-l="ru">Контакты</span><span data-l="en">Contact</span></a>
+    </nav>
+
+    <div class="imx-hdr__right">
+      <a class="imx-hdr__tel" href="tel:+994994400007">+994 99 440 00 07</a>
+      <div class="imx-lang" role="group" aria-label="Language">
+        <button data-imx-setlang="az">AZ</button><button data-imx-setlang="ru">RU</button><button data-imx-setlang="en">EN</button>
+      </div>
+      <a class="imx-btn imx-btn--solid imx-btn--sm imx-hdr__cta" href="/testdrive">
+        <span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span>
+      </a>
+      <button class="imx-burger" id="imxBurger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+
+  <div class="imx-menu" id="imxMenu">
+    <div class="imx-menu__models">
+      <a href="/l7">L7<small data-l="az">Sedan · EV</small><small data-l="ru">Седан · EV</small><small data-l="en">Sedan · EV</small></a>
+      <a href="/ls7">LS7<small data-l="az">Böyük SUV · EV</small><small data-l="ru">Большой SUV · EV</small><small data-l="en">Large SUV · EV</small></a>
+      <a href="/l6">L6<small data-l="az">İcraçı sedan · EV</small><small data-l="ru">Бизнес-седан · EV</small><small data-l="en">Executive sedan · EV</small></a>
+      <a href="/ls6">LS6<small data-l="az">Kupe SUV · EREV</small><small data-l="ru">Купе-SUV · EREV</small><small data-l="en">Coupe SUV · EREV</small></a>
+      <a href="/ls9">LS9<small data-l="az">Flaqman SUV · EREV</small><small data-l="ru">Флагман SUV · EREV</small><small data-l="en">Flagship SUV · EREV</small></a>
+      <a href="/ls8">LS8<small data-l="az">Premium SUV · EREV</small><small data-l="ru">Премиум SUV · EREV</small><small data-l="en">Premium SUV · EREV</small></a>
+    </div>
+    <nav class="imx-menu__links">
+      <a href="/#imxStock"><span data-l="az">Salonda olanlar</span><span data-l="ru">В наличии</span><span data-l="en">In stock</span></a>
+      <a href="/#imxTech"><span data-l="az">Texnologiya</span><span data-l="ru">Технологии</span><span data-l="en">Technology</span></a>
+      <a href="/#imxService"><span data-l="az">Servis</span><span data-l="ru">Сервис</span><span data-l="en">Service</span></a>
+      <a href="#imxContact"><span data-l="az">Əlaqə</span><span data-l="ru">Контакты</span><span data-l="en">Contact</span></a>
+    </nav>
+    <div class="imx-menu__foot">
+      <a class="imx-btn imx-btn--solid" href="/testdrive"><span data-l="az">Test sürüşünə yazıl</span><span data-l="ru">Записаться на тест-драйв</span><span data-l="en">Book a test drive</span></a>
+      <a class="imx-btn imx-btn--ghost" href="tel:+994994400007">+994 99 440 00 07</a>
+    </div>
+  </div>
+</header>
+
+<script>
+(function(){
+  var hdr=document.getElementById('imxHdr'), burger=document.getElementById('imxBurger');
+  if(!hdr) return;
+  var lastY=0;
+  function onScroll(){
+    var y=window.scrollY;
+    hdr.classList.toggle('is-scrolled',y>40);
+    hdr.classList.toggle('is-hidden',y>lastY && y>600 && !hdr.classList.contains('is-open'));
+    lastY=y;
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  function close(){hdr.classList.remove('is-open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+  burger.addEventListener('click',function(){
+    var open=!hdr.classList.contains('is-open');
+    hdr.classList.toggle('is-open',open);
+    burger.setAttribute('aria-expanded',String(open));
+    document.body.style.overflow=open?'hidden':'';
+  });
+  hdr.querySelectorAll('.imx-menu a').forEach(function(a){a.addEventListener('click',close);});
+
+  // плавный скролл к якорям с учётом шапки. Ссылки вида /#imxStock ведут на главную;
+  // на самой главной (есть #imxHero) прокручивают на месте. Подменю модели добавляет ещё 58px.
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="#imx"]');
+    if(!a) return;
+    var href=a.getAttribute('href'), i=href.indexOf('#');
+    if(i>0&&!document.getElementById('imxHero')) return;
+    var t=document.getElementById(href.slice(i+1));
+    if(!t) return;
+    e.preventDefault();
+    var off=document.querySelector('.imx-msub')?122:64;
+    window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});
+  });
+})();
+</script>

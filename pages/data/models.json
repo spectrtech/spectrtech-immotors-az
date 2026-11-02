@@ -1,0 +1,441 @@
+{
+  "_": "Данные страниц моделей. Тексты — [az, ru, en]. Фото IM: \"модель:номер\" из imx-images.tsv (+ \"@x0-1,y0-0.8\" — какую часть кадра оставить). Свои фото — photos/…; цвета — \"c:модель:цвет\" из imx-colors.tsv. Источник цифр: immotors.com (таблицы конфигураций), LS6 EREV — данные производителя 2025 г.",
+  "order": ["l7", "ls7", "l6", "ls6", "ls9", "ls8"],
+  "labels": {
+    "#dim": ["Ölçülər", "Размеры", "Dimensions"],
+    "#energy": ["Enerji və yürüş", "Энергия и запас хода", "Energy & range"],
+    "#power": ["Güc və dinamika", "Мощность и динамика", "Power & performance"],
+    "#chassis": ["Şassi", "Шасси", "Chassis"],
+    "#cabin": ["Salon və texnologiya", "Салон и технологии", "Cabin & technology"],
+    "dims": ["Uzunluq × en × hündürlük", "Длина × ширина × высота", "Length × width × height"],
+    "wb": ["Təkər bazası", "Колёсная база", "Wheelbase"],
+    "vwb": ["Virtual təkər bazası", "Виртуальная колёсная база", "Virtual wheelbase"],
+    "trunk": ["Baqaj", "Багажник", "Boot"],
+    "seats": ["Oturacaq sayı", "Число мест", "Seats"],
+    "weight": ["Kütlə", "Снаряжённая масса", "Kerb weight"],
+    "cd": ["Aerodinamik müqavimət, Cd", "Коэффициент сопротивления, Cd", "Drag coefficient, Cd"],
+    "energy": ["Enerji", "Тип установки", "Powertrain"],
+    "battery": ["Batareya", "Батарея", "Battery"],
+    "btype": ["Batareya kimyası", "Химия батареи", "Battery chemistry"],
+    "range": ["Yürüş, CLTC", "Запас хода, CLTC", "Range, CLTC"],
+    "rtotal": ["Ümumi yürüş, CLTC", "Общий запас хода, CLTC", "Total range, CLTC"],
+    "rev": ["Elektriklə yürüş, CLTC", "На электричестве, CLTC", "Electric range, CLTC"],
+    "ch80": ["Sürətli şarj 10–80%", "Быстрая зарядка 10–80%", "Fast charge 10–80%"],
+    "ch15": ["15 dəqiqəlik şarj — yürüş", "15 минут зарядки — запас хода", "Range added in 15 minutes"],
+    "volt": ["Platforma", "Платформа", "Platform"],
+    "eng": ["Yürüş artırıcı", "Генератор", "Range extender"],
+    "tank": ["Yanacaq çəni", "Топливный бак", "Fuel tank"],
+    "drive": ["Ötürücü", "Привод", "Drive"],
+    "power": ["Güc", "Мощность", "Power"],
+    "torque": ["Fırlanma momenti", "Крутящий момент", "Torque"],
+    "accel": ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"],
+    "vmax": ["Maksimal sürət", "Максимальная скорость", "Top speed"],
+    "turn": ["Dönmə radiusu", "Радиус разворота", "Turning radius"],
+    "4ws": ["Dörd təkərin idarəsi", "Полноуправляемое шасси", "Four-wheel steering"],
+    "sbw": ["Elektron sükan (steer-by-wire)", "Электронный руль (steer-by-wire)", "Steer-by-wire"],
+    "air": ["Pnevmatik asqı", "Пневмоподвеска", "Air suspension"],
+    "damp": ["Adaptiv amortizatorlar", "Адаптивные амортизаторы", "Adaptive dampers"],
+    "wheels": ["Disklər", "Колёсные диски", "Wheels"],
+    "screens": ["Ekranlar", "Экраны", "Displays"],
+    "chip": ["Kabin prosessoru", "Процессор салона", "Cockpit chip"],
+    "adas": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"],
+    "audio": ["Səs sistemi", "Аудиосистема", "Audio"]
+  },
+  "tokens": {
+    "$EV": ["Elektrik (EV)", "Электро (EV)", "Electric (EV)"],
+    "$EREV": ["Elektrik + yürüş artırıcı (EREV)", "Электро + генератор (EREV)", "Electric + range extender (EREV)"],
+    "$RWD": ["Arxa", "Задний", "Rear-wheel"],
+    "$AWD": ["Tam", "Полный", "All-wheel"],
+    "$YES": ["Var", "Есть", "Yes"],
+    "$OPT": ["Versiyadan asılı", "В зависимости от версии", "Depending on version"],
+    "$AIR2": ["İki kameralı", "Двухкамерная", "Dual-chamber"]
+  },
+  "models": {
+    "l7": {
+      "name": "L7",
+      "type": ["Sedan · EV", "Седан · EV", "Sedan · EV"],
+      "seo": ["IM L7 — elektrik biznes sedan | IM Motors Azərbaycan", "IM L7: 708 km yürüş, 0–100 km/saat 3,87 s, dörd təkərin idarəsi və iki LiDAR. Bakıda rəsmi idxalçı ONVOLT."],
+      "card": "c:l7:athena",
+      "hero": {"img": "photos/model-l7.jpg", "dpos": "78% 50%", "pos": "68% 55%"},
+      "tag": ["Brendin ilk sedanı: uzun baza, sakit salon və 0,21 aerodinamika.", "Первый седан бренда: длинная база, тихий салон и аэродинамика 0,21.", "The brand's first sedan: a long wheelbase, a quiet cabin and a 0.21 drag coefficient."],
+      "hs": [["708 km", ["Yürüş, maks.", "Запас хода, до", "Range, up to"]], ["3.87 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]], ["90 kWh", ["Batareya", "Батарея", "Battery"]]],
+      "ov": {
+        "t": ["Sakitlik. Sürət. <b>Dəqiqlik.</b>", "Тишина. Скорость. <b>Точность.</b>", "Silence. Speed. <b>Precision.</b>"],
+        "d": ["5,1 metrlik sedan küləyi demək olar ki, hiss etmir: müqavimət əmsalı cəmi 0,21-dir. Tam ötürücülü versiya 425 kW güclə 100 km/saata 3,87 saniyədə çatır, dörd təkərin idarəsi isə virtual təkər bazasını 2580-dən 3250 mm-ə qədər dəyişir — dar küçədə çevik, trassada sabit.", "5,1-метровый седан почти не замечает ветра: коэффициент сопротивления всего 0,21. Полноприводная версия мощностью 425 кВт разгоняется до 100 км/ч за 3,87 с, а полноуправляемое шасси меняет виртуальную базу от 2580 до 3250 мм — манёвренный в переулке, стабильный на трассе.", "This 5.1-metre sedan barely notices the wind, with a drag coefficient of just 0.21. The 425 kW all-wheel-drive version reaches 100 km/h in 3.87 s, while four-wheel steering varies the virtual wheelbase from 2,580 to 3,250 mm — nimble in town, planted on the motorway."],
+        "f": [["708", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["3.87", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["425", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["0.21", "Cd", ["aerodinamik müqavimət", "аэродинамика", "drag coefficient"]]]
+      },
+      "design": {
+        "t": ["Axıcı xətlər, <b>dəqiq detallar.</b>", "Плавные линии, <b>точные детали.</b>", "Flowing lines, <b>precise details.</b>"],
+        "items": [
+          ["l7:6.0@y0-0.66", ["Hər səthdə inamlı", "Уверенно на любом покрытии", "Sure-footed on any surface"], ["Ağıllı tam ötürücü və dörd təkərin idarəsi sürüşkən yolda da trayektoriyanı saxlayır.", "Интеллектуальный полный привод и полноуправляемое шасси держат траекторию даже на скользкой дороге.", "Intelligent all-wheel drive and four-wheel steering hold the line even on slippery roads."]],
+          ["l7:25.0", ["İşıq imzası", "Световая подпись", "A light signature"], ["Bütöv arxa işıq xətti və proqramlaşdırılan işıq siqnalları.", "Сквозная линия задних фонарей и программируемые световые сигналы.", "A full-width tail-light line and programmable light signals."]],
+          ["l7:26@y0.2-1", ["0,21 aerodinamika", "Аэродинамика 0,21", "A 0.21 drag coefficient"], ["Hamar dib və gizli qapı dəstəkləri hər kilometrdə enerjiyə qənaət edir.", "Гладкое днище и скрытые ручки экономят энергию на каждом километре.", "A smooth underbody and flush handles save energy on every kilometre."]],
+          ["l7:25.1", ["İki LiDAR", "Два лидара", "Two LiDARs"], ["Uzaq məsafəli iki lazer radar və NVIDIA Orin X yolu gecə də dəqiq görür.", "Два дальнобойных лидара и NVIDIA Orin X точно видят дорогу даже ночью.", "Two long-range LiDARs and NVIDIA Orin X see the road precisely, even at night."]]
+        ]
+      },
+      "colors": [["cezanne", "#2f3033", ["Sezann qarası", "Сезанн чёрный", "Cézanne Black"]], ["athena", "#e6e7e8", ["Afina ağı", "Афина белый", "Athena White"]], ["rembrandt", "#59585a", ["Rembrandt bozu", "Рембрандт серый", "Rembrandt Grey"]], ["raphael", "#d6d0c6", ["Rafael beji", "Рафаэль бежевый", "Raphael Beige"]]],
+      "interior": {
+        "img": "l7:15.1",
+        "t": ["Biznes klass — <b>arxada da.</b>", "Бизнес-класс — <b>и на заднем ряду.</b>", "Business class — <b>in the back too.</b>"],
+        "d": ["3100 mm baza arxada geniş yer verir, Nappa dəri və 22 dinamikli səs sahəsi isə hər səfəri sakit lounge-a çevirir.", "База 3100 мм даёт простор сзади, а кожа Nappa и звук из 22 динамиков превращают поездку в тихий лаунж.", "A 3,100 mm wheelbase gives generous rear space, while Nappa leather and 22-speaker sound turn every trip into a quiet lounge."],
+        "f": [
+          [["26,3″ panorama ekran", "Панорамный экран 26,3″", "26.3″ panoramic display"], ["Sürücü üçün 26,3″, sərnişin üçün ayrıca 15,5″ ekran.", "26,3″ для водителя и отдельный экран 15,5″ для пассажира.", "26.3″ for the driver and a separate 15.5″ passenger screen."]],
+          [["22 dinamik", "22 динамика", "22 speakers"], ["Bütün salonu bürüyən səs sahəsi.", "Звук, окутывающий весь салон.", "Sound that fills the whole cabin."]],
+          [["Isıtma, ventilyasiya, masaj", "Подогрев, вентиляция, массаж", "Heating, ventilation, massage"], ["Ön oturacaqlarda; arxada — versiyadan asılı olaraq.", "Передние сиденья; задние — в зависимости от версии.", "Front seats; rear seats depending on version."]],
+          [["Panorama dam", "Панорамная крыша", "Panoramic roof"], ["İstiliyi və UV-ni saxlayan iki qatlı gümüşlü şüşə.", "Двухслойное стекло с серебряным напылением задерживает тепло и УФ.", "Double-layer silver-coated glass that blocks heat and UV."]]
+        ],
+        "gal": ["l7:12.0", "l7:18.0", "l7:12.1@x0.3-1,y0-0.7"]
+      },
+      "tech": [
+        {"tab": ["Şassi", "Шасси", "Chassis"], "img": "l7:6.1@x0.38-1,y0.05-0.9", "tag": ["Dörd təkərin idarəsi", "Полноуправляемое шасси", "Four-wheel steering"],
+         "t": ["Uzun sedan, <b>qısa dönüş.</b>", "Длинный седан, <b>короткий разворот.</b>", "A long sedan, <b>a tight turn.</b>"],
+         "d": ["Aşağı sürətdə arxa təkərlər əks istiqamətə dönür və virtual baza 2580 mm-ə qədər qısalır. Yüksək sürətdə eyni istiqamətə dönür — baza 3250 mm-ə qədər «uzanır» və avtomobil zolaq dəyişəndə sabit qalır.", "На малой скорости задние колёса поворачивают в противоположную сторону, и виртуальная база сокращается до 2580 мм. На высокой — в ту же сторону: база «вырастает» до 3250 мм, и автомобиль стабилен при перестроении.", "At low speed the rear wheels turn the opposite way and the virtual wheelbase shrinks to 2,580 mm. At speed they turn the same way, stretching it to 3,250 mm for stable lane changes."],
+         "li": [["Virtual baza 2580–3250 mm", "Виртуальная база 2580–3250 мм", "Virtual wheelbase 2,580–3,250 mm"], ["Adaptiv amortizatorlar", "Адаптивные амортизаторы", "Adaptive dampers"], ["Ağıllı tam ötürücü", "Интеллектуальный полный привод", "Intelligent all-wheel drive"]]},
+        {"tab": ["Güc", "Мощность", "Power"], "img": "photos/model-l7.jpg", "tag": ["Elektrik ötürücü", "Электропривод", "Electric drive"],
+         "t": ["425 kW <b>sakit güc.</b>", "425 кВт <b>тихой силы.</b>", "425 kW of <b>quiet force.</b>"],
+         "d": ["İki elektrik mühərriki: öndə 175 kW, arxada 250 kW. Ümumi moment 725 N·m, 0–100 km/saat — 3,87 saniyə. Arxa ötürücülü versiya isə bir şarjla 708 km-ə qədər yol gedir.", "Два электромотора: 175 кВт спереди и 250 кВт сзади, суммарно 725 Н·м и 3,87 с до 100 км/ч. Заднеприводная версия проезжает на одной зарядке до 708 км.", "Two electric motors — 175 kW front and 250 kW rear — deliver 725 Nm and 0–100 km/h in 3.87 s. The rear-drive version covers up to 708 km on a charge."],
+         "li": [["425 kW, 725 N·m", "425 кВт, 725 Н·м", "425 kW, 725 Nm"], ["0–100 km/saat: 3,87 s", "0–100 км/ч: 3,87 с", "0–100 km/h: 3.87 s"], ["708 km-ə qədər yürüş", "До 708 км запаса хода", "Up to 708 km of range"]]},
+        {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "l7:15.3", "tag": ["IM AD", "IM AD", "IM AD"],
+         "t": ["Yolu <b>sizinlə birlikdə görür.</b>", "Видит дорогу <b>вместе с вами.</b>", "Sees the road <b>with you.</b>"],
+         "d": ["İki uzaq məsafəli LiDAR, kameralar və radarlar NVIDIA DRIVE Orin X prosessoru ilə işləyir: adaptiv kruiz, zolaqda saxlama, avtomatik parklanma və toqquşma riskində avtomatik əyləc.", "Два дальнобойных лидара, камеры и радары работают с процессором NVIDIA DRIVE Orin X: адаптивный круиз, удержание в полосе, автопарковка и автоматическое торможение при угрозе столкновения.", "Two long-range LiDARs, cameras and radars run on an NVIDIA DRIVE Orin X: adaptive cruise, lane keeping, automated parking and automatic emergency braking."],
+         "li": [["2 × LiDAR", "2 лидара", "2 × LiDAR"], ["NVIDIA DRIVE Orin X", "NVIDIA DRIVE Orin X", "NVIDIA DRIVE Orin X"], ["Avtomatik parklanma", "Автопарковка", "Automated parking"]], "note": 1},
+        {"tab": ["Kabin", "Салон", "Cabin"], "img": "l7:15.0", "tag": ["Ekranlar", "Экраны", "Screens"],
+         "t": ["Ekranlar <b>sizin üçün qalxır.</b>", "Экраны <b>поднимаются для вас.</b>", "Screens <b>that rise for you.</b>"],
+         "d": ["26,3 düymlük sürücü ekranı və 15,5 düymlük sərnişin ekranı bir-birindən asılı olmadan qalxıb enir. 10,5 düymlük mərkəzi panel iqlimi və avtomobil funksiyalarını bir toxunuşla idarə edir.", "Экран водителя 26,3″ и экран пассажира 15,5″ поднимаются и опускаются независимо. Центральная панель 10,5″ управляет климатом и функциями автомобиля одним касанием.", "The 26.3″ driver display and 15.5″ passenger screen rise and lower independently. A 10.5″ centre panel controls climate and car functions with a touch."],
+         "li": [["26,3″ + 15,5″ + 10,5″", "26,3″ + 15,5″ + 10,5″", "26.3″ + 15.5″ + 10.5″"], ["Ayrıca qalxan ekranlar", "Независимо поднимающиеся экраны", "Independently rising screens"], ["22 dinamikli səs", "Звук из 22 динамиков", "22-speaker sound"]]}
+      ],
+      "specs": {
+        "trims": ["RWD", "AWD"],
+        "rows": [
+          ["#dim"], ["dims", "5108 × 1960 × 1485 mm"], ["wb", "3100 mm"], ["vwb", "2580–3250 mm"], ["seats", "5"], ["cd", "0.21"],
+          ["#energy"], ["energy", "$EV"], ["battery", "90 kWh"], ["range", ["708 km", "625 km"]],
+          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["250 kW", "425 kW"]], ["torque", ["475 Nm", "725 Nm"]], ["accel", ["5.9 s", "3.87 s"]],
+          ["#chassis"], ["4ws", "$YES"], ["damp", "$YES"],
+          ["#cabin"], ["screens", "26.3″ + 15.5″ + 10.5″"], ["adas", "2 × LiDAR · NVIDIA Orin X"], ["audio", "22"]
+        ]
+      }
+    },
+    "ls7": {
+      "name": "LS7",
+      "type": ["Böyük SUV · EV", "Большой SUV · EV", "Large SUV · EV"],
+      "seo": ["IM LS7 — böyük elektrik SUV | IM Motors Azərbaycan", "IM LS7: 700 km yürüş, 579 kW, 0–100 km/saat 3,9 s, pnevmatik asqı və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
+      "card": "c:ls7:athena",
+      "hero": {"img": "photos/model-ls7.jpg", "dpos": "80% 60%", "pos": "72% 62%"},
+      "tag": ["Geniş salon, panorama dam və ailə üçün yaradılmış rahatlıq — tam elektrik.", "Просторный салон, панорамная крыша и комфорт для всей семьи — полностью на электричестве.", "A spacious cabin, a panoramic roof and comfort made for families — fully electric."],
+      "hs": [["700 km", ["Yürüş, maks.", "Запас хода, до", "Range, up to"]], ["3.9 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]], ["100 kWh", ["Batareya", "Батарея", "Battery"]]],
+      "ov": {
+        "t": ["Geniş. Sakit. <b>Sürətli.</b>", "Просторный. Тихий. <b>Быстрый.</b>", "Spacious. Quiet. <b>Fast.</b>"],
+        "d": ["5 metrlik SUV, 3060 mm baza və beş nəfər üçün «divan» rahatlığı. Ultra versiyada 875 V platforma, 579 kW güc və 0–100 km/saat 3,9 saniyə; şarj 10%-dən 80%-ə 16,8 dəqiqədə. Pnevmatik asqı və dörd təkərin idarəsi böyük avtomobili yüngül idarə olunan edir.", "Пятиметровый SUV с базой 3060 мм и диванным комфортом для пятерых. В версии Ultra — платформа 875 В, 579 кВт и 3,9 с до 100 км/ч; зарядка с 10 до 80% за 16,8 минуты. Пневмоподвеска и полноуправляемое шасси делают большой автомобиль лёгким в управлении.", "A five-metre SUV with a 3,060 mm wheelbase and sofa-like comfort for five. The Ultra adds an 875 V platform, 579 kW and 0–100 km/h in 3.9 s, charging from 10 to 80% in 16.8 minutes. Air suspension and four-wheel steering make a big car feel light."],
+        "f": [["700", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["579", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["3.9", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["16.8", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]]]
+      },
+      "design": {
+        "t": ["Böyük ölçü, <b>yüngül xətlər.</b>", "Большой размер, <b>лёгкие линии.</b>", "Big proportions, <b>light lines.</b>"],
+        "items": [
+          ["ls7:23.0", ["Kupe xətli SUV", "SUV с линией купе", "An SUV with a coupé line"], ["Arxaya doğru enən dam xətti 5 metrlik gövdəni yüngül göstərir.", "Ниспадающая линия крыши делает пятиметровый кузов визуально лёгким.", "A sloping roofline makes a five-metre body look light."]],
+          ["ls7:30.1", ["Aerodinamik disklər", "Аэродинамические диски", "Aerodynamic wheels"], ["20 və 22 düymlük disklər, səs-küyü udan təkərlərlə.", "Диски 20 и 22 дюйма, шины с шумопоглощающей вставкой.", "20- and 22-inch wheels with noise-absorbing tyres."]],
+          ["ls7:43.2", ["Şəhər üçün yaradılıb", "Создан для города", "Made for the city"], ["Dörd təkərin idarəsi dar dönüşlərdə və parklanmada köməyə gəlir.", "Полноуправляемое шасси выручает в тесных поворотах и на парковке.", "Four-wheel steering helps in tight turns and when parking."]],
+          ["ls7:45.1@y0.12-0.68", ["Tanınan arxa görünüş", "Узнаваемая корма", "A recognisable rear"], ["Bütöv işıq xətti və təmiz səthlər.", "Сквозная световая линия и чистые поверхности.", "A full-width light line and clean surfaces."]]
+        ]
+      },
+      "colors": [["ares", "#2b2d32", ["Ares qarası", "Арес чёрный", "Ares Black"]], ["athena", "#e6e8eb", ["Afina ağı", "Афина белый", "Athena White"]], ["raphael", "#d4d0c7", ["Rafael beji", "Рафаэль бежевый", "Raphael Beige"]], ["rembrandt", "#505053", ["Rembrandt bozu", "Рембрандт серый", "Rembrandt Grey"]]],
+      "interior": {
+        "img": "ls7:24.0",
+        "t": ["Beş nəfər üçün <b>birinci sinif.</b>", "Первый класс <b>на пятерых.</b>", "First class <b>for five.</b>"],
+        "d": ["Ön sərnişin üçün 121° «sıfır cazibə» kreslosu, 131°-yə qədər əyilən arxa oturacaqlar və 24 dinamikli səs sahəsi. Arxa oturacaqları qatlayanda salon iki nəfərlik yataq olur.", "Кресло «нулевой гравитации» с наклоном 121° для пассажира, задние сиденья с наклоном спинки до 131° и звук из 24 динамиков. Сложите задние сиденья — и салон превращается в спальное место для двоих.", "A 121° zero-gravity seat for the front passenger, rear seats reclining to 131° and 24-speaker sound. Fold the rear seats and the cabin becomes a bed for two."],
+        "f": [
+          [["«Sıfır cazibə» kreslosu", "Кресло «нулевой гравитации»", "Zero-gravity seat"], ["Ön sərnişin üçün 121°, isıtma, ventilyasiya və masajla.", "121° для переднего пассажира, с подогревом, вентиляцией и массажем.", "121° for the front passenger, heated, ventilated, with massage."]],
+          [["Arxa «divan»", "Задний «диван»", "A rear sofa"], ["Arxalıq elektriklə 131°-yə qədər əyilir, isıtma və ventilyasiya var.", "Электрорегулировка спинки до 131°, подогрев и вентиляция.", "Power recline up to 131°, heated and ventilated."]],
+          [["24 dinamik", "24 динамика", "24 speakers"], ["Tavanda iki «səma» kanalı ilə səs sahəsi.", "Звуковое поле с двумя потолочными каналами.", "A sound field with two overhead channels."]],
+          [["Yataq rejimi", "Режим кровати", "Bed mode"], ["Arxa oturacaqlar qatlananda düz səth alınır.", "Сложенные задние сиденья образуют ровную поверхность.", "Folded rear seats create a flat surface."]]
+        ],
+        "gal": ["ls7:37.0", "ls7:33.1", "ls7:37.2"]
+      },
+      "tech": [
+        {"tab": ["Şassi", "Шасси", "Chassis"], "img": "ls7:30.0", "tag": ["Lingxi rəqəmsal şassi", "Цифровое шасси Lingxi", "Lingxi digital chassis"],
+         "t": ["Böyük SUV, <b>idman avtomobili kimi.</b>", "Большой SUV <b>с повадками спорткара.</b>", "A big SUV <b>that drives like a sports car.</b>"],
+         "d": ["Dörd təkərin idarəsi, hər şəraitə uyğunlaşan pnevmatik asqı və elektron idarə olunan amortizatorlar vahid sistem kimi işləyir: şəhərdə yumşaq, döngədə toplanmış.", "Полноуправляемое шасси, пневмоподвеска для любых условий и электронные амортизаторы работают как единая система: мягко в городе, собранно в поворотах.", "Four-wheel steering, all-scenario air suspension and electronic dampers work as one system: soft in town, composed in corners."],
+         "li": [["Dörd təkərin idarəsi", "Полноуправляемое шасси", "Four-wheel steering"], ["Pnevmatik asqı", "Пневмоподвеска", "Air suspension"], ["Dönmə radiusu 5,3 m", "Радиус разворота 5,3 м", "5.3 m turning radius"]]},
+        {"tab": ["Şarj", "Зарядка", "Charging"], "img": "ls7:40.0", "tag": ["875 V", "875 В", "875 V"],
+         "t": ["15 dəqiqə şarj — <b>500 km yol.</b>", "15 минут зарядки — <b>500 км пути.</b>", "15 minutes of charging — <b>500 km of driving.</b>"],
+         "d": ["Ultra versiyada 100 kWh batareya və 875 V platforma: uyğun sürətli şarj stansiyasında 15 dəqiqə 500 km-ə qədər yürüş əlavə edir, 10%-dən 80%-ə şarj isə 16,8 dəqiqə çəkir.", "В версии Ultra — батарея 100 кВт·ч и платформа 875 В: 15 минут на подходящей быстрой станции добавляют до 500 км, а зарядка с 10 до 80% занимает 16,8 минуты.", "The Ultra pairs a 100 kWh battery with an 875 V platform: 15 minutes on a suitable fast charger adds up to 500 km, and 10–80% takes 16.8 minutes."],
+         "li": [["100 kWh, NMC", "100 кВт·ч, NMC", "100 kWh, NMC"], ["10–80%: 16,8 dəq", "10–80%: 16,8 мин", "10–80%: 16.8 min"], ["700 km-ə qədər yürüş", "До 700 км запаса хода", "Up to 700 km of range"]], "note": 2},
+        {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "ls7:43.1", "tag": ["IM AD", "IM AD", "IM AD"],
+         "t": ["Uzun yolda <b>ikinci sürücü.</b>", "Второй водитель <b>в дальней дороге.</b>", "A co-pilot <b>for long journeys.</b>"],
+         "d": ["Kameralar və radarlar adaptiv kruiz, zolaqda saxlama, zolaq dəyişmə köməyi və avtomatik parklanma üçün işləyir.", "Камеры и радары обеспечивают адаптивный круиз, удержание в полосе, помощь при перестроении и автопарковку.", "Cameras and radars power adaptive cruise, lane keeping, lane-change assist and automated parking."],
+         "li": [["Adaptiv kruiz", "Адаптивный круиз", "Adaptive cruise"], ["Zolaqda saxlama", "Удержание в полосе", "Lane keeping"], ["Avtomatik parklanma", "Автопарковка", "Automated parking"]], "note": 1},
+        {"tab": ["Kabin", "Салон", "Cabin"], "img": "ls7:45.0", "tag": ["IM OS", "IM OS", "IM OS"],
+         "t": ["Üç ekran, <b>bir məntiq.</b>", "Три экрана — <b>одна логика.</b>", "Three screens, <b>one logic.</b>"],
+         "d": ["26,3 düymlük sürücü ekranı, 15,5 düymlük sərnişin ekranı və 12,8 düymlük 2K AMOLED idarəetmə paneli Snapdragon 8295P prosessoru ilə işləyir.", "Экран водителя 26,3″, экран пассажира 15,5″ и центральная панель 12,8″ AMOLED 2K работают на процессоре Snapdragon 8295P.", "A 26.3″ driver display, a 15.5″ passenger screen and a 12.8″ 2K AMOLED control panel run on a Snapdragon 8295P."],
+         "li": [["Snapdragon 8295P", "Snapdragon 8295P", "Snapdragon 8295P"], ["12,8″ AMOLED 2K", "12,8″ AMOLED 2K", "12.8″ AMOLED 2K"], ["24 dinamikli səs", "Звук из 24 динамиков", "24-speaker sound"]]}
+      ],
+      "specs": {
+        "trims": ["Max+", "Ultra"],
+        "rows": [
+          ["#dim"], ["dims", "5049 × 2002 × 1784 mm"], ["wb", "3060 mm"], ["seats", "5"],
+          ["#energy"], ["energy", "$EV"], ["battery", ["83 kWh", "100 kWh"]], ["btype", "NMC"], ["range", ["640 km", "700 km"]], ["ch80", "16.8 min"], ["ch15", ["450 km", "500 km"]], ["volt", ["800 V", "875 V"]],
+          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["248 kW", "579 kW"]], ["torque", ["500 Nm", "800 Nm"]], ["accel", ["6.1 s", "3.9 s"]], ["vmax", ["220 km/h", "239 km/h"]],
+          ["#chassis"], ["turn", "5.3 m"], ["4ws", "$YES"], ["air", "$YES"], ["wheels", "20″ / 22″"],
+          ["#cabin"], ["screens", "26.3″ + 15.5″ + 12.8″"], ["chip", "Snapdragon 8295P"], ["audio", "24"]
+        ]
+      }
+    },
+    "l6": {
+      "name": "L6",
+      "type": ["İcraçı sedan · EV", "Бизнес-седан · EV", "Executive sedan · EV"],
+      "seo": ["IM L6 — elektrik sedan | IM Motors Azərbaycan", "Yeni nəsil IM L6: 850 km-ə qədər yürüş, 0–100 km/saat 2,74 s, tam elektron sükan və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
+      "card": "c:l6:jimmy",
+      "hero": {"img": "photos/model-l6.jpg", "dpos": "100% 92%", "pos": "80% 92%"},
+      "tag": ["Dörd təkərli sükan, ağıllı şassi və superkar dinamikası — gündəlik istifadə üçün.", "Полноуправляемое шасси, умная подвеска и динамика суперкара — на каждый день.", "Four-wheel steering, a smart chassis and supercar pace — for every day."],
+      "hs": [["850 km", ["Yürüş, maks.", "Запас хода, до", "Range, up to"]], ["2.74 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]], ["76–103 kWh", ["Batareya", "Батарея", "Battery"]]],
+      "ov": {
+        "t": ["Gündəlik <b>superavtomobil.</b>", "Суперкар <b>на каждый день.</b>", "An everyday <b>supercar.</b>"],
+        "d": ["Yeni nəsil L6 bütün versiyalarda tam elektron sükanla gəlir: sükan çarxı ilə təkərlər arasında mexaniki əlaqə yoxdur. Dörd təkərin idarəsi dönmə radiusunu 4,39 m-ə qədər endirir, Ultra versiya isə 500 kW güclə 100 km/saata 2,74 saniyədə çatır.", "Новое поколение L6 во всех версиях получило электронное рулевое управление: механической связи между рулём и колёсами нет. Полноуправляемое шасси сокращает радиус разворота до 4,39 м, а версия Ultra мощностью 500 кВт разгоняется до 100 км/ч за 2,74 с.", "Every new-generation L6 has full steer-by-wire, with no mechanical link between the wheel and the tyres. Four-wheel steering cuts the turning radius to as little as 4.39 m, and the 500 kW Ultra reaches 100 km/h in 2.74 s."],
+        "f": [["850", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["2.74", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["500", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.39", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
+      },
+      "design": {
+        "t": ["Kupe siluetli <b>sedan.</b>", "Седан <b>с силуэтом купе.</b>", "A sedan <b>with a coupé silhouette.</b>"],
+        "items": [
+          ["l6:47.0", ["Aşağı və geniş", "Низкий и широкий", "Low and wide"], ["1474 mm hündürlük və 1960 mm en — idman avtomobilinin nisbətləri.", "Высота 1474 мм и ширина 1960 мм — пропорции спортивного автомобиля.", "1,474 mm tall and 1,960 mm wide — sports-car proportions."]],
+          ["l6:31.0", ["Arxa xətt", "Линия кормы", "The rear line"], ["Gövdəyə inteqrasiya olunmuş işıq xətti və təmiz səthlər.", "Встроенная в кузов световая линия и чистые поверхности.", "An integrated light line and clean surfaces."]],
+          ["l6:48.0", ["Şəhərin işığında", "В свете города", "In the city light"], ["Hər bucaqdan dəyişən işıq oyunu.", "Игра света на кузове с любого ракурса.", "Light playing across the body from every angle."]],
+          ["l6:48.1", ["Çevik və sakit", "Манёвренный и тихий", "Agile and quiet"], ["Dar şəhər dönüşlərində dörd təkərin idarəsi işə düşür.", "В тесных городских поворотах помогает полноуправляемое шасси.", "Four-wheel steering steps in on tight city turns."]]
+        ]
+      },
+      "colors": [["jimmy", "#c5c6c8", ["Jimmy gümüşü", "Серебристый Jimmy", "Jimmy Silver"]], ["matisse", "#8a2f3b", ["Matiss qırmızısı", "Матисс красный", "Matisse Red"]], ["morandi", "#8a8193", ["Morandi bənövşəyisi", "Моранди фиолетовый", "Morandi Purple"]], ["mucha", "#8a9180", ["Muxa yaşılı", "Муха зелёный", "Mucha Green"]], ["raphael", "#b9b4ad", ["Rafael beji", "Рафаэль бежевый", "Raphael Beige"]], ["ares", "#36373b", ["Ares qarası", "Арес чёрный", "Ares Black"]]],
+      "interior": {
+        "img": "l6:56.1",
+        "t": ["Hər yer — <b>ən yaxşı yer.</b>", "Каждое место — <b>лучшее.</b>", "Every seat is <b>the best seat.</b>"],
+        "d": ["27,1 düymlük Mini LED sürücü ekranı, 16,2 düymlük sərnişin ekranı, isıtma, ventilyasiya və masajlı oturacaqlar. Ağıllı soyuducu və panorama dam uzun yolu rahat edir.", "Экран водителя Mini LED 27,1″, экран пассажира 16,2″, сиденья с подогревом, вентиляцией и массажем. Умный холодильник и панорамная крыша делают дальнюю дорогу комфортной.", "A 27.1″ Mini LED driver display, a 16.2″ passenger screen and heated, ventilated massage seats. A smart cool box and a panoramic roof make long trips easy."],
+        "f": [
+          [["27,1″ Mini LED", "Mini LED 27,1″", "27.1″ Mini LED"], ["Panorama sürücü ekranı və sərnişin üçün 16,2″ ekran.", "Панорамный экран водителя и экран пассажира 16,2″.", "A panoramic driver display and a 16.2″ passenger screen."]],
+          [["Masajlı oturacaqlar", "Сиденья с массажем", "Massage seats"], ["Öndə isıtma, ventilyasiya və masaj, arxada masaj.", "Спереди подогрев, вентиляция и массаж, сзади массаж.", "Heated, ventilated massage seats in front, massage in the rear."]],
+          [["Soyuducu", "Холодильник", "Cool box"], ["Soyutma və qızdırma rejimli ağıllı soyuducu.", "Умный холодильник с охлаждением и подогревом.", "A smart cool and warm box."]],
+          [["B&O səsi", "Звук B&O", "B&O sound"], ["16 dinamikli 7.1.2 sistem — versiyadan asılı olaraq.", "Система 7.1.2 из 16 динамиков — в зависимости от версии.", "A 16-speaker 7.1.2 system, depending on version."]]
+        ],
+        "gal": ["l6:43.2", "l6:54.2", "l6:56.0"]
+      },
+      "tech": [
+        {"tab": ["Sükan", "Руль", "Steering"], "img": "l6:51.1", "tag": ["Tam elektron sükan", "Электронное рулевое управление", "Steer-by-wire"],
+         "t": ["Sükan — <b>tam elektron.</b>", "Руль — <b>полностью электронный.</b>", "Steering, <b>fully by wire.</b>"],
+         "d": ["Sükan çarxı ilə təkərlər arasında mexaniki əlaqə yoxdur: sistem sürətə görə ötürmə nisbətini dəyişir, dörd təkərin idarəsi dar küçədə dönüşü qısaldır, «yengəc» rejimi isə avtomobili yana hərəkət etdirir.", "Механической связи между рулём и колёсами нет: система меняет передаточное отношение в зависимости от скорости, полноуправляемое шасси сокращает разворот в тесноте, а режим «краба» смещает автомобиль боком.", "There is no mechanical link between wheel and tyres: the system varies the steering ratio with speed, four-wheel steering tightens turns, and crab mode moves the car sideways."],
+         "li": [["Bütün versiyalarda", "Во всех версиях", "On every version"], ["Dönmə radiusu 4,39–4,69 m", "Радиус разворота 4,39–4,69 м", "Turning radius 4.39–4.69 m"], ["«Yengəc» rejimi", "Режим «краба»", "Crab mode"]]},
+        {"tab": ["Batareya", "Батарея", "Battery"], "img": "l6:43.3", "tag": ["Batareya", "Батарея", "Battery"],
+         "t": ["850 km — <b>bir şarjla.</b>", "850 км — <b>на одной зарядке.</b>", "850 km <b>on a single charge.</b>"],
+         "d": ["Üç batareya: 76 və 93 kWh LFP, 103 kWh NMC. 15 dəqiqəlik sürətli şarj 580 km-ə qədər yürüş əlavə edir.", "Три батареи: LFP на 76 и 93 кВт·ч и NMC на 103 кВт·ч. 15 минут быстрой зарядки добавляют до 580 км.", "Three batteries: 76 and 93 kWh LFP and 103 kWh NMC. A 15-minute fast charge adds up to 580 km."],
+         "li": [["76 / 93 / 103 kWh", "76 / 93 / 103 кВт·ч", "76 / 93 / 103 kWh"], ["10–80%: 16,8 dəq-dən", "10–80%: от 16,8 мин", "10–80% from 16.8 min"], ["725–850 km yürüş", "725–850 км запаса хода", "725–850 km of range"]], "note": 2},
+        {"tab": ["Güc", "Мощность", "Power"], "img": "l6:47.1", "tag": ["Ultra", "Ultra", "Ultra"],
+         "t": ["2,74 saniyə — <b>100 km/saat.</b>", "2,74 секунды — <b>до 100 км/ч.</b>", "2.74 seconds <b>to 100 km/h.</b>"],
+         "d": ["İki mühərrikli Ultra 500 kW və 800 N·m verir, maksimal sürət 268 km/saat. Arxa ötürücülü versiyalar — 245 və 300 kW.", "Двухмоторная Ultra выдаёт 500 кВт и 800 Н·м, максимальная скорость 268 км/ч. Заднеприводные версии — 245 и 300 кВт.", "The dual-motor Ultra makes 500 kW and 800 Nm with a 268 km/h top speed. Rear-drive versions offer 245 and 300 kW."],
+         "li": [["500 kW, 800 N·m", "500 кВт, 800 Н·м", "500 kW, 800 Nm"], ["268 km/saat", "268 км/ч", "268 km/h"], ["Tam ötürücü", "Полный привод", "All-wheel drive"]]},
+        {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "l6:51.0@x0.32-1,y0-0.7", "tag": ["IM AD", "IM AD", "IM AD"],
+         "t": ["Ağıllı köməkçi <b>yolda.</b>", "Умный помощник <b>в пути.</b>", "A smart helper <b>on the road.</b>"],
+         "d": ["LiDAR, kameralar və NVIDIA DRIVE Orin X prosessoru trassada və şəhərdə sürücüyə kömək edir, avtomatik parklanma isə dar yerlərdə işi asanlaşdırır.", "Лидар, камеры и процессор NVIDIA DRIVE Orin X помогают водителю на трассе и в городе, а автопарковка выручает в тесных местах.", "LiDAR, cameras and an NVIDIA DRIVE Orin X assist on motorways and in town, while automated parking handles tight spots."],
+         "li": [["LiDAR", "Лидар", "LiDAR"], ["NVIDIA DRIVE Orin X", "NVIDIA DRIVE Orin X", "NVIDIA DRIVE Orin X"], ["Avtomatik parklanma", "Автопарковка", "Automated parking"]], "note": 1}
+      ],
+      "specs": {
+        "trims": ["Max", "Pro Max", "Ultra"],
+        "rows": [
+          ["#dim"], ["dims", "4924 × 1960 × 1474 mm"], ["wb", "2950 mm"], ["trunk", "457–1300 L"], ["seats", "5"],
+          ["#energy"], ["energy", "$EV"], ["battery", ["76 kWh", "93 kWh", "103 kWh"]], ["btype", ["LFP", "LFP", "NMC"]], ["range", ["725 km", "850 km", "840 km"]], ["ch80", ["18 min", "20.3 min", "16.8 min"]], ["ch15", ["460 km", "510 km", "580 km"]],
+          ["#power"], ["drive", ["$RWD", "$RWD", "$AWD"]], ["power", ["245 kW", "300 kW", "500 kW"]], ["torque", ["430 Nm", "500 Nm", "800 Nm"]], ["accel", ["5.9 s", "4.9 s", "2.74 s"]], ["vmax", ["200 km/h", "220 km/h", "268 km/h"]],
+          ["#chassis"], ["turn", ["4.69 m", "4.69 m", "4.39 m"]], ["sbw", "$YES"], ["4ws", "$YES"], ["air", "$OPT"],
+          ["#cabin"], ["screens", "27.1″ + 16.2″"], ["chip", "Snapdragon 8295P"], ["adas", "LiDAR · NVIDIA Orin X"]
+        ]
+      }
+    },
+    "ls6": {
+      "name": "LS6",
+      "type": ["Kupe SUV · EREV", "Купе-SUV · EREV", "Coupé SUV · EREV"],
+      "seo": ["IM LS6 EREV — kupe SUV | IM Motors Azərbaycan", "IM LS6 EREV: 450 km elektriklə, 1500 km-ə qədər ümumi yürüş, 230 kW, 0–100 km/saat 6,4 s. Bakıda rəsmi idxalçı ONVOLT."],
+      "card": "c:ls6:athena",
+      "hero": {"near": "photos/ls6-hero-near.jpg", "wide": "photos/ls6-hero-wide.jpg", "dpos": "100% 50%", "pos": "99% 50%"},
+      "tag": ["Cəsur siluet, idman xarakteri və 1500 km sərbəstlik.", "Смелый силуэт, спортивный характер и 1500 км свободы.", "A bold silhouette, a sporting character and 1,500 km of freedom."],
+      "hs": [["1500 km", ["Ümumi yürüş, maks.", "Общий запас, до", "Total range, up to"]], ["450 km", ["Elektriklə, maks.", "На электричестве, до", "Electric, up to"]], ["6.4 s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]]],
+      "ov": {
+        "t": ["Elektrik kimi sürür, <b>uzağa benzinlə gedir.</b>", "Едет как электромобиль, <b>далеко — на бензине.</b>", "Drives like an EV, <b>goes the distance on petrol.</b>"],
+        "d": ["Gündəlik yollarda LS6 tam elektromobildir: 66 kWh batareya ilə 450 km-ə qədər səssiz yürüş. Uzaq səfərdə 1,5 litrlik turbo generator işə düşür və təkərləri deyil, batareyanı doldurur — ümumi yürüş 1500 km-ə çatır, sürüş hissi isə elektrik olaraq qalır.", "В повседневных поездках LS6 — полноценный электромобиль: до 450 км тишины на батарее 66 кВт·ч. В дальней дороге включается 1,5-литровый турбогенератор — он заряжает батарею, а не крутит колёса. Общий запас хода достигает 1500 км, а ощущения остаются электрическими.", "Day to day, the LS6 is a full EV, with up to 450 silent kilometres from its 66 kWh battery. On long trips a 1.5-litre turbo generator charges the battery rather than driving the wheels — total range reaches 1,500 km, and the drive still feels electric."],
+        "f": [["1500", "km", ["ümumi yürüş", "общий запас хода", "total range"]], ["450", "km", ["elektriklə, CLTC", "на электричестве, CLTC", "electric, CLTC"]], ["230", "kW", ["elektrik mühərriki", "электромотор", "electric motor"]], ["16", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]]]
+      },
+      "design": {
+        "t": ["Kupe xətləri, <b>SUV rahatlığı.</b>", "Линии купе, <b>комфорт SUV.</b>", "Coupé lines, <b>SUV comfort.</b>"],
+        "items": [
+          ["ls6:35.0", ["Yeni işıq imzası", "Новая световая подпись", "A new light signature"], ["İti xətli faralar ön hissəyə xarakter verir.", "Острые фары придают передней части характер.", "Sharp headlights give the front real character."]],
+          ["ls6:57.0", ["Axıcı dam xətti", "Плавная линия крыши", "A flowing roofline"], ["Arxaya enən dam xətti — salonda isə hündür sərnişinlər üçün də yer.", "Ниспадающая линия крыши — и место для высоких пассажиров внутри.", "A sloping roofline, with room inside for tall passengers too."]],
+          ["ls6:57.1", ["Hər yola hazır", "Готов к любой дороге", "Ready for any road"], ["Şəhərdə elektriklə, dağ yolunda generatorla — yürüş narahatlığı olmadan.", "В городе — на электричестве, в горах — с генератором и без тревоги за запас хода.", "Electric in town, range extender in the mountains — no range anxiety."]],
+          ["ls6:61.2", ["Şəhərin ritmində", "В ритме города", "In the city's rhythm"], ["4,9 metrlik gövdə: böyük SUV rahatlığı, kompakt avtomobil çevikliyi.", "Кузов 4,9 м — комфорт большого SUV и манёвренность компактного автомобиля.", "A 4.9-metre body: big-SUV comfort, compact-car agility."]]
+        ]
+      },
+      "colors": [["athena", "#e3e4e6", ["Afina ağı", "Афина белый", "Athena White"]], ["goya", "#303135", ["Qoya qarası", "Гойя чёрный", "Goya Black"]], ["raphael", "#d3cfc4", ["Rafael beji", "Рафаэль бежевый", "Raphael Beige"]], ["jimmy", "#c3c3c5", ["Jimmy gümüşü", "Серебристый Jimmy", "Jimmy Silver"]], ["mucha", "#8d9886", ["Muxa yaşılı", "Муха зелёный", "Mucha Green"]], ["turner", "#77756f", ["Törner bozu", "Тёрнер серый", "Turner Grey"]]],
+      "interior": {
+        "img": "ls6:68.0",
+        "t": ["Bütün ailə üçün <b>lounge.</b>", "Лаунж <b>для всей семьи.</b>", "A lounge <b>for the whole family.</b>"],
+        "d": ["Geniş salon, rahat oturacaqlar və işıqla dolu panorama dam — LS6 gündəlik yolu da, ailə səfərini də sakit və rahat edir.", "Просторный салон, удобные сиденья и панорамная крыша, наполняющая салон светом, — LS6 делает спокойной и ежедневную дорогу, и семейную поездку.", "A spacious cabin, comfortable seats and a light-filled panoramic roof make both daily drives and family trips calm and easy."],
+        "f": [
+          [["Panorama ekranlar", "Панорамные экраны", "Panoramic screens"], ["Sürücü üçün geniş ekran və ayrıca sərnişin ekranı.", "Широкий экран водителя и отдельный экран пассажира.", "A wide driver display and a separate passenger screen."]],
+          [["Rahat oturacaqlar", "Комфортные сиденья", "Comfortable seats"], ["Isıtma və ventilyasiya, arxa oturacaqların əyilən arxalığı.", "Подогрев и вентиляция, регулируемый наклон спинок сзади.", "Heating and ventilation, reclining rear backrests."]],
+          [["Geniş baqaj", "Вместительный багажник", "A roomy boot"], ["Arxa oturacaqlar qatlananda ailə səfəri üçün geniş yer.", "Со сложенными задними сиденьями — много места для семейной поездки.", "Fold the rear seats for plenty of room on family trips."]],
+          [["Panorama dam", "Панорамная крыша", "Panoramic roof"], ["Salonu işıqla dolduran geniş şüşə dam.", "Широкая стеклянная крыша наполняет салон светом.", "A wide glass roof that floods the cabin with light."]]
+        ],
+        "gal": ["ls6:41.1", "ls6:68.3", "ls6:71.2"]
+      },
+      "tech": [
+        {"tab": ["EREV", "EREV", "EREV"], "img": "ls6:57.4", "tag": ["Yürüş artırıcı", "Генератор", "Range extender"],
+         "t": ["Benzin — <b>yalnız enerji üçün.</b>", "Бензин — <b>только для энергии.</b>", "Petrol — <b>only for energy.</b>"],
+         "d": ["Təkərləri həmişə 230 kW elektrik mühərriki fırladır. 1,5 litrlik turbo mühərrik yalnız generator kimi işləyir və batareyanı doldurur, ona görə də sürüş hamar və səssiz qalır.", "Колёса всегда вращает электромотор мощностью 230 кВт. 1,5-литровый турбомотор работает только как генератор и заряжает батарею, поэтому езда остаётся плавной и тихой.", "The wheels are always driven by a 230 kW electric motor. The 1.5-litre turbo engine works only as a generator, charging the battery, so the drive stays smooth and quiet."],
+         "li": [["Elektriklə 450 km-ə qədər", "До 450 км на электричестве", "Up to 450 km electric"], ["Ümumi 1500 km-ə qədər", "До 1500 км в сумме", "Up to 1,500 km in total"], ["1,5T generator, 114 kW", "Генератор 1,5T, 114 кВт", "1.5T generator, 114 kW"]]},
+        {"tab": ["Şarj", "Зарядка", "Charging"], "img": "ls6:57.2", "tag": ["Şarj", "Зарядка", "Charging"],
+         "t": ["Evdə — rozetka, <b>yolda — sürətli şarj.</b>", "Дома — розетка, <b>в пути — быстрая зарядка.</b>", "A socket at home, <b>fast charging on the road.</b>"],
+         "d": ["66 kWh batareya sürətli şarj stansiyasında 16 dəqiqəyə 10%-dən 80%-ə dolur. Gündəlik məsafələr üçün gecə ev şarjı kifayətdir.", "Батарея 66 кВт·ч заряжается с 10 до 80% за 16 минут на быстрой станции. Для ежедневных поездок достаточно ночной зарядки дома.", "The 66 kWh battery charges from 10 to 80% in 16 minutes on a fast charger. For daily driving, overnight home charging is enough."],
+         "li": [["66 kWh batareya", "Батарея 66 кВт·ч", "66 kWh battery"], ["10–80%: 16 dəq", "10–80%: 16 мин", "10–80%: 16 min"], ["Ev və sürətli şarj", "Домашняя и быстрая зарядка", "Home and fast charging"]], "note": 2},
+        {"tab": ["Dinamika", "Динамика", "Performance"], "img": "ls6:50.0", "tag": ["Arxa ötürücü", "Задний привод", "Rear-wheel drive"],
+         "t": ["Böyük, amma <b>çevik.</b>", "Большой, но <b>манёвренный.</b>", "Big, yet <b>agile.</b>"],
+         "d": ["Arxa ötürücü, 430 N·m və aşağı ağırlıq mərkəzi: 0–100 km/saat 6,4 saniyə, döngədə sabit və inamlı.", "Задний привод, 430 Н·м и низкий центр тяжести: 6,4 с до 100 км/ч, устойчивость и уверенность в поворотах.", "Rear-wheel drive, 430 Nm and a low centre of gravity: 0–100 km/h in 6.4 s, stable and confident in corners."],
+         "li": [["230 kW, 430 N·m", "230 кВт, 430 Н·м", "230 kW, 430 Nm"], ["0–100 km/saat: 6,4 s", "0–100 км/ч: 6,4 с", "0–100 km/h: 6.4 s"], ["Maksimal sürət 200 km/saat", "Максимальная скорость 200 км/ч", "Top speed 200 km/h"]]},
+        {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "ls6:61.1", "tag": ["IM AD", "IM AD", "IM AD"],
+         "t": ["Yolda <b>əlavə göz.</b>", "Дополнительные глаза <b>на дороге.</b>", "Extra eyes <b>on the road.</b>"],
+         "d": ["Kameralar və radarlar adaptiv kruiz, zolaqda saxlama, avtomatik parklanma və təhlükə anında avtomatik əyləc üçün işləyir.", "Камеры и радары обеспечивают адаптивный круиз, удержание в полосе, автопарковку и автоматическое торможение при опасности.", "Cameras and radars handle adaptive cruise, lane keeping, automated parking and automatic emergency braking."],
+         "li": [["Adaptiv kruiz", "Адаптивный круиз", "Adaptive cruise"], ["Avtomatik əyləc (AEB)", "Автоматическое торможение (AEB)", "Automatic emergency braking"], ["Avtomatik parklanma", "Автопарковка", "Automated parking"]], "note": 1}
+      ],
+      "specs": {
+        "trims": ["EREV · 66 kWh"],
+        "rows": [
+          ["#dim"], ["dims", "4904 × 1988 × 1669 mm"], ["wb", "2950 mm"], ["seats", "5"],
+          ["#energy"], ["energy", "$EREV"], ["battery", "66 kWh"], ["btype", "NMC"], ["rev", "450 km"], ["rtotal", "1500 km"], ["ch80", "16 min"], ["eng", "1.5T · 114 kW"],
+          ["#power"], ["drive", "$RWD"], ["power", "230 kW"], ["torque", "430 Nm"], ["accel", "6.4 s"], ["vmax", "200 km/h"]
+        ],
+        "note": ["LS6 EREV məlumatları istehsalçının 2025-ci il açıqlamalarına əsaslanır.", "Данные LS6 EREV основаны на сведениях производителя 2025 года.", "LS6 EREV data are based on the manufacturer's 2025 figures."]
+      }
+    },
+    "ls9": {
+      "name": "LS9",
+      "badge": ["Yeni", "Новинка", "New"],
+      "type": ["Flaqman SUV · EREV", "Флагманский SUV · EREV", "Flagship SUV · EREV"],
+      "seo": ["IM LS9 — flaqman SUV | IM Motors Azərbaycan", "IM LS9: altı yerlik flaqman SUV, 1460 km ümumi yürüş, 550 kW, 520 kanallı LiDAR və NVIDIA Thor. Bakıda rəsmi idxalçı ONVOLT."],
+      "card": "c:ls9:caucasus",
+      "hero": {"near": "photos/ls9-hero-near.jpg", "wide": "photos/ls9-hero-wide.jpg", "dpos": "100% 50%", "pos": "97% 50%"},
+      "tag": ["Altı oturacaqlı flaqman: elektrik sürüşü, yürüş artırıcı və 520 kanallı LiDAR.", "Шестиместный флагман: электрический привод, генератор и лидар на 520 каналов.", "A six-seat flagship: electric drive, a range extender and a 520-line LiDAR."],
+      "hs": [["1460 km", ["Ümumi yürüş, maks.", "Общий запас, до", "Total range, up to"]], ["390 km", ["Elektriklə, maks.", "На электричестве, до", "Electric, up to"]], ["3.9 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]]],
+      "ov": {
+        "t": ["Flaqman — <b>hər mənada.</b>", "Флагман — <b>во всём.</b>", "A flagship <b>in every sense.</b>"],
+        "d": ["5,3 metrlik gövdə, üç cərgədə altı oturacaq və ikinci cərgədə «sıfır cazibə» kresloları. Hyper versiyada 550 kW güc və 0–100 km/saat 3,9 saniyə; 800 V platforma batareyanı 16,5 dəqiqəyə 10%-dən 80%-ə doldurur, uzun yolda isə 1,5T generator ümumi yürüşü 1460 km-ə çatdırır.", "Кузов 5,3 метра, шесть мест в трёх рядах и кресла «нулевой гравитации» во втором ряду. В версии Hyper — 550 кВт и 3,9 с до 100 км/ч; платформа 800 В заряжает батарею с 10 до 80% за 16,5 минуты, а в дальней дороге генератор 1,5T увеличивает общий запас хода до 1460 км.", "A 5.3-metre body, six seats in three rows and zero-gravity chairs in the second row. The Hyper delivers 550 kW and 0–100 km/h in 3.9 s; its 800 V platform charges 10–80% in 16.5 minutes, and on long trips a 1.5T range extender stretches total range to 1,460 km."],
+        "f": [["1460", "km", ["ümumi yürüş, CLTC", "общий запас хода, CLTC", "total range, CLTC"]], ["550", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["16.5", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]], ["4.77", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
+      },
+      "design": {
+        "t": ["Bir baxışda <b>flaqman.</b>", "Флагман <b>с первого взгляда.</b>", "A flagship <b>at first glance.</b>"],
+        "items": [
+          ["ls9:44.0", ["5279 mm", "5279 мм", "5,279 mm"], ["3160 mm baza — üç cərgənin hamısında rahat yer.", "База 3160 мм — простор во всех трёх рядах.", "A 3,160 mm wheelbase: room in all three rows."]],
+          ["ls9:45.1", ["Matris işıq", "Матричный свет", "Matrix lighting"], ["İşıq siqnalları ilə «danışan» ağıllı faralar və bütöv işıq xətti.", "Умные фары со «световым языком» и сквозная световая линия.", "Smart headlights with a light language and a full-width light bar."]],
+          ["ls9:69.0", ["22 düymlük disklər", "22-дюймовые диски", "22-inch wheels"], ["«Üzən» mərkəzi qapaqlar hərəkətdə də loqonu düz saxlayır.", "«Парящие» колпачки ступиц сохраняют логотип ровным и в движении.", "Floating centre caps keep the logo level, even on the move."]],
+          ["ls9:91.5", ["Geniş bucaqlı projektor", "Широкоугольный прожектор", "A wide-angle searchlight"], ["Gecə yolu və yol kənarını geniş işıqlandıran əlavə ağıllı işıq.", "Дополнительный умный свет широко освещает дорогу и обочину ночью.", "Extra smart lighting that floods the road and verge at night."]],
+          ["ls9:80.0", ["Sakit güc", "Спокойная сила", "Quiet presence"], ["Gizli qapı dəstəkləri və yumşaq bağlanan qapılar.", "Скрытые ручки и доводчики дверей.", "Flush handles and soft-close doors."]]
+        ]
+      },
+      "colors": [["olympus", "#3a3b3f", ["Olimp qarası", "Олимп чёрный", "Olympus Black"]], ["blue", "#2f3a52", ["Dərin mavi", "Глубокий синий", "Deep Blue"]], ["caucasus", "#a19b95", ["Qafqaz bozu", "Кавказский серый", "Caucasus Grey"]], ["chogori", "#c4c5c7", ["Çoqori gümüşü", "Чогори серебристый", "Chogori Silver"]]],
+      "interior": {
+        "img": "ls9:85.0",
+        "t": ["Salonda <b>zaman yavaşlayır.</b>", "В салоне <b>время замедляется.</b>", "Inside, <b>time slows down.</b>"],
+        "d": ["İkinci cərgədə iki «sıfır cazibə» kreslosu, üçüncü cərgədə də isıtma və elektrik tənzimli arxalıq. 25 dinamikli B&O, 12,3 litrlik soyuducu və üç zonalı iqlim — salon uzun yol üçün yaradılıb.", "Два кресла «нулевой гравитации» во втором ряду, подогрев и электрорегулировка спинок даже в третьем. B&O на 25 динамиков, холодильник 12,3 л и трёхзонный климат — салон создан для дальней дороги.", "Two zero-gravity chairs in the second row, with heating and power-reclining backrests even in the third. A 25-speaker B&O system, a 12.3-litre fridge and three-zone climate — a cabin made for the long road."],
+        "f": [
+          [["27,1″ Mini LED", "Mini LED 27,1″", "27.1″ Mini LED"], ["Sürücü ekranı, sərnişinə 15,6″ və ikinci cərgəyə 21,5″ 4K ekran.", "Экран водителя, 15,6″ для пассажира и 21,5″ 4K для второго ряда.", "A driver display, 15.6″ for the passenger and a 21.5″ 4K screen for the second row."]],
+          [["«Sıfır cazibə»", "«Нулевая гравитация»", "Zero gravity"], ["İkinci cərgədə isıtma, ventilyasiya və masajlı iki kreslo.", "Два кресла во втором ряду с подогревом, вентиляцией и массажем.", "Two second-row chairs, heated, ventilated, with massage."]],
+          [["B&O, 25 dinamik", "B&O, 25 динамиков", "B&O, 25 speakers"], ["7.1.4 səs, tavanda dörd dinamik.", "Звук 7.1.4, четыре потолочных динамика.", "7.1.4 sound with four ceiling speakers."]],
+          [["12,3 l soyuducu", "Холодильник 12,3 л", "12.3 L fridge"], ["İki qapılı, soyutma və qızdırma rejimi ilə.", "Двухдверный, с охлаждением и подогревом.", "Two doors, cooling and warming."]]
+        ],
+        "gal": ["ls9:87.0", "ls9:91.0", "ls9:49.0"]
+      },
+      "tech": [
+        {"tab": ["Şassi", "Шасси", "Chassis"], "img": "ls9:64.1", "tag": ["Lingxi 3.0", "Lingxi 3.0", "Lingxi 3.0"],
+         "t": ["Tam elektron <b>şassi.</b>", "Полностью электронное <b>шасси.</b>", "A fully by-wire <b>chassis.</b>"],
+         "d": ["Sükan, əyləc və asqı elektron siqnalla idarə olunur. Dörd təkərin idarəsi 5,3 metrlik SUV-un dönmə radiusunu 4,77 m-ə endirir, iki kameralı pnevmatik asqı isə gövdəni hər yolda sakit saxlayır.", "Руль, тормоза и подвеска управляются электроникой. Полноуправляемое шасси сокращает радиус разворота 5,3-метрового SUV до 4,77 м, а двухкамерная пневмоподвеска держит кузов спокойным на любой дороге.", "Steering, brakes and suspension are all by wire. Four-wheel steering cuts the turning radius of this 5.3-metre SUV to 4.77 m, and dual-chamber air suspension keeps the body calm on any road."],
+         "li": [["Tam elektron sükan", "Полностью электронный руль", "Full steer-by-wire"], ["Dönmə radiusu 4,77 m", "Радиус разворота 4,77 м", "4.77 m turning radius"], ["İki kameralı pnevmatik asqı", "Двухкамерная пневмоподвеска", "Dual-chamber air suspension"]]},
+        {"tab": ["EREV · 800 V", "EREV · 800 В", "EREV · 800 V"], "img": "ls9:58.0", "tag": ["Güc", "Мощность", "Power"],
+         "t": ["Elektrik gücü, <b>benzin sərbəstliyi.</b>", "Сила электричества, <b>свобода бензина.</b>", "Electric force, <b>petrol freedom.</b>"],
+         "d": ["Təkərləri elektrik mühərrikləri fırladır: Hyper versiyada 550 kW və 730 N·m. 66 kWh batareya ilə 390 km-ə qədər elektriklə gedir, 1,5T generator isə uzun yolda batareyanı doldurur.", "Колёса вращают электромоторы: в версии Hyper — 550 кВт и 730 Н·м. На батарее 66 кВт·ч — до 390 км на электричестве, а в дальней дороге генератор 1,5T подзаряжает батарею.", "Electric motors drive the wheels — 550 kW and 730 Nm in the Hyper. The 66 kWh battery gives up to 390 km of electric range, and a 1.5T generator recharges it on long trips."],
+         "li": [["550 kW, 730 N·m", "550 кВт, 730 Н·м", "550 kW, 730 Nm"], ["10–80%: 16,5 dəq", "10–80%: 16,5 мин", "10–80%: 16.5 min"], ["60 l çən, AI-92", "Бак 60 л, АИ-92", "60 L tank, 92 RON"]], "note": 2},
+        {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "ls9:78.0", "tag": ["IM AD Max", "IM AD Max", "IM AD Max"],
+         "t": ["520 kanallı LiDAR <b>və NVIDIA Thor.</b>", "Лидар на 520 каналов <b>и NVIDIA Thor.</b>", "A 520-line LiDAR <b>and NVIDIA Thor.</b>"],
+         "d": ["Momenta ilə hazırlanmış sürücüyə yardım sistemi LiDAR, yüksək dəqiqlikli kameralar və radarlarla ətrafı 360° görür. Prosessor — NVIDIA DRIVE AGX Thor.", "Система помощи водителю, созданная с Momenta, видит всё вокруг на 360° с помощью лидара, камер высокого разрешения и радаров. Процессор — NVIDIA DRIVE AGX Thor.", "Developed with Momenta, the driver-assistance system sees 360° with LiDAR, high-resolution cameras and radars, powered by an NVIDIA DRIVE AGX Thor."],
+         "li": [["520 kanallı LiDAR", "Лидар на 520 каналов", "520-line LiDAR"], ["NVIDIA DRIVE AGX Thor", "NVIDIA DRIVE AGX Thor", "NVIDIA DRIVE AGX Thor"], ["Bir toxunuşla parklanma", "Парковка одним касанием", "One-touch parking"]], "note": 1},
+        {"tab": ["Kabin", "Салон", "Cabin"], "img": "ls9:61.2", "tag": ["IM AIOS", "IM AIOS", "IM AIOS"],
+         "t": ["Kabin <b>sizi tanıyır.</b>", "Салон <b>знает вас.</b>", "A cabin <b>that knows you.</b>"],
+         "d": ["Snapdragon 8295P prosessoru üç ekranı və IM AIOS sistemini idarə edir: oturacaq, iqlim, işıq və musiqi parametrləri hər sürücü üçün yadda qalır.", "Процессор Snapdragon 8295P управляет тремя экранами и системой IM AIOS: настройки сидений, климата, света и музыки запоминаются для каждого водителя.", "A Snapdragon 8295P runs three screens and IM AIOS: seat, climate, lighting and music settings are remembered for each driver."],
+         "li": [["Snapdragon 8295P", "Snapdragon 8295P", "Snapdragon 8295P"], ["Başüstü displey (HUD)", "Проекционный дисплей (HUD)", "Head-up display"], ["Smartfon inteqrasiyası", "Интеграция смартфона", "Smartphone integration"]]}
+      ],
+      "specs": {
+        "trims": ["52 Ultra", "Hyper"],
+        "rows": [
+          ["#dim"], ["dims", "5279 × 2000 × 1806 mm"], ["wb", "3160 mm"], ["trunk", "372–1030 L"], ["seats", "6"],
+          ["#energy"], ["energy", "$EREV"], ["battery", ["52 kWh", "66 kWh"]], ["btype", ["LFP", "NMC"]], ["rtotal", ["1454 km", "1460 km"]], ["rev", ["320 km", "390 km"]], ["ch80", ["19 min", "16.5 min"]], ["ch15", ["211 km", "265 km"]], ["volt", "800 V"], ["eng", "1.5T"], ["tank", "60 L"],
+          ["#power"], ["drive", "$AWD"], ["power", ["380 kW", "550 kW"]], ["torque", ["670 Nm", "730 Nm"]], ["accel", ["4.9 s", "3.9 s"]], ["vmax", "220 km/h"],
+          ["#chassis"], ["turn", ["4.95 m", "4.77 m"]], ["sbw", "$YES"], ["4ws", "$YES"], ["air", "$AIR2"], ["wheels", "21″ / 22″"],
+          ["#cabin"], ["screens", "27.1″ + 15.6″ + 21.5″"], ["chip", "Snapdragon 8295P"], ["adas", "LiDAR 520 · NVIDIA Thor"], ["audio", "B&O · 25"]
+        ]
+      }
+    },
+    "ls8": {
+      "name": "LS8",
+      "badge": ["2026", "2026", "2026"],
+      "type": ["Premium SUV · EREV", "Премиальный SUV · EREV", "Premium SUV · EREV"],
+      "seo": ["IM LS8 — premium SUV | IM Motors Azərbaycan", "IM LS8: altı yerlik premium SUV, 1605 km ümumi yürüş, 430 km elektriklə, 390 kW və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
+      "card": "c:ls8:alps",
+      "hero": {"near": "photos/ls8-hero-near.jpg", "wide": "photos/ls8-hero-wide.jpg", "dpos": "100% 50%", "pos": "96% 50%"},
+      "tag": ["Uzaq səfərlər üçün yaradılıb: altı geniş oturacaq, dörd təkərin idarəsi və 1600 km-dən çox ümumi yürüş.", "Создан для дальних поездок: шесть просторных мест, полноуправляемое шасси и более 1600 км общего запаса хода.", "Built for long journeys: six spacious seats, four-wheel steering and more than 1,600 km of total range."],
+      "hs": [["1605 km", ["Ümumi yürüş, maks.", "Общий запас, до", "Total range, up to"]], ["430 km", ["Elektriklə, maks.", "На электричестве, до", "Electric, up to"]], ["4.7 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]]],
+      "ov": {
+        "t": ["Hər gün elektrik, <b>hər yolda sərbəst.</b>", "Каждый день — электричество, <b>любая дорога — свободно.</b>", "Electric every day, <b>free on any road.</b>"],
+        "d": ["Şəhərdə LS8 tam elektromobildir: 66 kWh batareya ilə 430 km-ə qədər bir damla benzin yandırmadan. Uzun yolda 1,5T generator batareyanı doldurur və ümumi yürüş 1605 km-ə çatır. Altı geniş oturacaq, B&O səsi, 800 V sürətli şarj və dörd təkərin idarəsi.", "В городе LS8 — полноценный электромобиль: до 430 км на батарее 66 кВт·ч без капли бензина. В дальней дороге генератор 1,5T подзаряжает батарею, и общий запас хода достигает 1605 км. Шесть просторных мест, звук B&O, быстрая зарядка 800 В и полноуправляемое шасси.", "In town the LS8 is a full EV, covering up to 430 km on its 66 kWh battery without a drop of petrol. On long trips a 1.5T generator recharges the battery for a total range of 1,605 km. Six spacious seats, B&O sound, 800 V fast charging and four-wheel steering."],
+        "f": [["1605", "km", ["ümumi yürüş, CLTC", "общий запас хода, CLTC", "total range, CLTC"]], ["430", "km", ["elektriklə, CLTC", "на электричестве, CLTC", "electric, CLTC"]], ["390", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.85", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
+      },
+      "design": {
+        "t": ["Təmkinli <b>güc.</b>", "Сдержанная <b>сила.</b>", "Understated <b>power.</b>"],
+        "items": [
+          ["ls8:44.0", ["İşıq imzası", "Световая подпись", "A light signature"], ["Bütöv ön işıq xətti və matris faralar — gecə də tanınan siluet.", "Сквозная передняя световая линия и матричные фары — силуэт, узнаваемый и ночью.", "A full-width front light line and matrix headlights — a silhouette you recognise at night."]],
+          ["ls8:57.0", ["Yolda sakit", "Спокоен в пути", "Calm on the road"], ["5085 mm uzunluq və 3060 mm baza — rahat və sabit hərəkət.", "Длина 5085 мм и база 3060 мм — комфорт и устойчивость.", "5,085 mm long with a 3,060 mm wheelbase: comfort and stability."]],
+          ["ls8:66.0", ["Uzaq səfər üçün", "Для дальних поездок", "Built for long trips"], ["1605 km-ə qədər ümumi yürüş — yanacaqdoldurma barədə düşünmədən.", "До 1605 км общего запаса хода — без мыслей о заправке.", "Up to 1,605 km of total range — without thinking about refuelling."]],
+          ["ls8:71.0", ["Möhkəm quruluş", "Прочная конструкция", "A rigid structure"], ["Möhkəm gövdə və batareyanın çoxqatlı qorunması.", "Прочный кузов и многоуровневая защита батареи.", "A rigid body and multi-layer battery protection."]]
+        ]
+      },
+      "colors": [["olympus", "#3a3b3f", ["Olimp qarası", "Олимп чёрный", "Olympus Black"]], ["pamir", "#a8a39f", ["Pamir bozu", "Памир серый", "Pamir Grey"]], ["alps", "#e4e5e7", ["Alp ağı", "Альпийский белый", "Alps White"]], ["chogori", "#c0c1c3", ["Çoqori gümüşü", "Чогори серебристый", "Chogori Silver"]], ["bled", "#7f8c84", ["Bled yaşılı", "Блед зелёный", "Bled Green"]]],
+      "interior": {
+        "img": "ls8:81.0",
+        "t": ["Hər kəs üçün <b>öz yeri.</b>", "У каждого — <b>своё место.</b>", "A place of their own <b>for everyone.</b>"],
+        "d": ["İkinci cərgədə müstəqil «aviasiya» kresloları, ön sərnişin üçün «sıfır cazibə» kreslosu, 12,3 litrlik soyuducu və 18–25 dinamikli B&O səsi. Üçüncü cərgə də isıtmalıdır.", "Независимые «авиакресла» во втором ряду, кресло «нулевой гравитации» для переднего пассажира, холодильник 12,3 л и звук B&O на 18–25 динамиков. Даже третий ряд с подогревом.", "Independent aviation-style second-row seats, a zero-gravity front passenger seat, a 12.3-litre fridge and 18- to 25-speaker B&O sound. Even the third row is heated."],
+        "f": [
+          [["27,1″ Mini LED", "Mini LED 27,1″", "27.1″ Mini LED"], ["Sürücü ekranı, sərnişinə 15,6″ və ikinci cərgəyə 21,5″ ekran.", "Экран водителя, 15,6″ для пассажира и 21,5″ для второго ряда.", "A driver display, a 15.6″ passenger screen and a 21.5″ screen for the second row."]],
+          [["«Aviasiya» kresloları", "«Авиакресла»", "Aviation seats"], ["İkinci cərgədə müstəqil kreslolar: isıtma, ventilyasiya və masaj.", "Независимые кресла второго ряда с подогревом, вентиляцией и массажем.", "Independent second-row seats, heated, ventilated, with massage."]],
+          [["B&O səsi", "Звук B&O", "B&O sound"], ["7.1.4 sistem, 18 və ya 25 dinamik.", "Система 7.1.4, 18 или 25 динамиков.", "A 7.1.4 system with 18 or 25 speakers."]],
+          [["12,3 l soyuducu", "Холодильник 12,3 л", "12.3 L fridge"], ["Soyutma və qızdırma rejimi ilə.", "С охлаждением и подогревом.", "With cooling and warming."]]
+        ],
+        "gal": ["ls8:84.0", "ls8:82.0", "ls8:86.0"]
+      },
+      "tech": [
+        {"tab": ["EREV", "EREV", "EREV"], "img": "ls8:61.1", "tag": ["Yürüş artırıcı", "Генератор", "Range extender"],
+         "t": ["1605 km — <b>bir çən və şarjla.</b>", "1605 км — <b>на одном баке и заряде.</b>", "1,605 km <b>on one tank and charge.</b>"],
+         "d": ["Təkərləri elektrik mühərrikləri fırladır, 1,5T generator isə yalnız batareyanı doldurur. Gündəlik yollar üçün 430 km-ə qədər təmiz elektrik, uzaq səfər üçün 60 litrlik çən.", "Колёса вращают электромоторы, а генератор 1,5T только заряжает батарею. До 430 км на чистом электричестве каждый день и бак 60 л для дальних поездок.", "Electric motors drive the wheels; the 1.5T generator only charges the battery. Up to 430 km of pure electric driving every day, plus a 60-litre tank for long trips."],
+         "li": [["430 km-ə qədər elektriklə", "До 430 км на электричестве", "Up to 430 km electric"], ["1605 km ümumi yürüş", "1605 км общего запаса хода", "1,605 km total range"], ["10–80%: 16,5 dəq", "10–80%: 16,5 мин", "10–80%: 16.5 min"]], "note": 2},
+        {"tab": ["Şassi", "Шасси", "Chassis"], "img": "ls8:73.0", "tag": ["Dörd təkərin idarəsi", "Полноуправляемое шасси", "Four-wheel steering"],
+         "t": ["Böyük SUV, <b>kiçik dönüş.</b>", "Большой SUV, <b>маленький разворот.</b>", "A big SUV, <b>a small turn.</b>"],
+         "d": ["Dörd təkərin idarəsi 5 metrlik avtomobilin dönmə radiusunu 4,85 m-ə endirir — şəhər sedanı kimi.", "Полноуправляемое шасси сокращает радиус разворота пятиметрового автомобиля до 4,85 м — как у городского седана.", "Four-wheel steering cuts this five-metre car's turning radius to 4.85 m — like a city sedan."],
+         "li": [["Dönmə radiusu 4,85 m", "Радиус разворота 4,85 м", "4.85 m turning radius"], ["Dörd təkərin idarəsi", "Полноуправляемое шасси", "Four-wheel steering"], ["Tam ötürücü (66 kWh)", "Полный привод (66 кВт·ч)", "All-wheel drive (66 kWh)"]]},
+        {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "ls8:76.1", "tag": ["IM AD", "IM AD", "IM AD"],
+         "t": ["Yolu <b>360° görür.</b>", "Видит дорогу <b>на 360°.</b>", "Sees the road <b>in 360°.</b>"],
+         "d": ["Momenta ilə hazırlanmış sistem LiDAR, kameralar və radarlarla trassada və parklanmada sürücüyə kömək edir.", "Система, созданная с Momenta, помогает водителю на трассе и при парковке с помощью лидара, камер и радаров.", "Developed with Momenta, the system uses LiDAR, cameras and radars to assist on motorways and when parking."],
+         "li": [["LiDAR", "Лидар", "LiDAR"], ["Adaptiv kruiz", "Адаптивный круиз", "Adaptive cruise"], ["Avtomatik parklanma", "Автопарковка", "Automated parking"]], "note": 1},
+        {"tab": ["Kabin", "Салон", "Cabin"], "img": "ls8:73.2", "tag": ["IM AIOS", "IM AIOS", "IM AIOS"],
+         "t": ["Sürücü üçün <b>rahat iş yeri.</b>", "Комфортное <b>место водителя.</b>", "A comfortable <b>driver's seat.</b>"],
+         "d": ["27,1 düymlük Mini LED ekran, Snapdragon 8295P prosessoru və 4D masajlı sürücü oturacağı uzun yolu yorğunluqsuz edir.", "Экран Mini LED 27,1″, процессор Snapdragon 8295P и кресло водителя с 4D-массажем делают дальнюю дорогу лёгкой.", "A 27.1″ Mini LED display, a Snapdragon 8295P and a 4D-massage driver's seat take the strain out of long drives."],
+         "li": [["Snapdragon 8295P", "Snapdragon 8295P", "Snapdragon 8295P"], ["4D masaj", "4D-массаж", "4D massage"], ["Ventilyasiya və isıtma", "Вентиляция и подогрев", "Ventilation and heating"]]}
+      ],
+      "specs": {
+        "trims": ["52 kWh", "66 kWh"],
+        "rows": [
+          ["#dim"], ["dims", "5085 × 2000 × 1807 mm"], ["wb", "3060 mm"], ["seats", "6"], ["trunk", "938–2576 L"], ["weight", ["2540 kg", "2620 kg"]],
+          ["#energy"], ["energy", "$EREV"], ["battery", ["52 kWh", "66 kWh"]], ["btype", ["LFP", "NMC"]], ["rtotal", ["1573 km", "1605 km"]], ["rev", ["355 km", "430 km"]], ["ch80", ["19 min", "16.5 min"]], ["ch15", ["230 km", "292 km"]], ["volt", "800 V"], ["eng", "1.5T"], ["tank", "60 L"],
+          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["230 kW", "390 kW"]], ["torque", ["430 Nm", "670 Nm"]], ["accel", ["7.3 s", "4.7 s"]], ["vmax", ["190 km/h", "220 km/h"]],
+          ["#chassis"], ["turn", "4.85 m"], ["4ws", "$YES"], ["wheels", "20″ – 22″"],
+          ["#cabin"], ["screens", "27.1″ + 15.6″ + 21.5″"], ["chip", "Snapdragon 8295P"], ["adas", "LiDAR · Momenta"], ["audio", "B&O · 18 / 25"]
+        ]
+      }
+    }
+  }
+}

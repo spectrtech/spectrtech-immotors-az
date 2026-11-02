@@ -1,0 +1,191 @@
+<!-- ════════════════════════════════════
+  06-servis.html — T123. Отступы блока = 0.
+  Сервис ONVOLT: широкое видео сервис-центра (YouTube, без звука, по кругу) с карточкой записи,
+  ниже — 6 услуг. По кнопке «Videonu izlə» видео открывается со звуком поверх страницы.
+  Сверху — плавный переход из светлого блока технологий.
+  Другое видео: замените ID в data-yt (и в адресе обложки i.ytimg.com).
+════════════════════════════════════ -->
+<style>
+.imx-srv{position:relative;background:var(--imx-bg);padding:clamp(170px,17vw,290px) 0 clamp(80px,9vw,140px);}
+/* сверху светлеет из блока технологий */
+.imx-srv::before{content:"";position:absolute;left:0;right:0;height:clamp(120px,12vw,210px);pointer-events:none;}
+.imx-srv::before{top:0;background:linear-gradient(0deg,rgba(245,244,241,0) 0%,rgba(245,244,241,.04) 18%,rgba(245,244,241,.14) 36%,rgba(245,244,241,.32) 54%,rgba(245,244,241,.56) 70%,rgba(245,244,241,.8) 84%,rgba(245,244,241,.95) 94%,#f5f4f1 100%);}
+
+.imx-srv__head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(40px,5vw,64px);}
+.imx-srv__head .imx-h2{margin-top:22px;}
+
+/* видео: на всю ширину, 16:9 (не выше 82% экрана) */
+.imx-srv__video{position:relative;aspect-ratio:16/9;max-height:82vh;width:100%;border-radius:6px;overflow:hidden;background:var(--imx-bg2);isolation:isolate;}
+.imx-srv__poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
+.imx-srv__frame{position:absolute;top:50%;left:50%;width:100%;aspect-ratio:16/9;min-height:100%;transform:translate(-50%,-50%) scale(1.18);border:0;pointer-events:none;z-index:-1;opacity:0;transition:opacity 1.2s;}
+.imx-srv__frame.is-on{opacity:1;}
+.imx-srv__video::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(10,10,11,.82) 0%,rgba(10,10,11,.55) 28%,rgba(10,10,11,0) 55%),linear-gradient(0deg,rgba(10,10,11,.6) 0%,rgba(10,10,11,0) 40%);}
+
+.imx-srv__wrapv{position:relative;}
+.imx-srv__book{position:absolute;left:0;bottom:0;top:0;width:min(440px,42%);padding:clamp(28px,3vw,48px);display:flex;flex-direction:column;justify-content:flex-end;gap:18px;}
+.imx-srv__book-t{font:300 clamp(28px,2.6vw,40px)/1.05 var(--imx-display);letter-spacing:-.03em;}
+.imx-srv__book-t b{font-weight:500;}
+.imx-srv__tel{font:400 clamp(20px,1.7vw,24px)/1 var(--imx-display);letter-spacing:-.01em;color:var(--imx-fg);text-decoration:none;}
+.imx-srv__tel:hover{color:var(--imx-accent);}
+.imx-srv__addr{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--imx-mute);}
+.imx-srv__addr i{flex:0 0 8px;height:8px;border-radius:50%;background:var(--imx-accent);box-shadow:0 0 0 6px rgba(229,115,73,.18);}
+.imx-srv__btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+
+/* кнопка «смотреть со звуком» */
+.imx-srv__play{position:absolute;right:clamp(20px,2.6vw,40px);bottom:clamp(20px,2.6vw,40px);display:flex;align-items:center;gap:14px;color:var(--imx-fg);font:500 13px/1 var(--imx-text);letter-spacing:.04em;text-decoration:none;cursor:pointer;}
+.imx-srv__play-c{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(244,242,238,.12);border:1px solid rgba(244,242,238,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .35s,border-color .35s,transform .5s var(--imx-ease);}
+.imx-srv__play-c svg{width:18px;height:18px;margin-left:3px;}
+.imx-srv__play:hover .imx-srv__play-c{background:var(--imx-accent);border-color:var(--imx-accent);transform:scale(1.06);}
+
+/* окно с видео со звуком */
+.imx-srv__lb{position:fixed;inset:0;z-index:9999;background:rgba(5,5,6,.92);display:grid;place-items:center;padding:clamp(16px,4vw,64px);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;}
+.imx-srv__lb.is-open{opacity:1;visibility:visible;}
+.imx-srv__lb-box{width:min(1280px,100%);aspect-ratio:16/9;max-height:100%;background:#000;border-radius:6px;overflow:hidden;}
+.imx-srv__lb-box iframe{width:100%;height:100%;border:0;display:block;}
+.imx-srv__lb-x{position:absolute;top:max(16px,env(safe-area-inset-top));right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(244,242,238,.3);background:none;color:var(--imx-fg);cursor:pointer;font:300 26px/1 var(--imx-display);}
+.imx-srv__lb-x:hover{border-color:var(--imx-fg);}
+
+/* 6 услуг: 3×2 */
+.imx-srv__list{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;margin-top:2px;}
+.imx-srv__list li{position:relative;background:var(--imx-bg2);border-radius:4px;padding:clamp(24px,2.4vw,34px);display:flex;flex-direction:column;gap:14px;min-height:210px;overflow:hidden;transition:background .5s;}
+.imx-srv__list li::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--imx-accent);transition:width .8s var(--imx-ease);}
+.imx-srv__list li:hover{background:var(--imx-bg3);}
+.imx-srv__list li:hover::before{width:100%;}
+.imx-srv__top{display:flex;justify-content:space-between;align-items:flex-start;}
+.imx-srv__ic{width:30px;height:30px;color:var(--imx-accent);}
+.imx-srv__n{font:300 13px/1 var(--imx-display);letter-spacing:.1em;color:var(--imx-dim);}
+.imx-srv__t{font:400 clamp(19px,1.5vw,22px)/1.2 var(--imx-display);letter-spacing:-.02em;margin-top:auto;}
+.imx-srv__d{font-size:13.5px;line-height:1.6;color:var(--imx-mute);}
+
+@media (max-width:1000px){
+  .imx-srv__head{flex-direction:column;align-items:flex-start;gap:20px;}
+  .imx-srv__list{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+/* телефон: видео сверху, карточка записи под ним */
+@media (max-width:700px){
+  .imx-srv__wrapv{background:var(--imx-bg2);border-radius:6px;overflow:hidden;}
+  .imx-srv__video{border-radius:0;}
+  .imx-srv__video::after{background:linear-gradient(0deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,0) 45%);}
+  .imx-srv__book{position:static;width:auto;padding:24px 22px 26px;}
+  .imx-srv__play{right:14px;bottom:14px;}
+  .imx-srv__play-c{width:52px;height:52px;}
+  .imx-srv__play-l{display:none;}
+  .imx-srv__btns .imx-btn{flex:1 1 auto;}
+  .imx-srv__list{grid-template-columns:1fr;gap:8px;margin-top:8px;}
+  /* компактный список: значок слева, заголовок и текст справа, номер в углу */
+  .imx-srv__list li{min-height:0;padding:18px 18px 20px 16px;display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:16px;row-gap:6px;align-items:start;}
+  .imx-srv__top{display:contents;}
+  .imx-srv__ic{grid-row:1/3;width:28px;height:28px;margin-top:1px;}
+  .imx-srv__n{position:absolute;top:19px;right:18px;font-size:12px;}
+  .imx-srv__t{margin-top:0;padding-right:30px;font-size:18px;}
+  .imx-srv__d{font-size:13px;}
+}
+</style>
+
+<section class="imx imx-srv" id="imxService">
+  <div class="imx-wrap">
+    <div class="imx-srv__head">
+      <div class="imx-r">
+        <span class="imx-eyebrow"><span data-l="az">Servis · ONVOLT</span><span data-l="ru">Сервис · ONVOLT</span><span data-l="en">Service · ONVOLT</span></span>
+        <h2 class="imx-h2"><span data-l="az">Avtomobilin öz<br><b>səviyyəsində servis.</b></span><span data-l="ru">Сервис уровня<br><b>самого автомобиля.</b></span><span data-l="en">Service that<br><b>matches the car.</b></span></h2>
+      </div>
+      <p class="imx-lead imx-r" data-d="1"><span data-l="az">ONVOLT servis mərkəzi IM standartları ilə işləyir: orijinal hissələr, təlim keçmiş mütəxəssislər və elektromobillər üçün xüsusi avadanlıq.</span><span data-l="ru">Сервисный центр ONVOLT работает по стандартам IM: оригинальные запчасти, обученные специалисты и оборудование для электромобилей.</span><span data-l="en">The ONVOLT service centre works to IM standards: genuine parts, trained specialists and dedicated EV equipment.</span></p>
+    </div>
+
+    <div class="imx-srv__wrapv imx-r">
+      <div class="imx-srv__video" id="imxSrvVideo" data-yt="OIym9a9j1Co">
+        <img class="imx-srv__poster" loading="lazy" alt="IM Motors Azərbaycan — texniki xidmət mərkəzi" src="https://i.ytimg.com/vi/OIym9a9j1Co/maxresdefault.jpg" />
+        <a class="imx-srv__play" id="imxSrvPlay" href="https://www.youtube.com/watch?v=OIym9a9j1Co" target="_blank" rel="noopener">
+          <span class="imx-srv__play-l"><span data-l="az">Videonu izlə</span><span data-l="ru">Смотреть видео</span><span data-l="en">Watch the film</span></span>
+          <span class="imx-srv__play-c"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9.5-5.5z"/></svg></span>
+        </a>
+      </div>
+      <div class="imx-srv__book">
+        <div class="imx-srv__book-t"><span data-l="az">Servisə<br><b>yazılın.</b></span><span data-l="ru">Запишитесь<br><b>на сервис.</b></span><span data-l="en">Book<br><b>a service.</b></span></div>
+        <a class="imx-srv__tel" href="tel:+994994400007">+994 99 440 00 07</a>
+        <div class="imx-srv__addr"><i></i><span data-l="az">Ceyhun Hacıbəyli 194, Bakı</span><span data-l="ru">Джейхун Гаджибейли 194, Баку</span><span data-l="en">194 Jeyhun Hajibeyli St, Baku</span></div>
+        <div class="imx-srv__btns">
+          <a class="imx-btn imx-btn--solid" href="https://wa.me/994994400007" target="_blank" rel="noopener"><span data-l="az">WhatsApp ilə yazıl</span><span data-l="ru">Записаться в WhatsApp</span><span data-l="en">Book via WhatsApp</span></a>
+          <a class="imx-btn imx-btn--ghost" href="tel:+994994400007"><span data-l="az">Zəng et</span><span data-l="ru">Позвонить</span><span data-l="en">Call</span></a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="imx-srv__list">
+      <li class="imx-r">
+        <div class="imx-srv__top"><svg class="imx-srv__ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 5.5a6 6 0 0 0-7.6 7.6L5 21a2.8 2.8 0 0 0 4 4l7.9-7.9a6 6 0 0 0 7.6-7.6l-3.6 3.6-3.2-.8-.8-3.2z"/></svg><span class="imx-srv__n">01</span></div>
+        <div class="imx-srv__t"><span data-l="az">Planlı texniki xidmət</span><span data-l="ru">Плановое ТО</span><span data-l="en">Scheduled maintenance</span></div>
+        <p class="imx-srv__d"><span data-l="az">İstehsalçının reqlamentinə uyğun baxış, mayelər və filtrlər.</span><span data-l="ru">Обслуживание по регламенту производителя: жидкости, фильтры, осмотр.</span><span data-l="en">Maintenance to the manufacturer's schedule: fluids, filters, inspection.</span></p>
+      </li>
+      <li class="imx-r" data-d="1">
+        <div class="imx-srv__top"><svg class="imx-srv__ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="24" height="17" rx="2"/><path d="M8 15h4l2-4 3 8 2-4h5M12 27h8M16 23v4"/></svg><span class="imx-srv__n">02</span></div>
+        <div class="imx-srv__t"><span data-l="az">Kompüter diaqnostikası</span><span data-l="ru">Компьютерная диагностика</span><span data-l="en">Computer diagnostics</span></div>
+        <p class="imx-srv__d"><span data-l="az">Rəsmi IM avadanlığı ilə bütün sistemlərin yoxlanışı.</span><span data-l="ru">Проверка всех систем на официальном оборудовании IM.</span><span data-l="en">Every system checked on official IM equipment.</span></p>
+      </li>
+      <li class="imx-r" data-d="2">
+        <div class="imx-srv__top"><svg class="imx-srv__ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="22" height="14" rx="2"/><path d="M26 13.5h2v5h-2M15.5 11.5l-3 5h5l-3 5"/></svg><span class="imx-srv__n">03</span></div>
+        <div class="imx-srv__t"><span data-l="az">Yüksək gərginlikli batareya</span><span data-l="ru">Высоковольтная батарея</span><span data-l="en">High-voltage battery</span></div>
+        <p class="imx-srv__d"><span data-l="az">Batareyanın vəziyyətinin yoxlanışı və elektrik sisteminə xidmət.</span><span data-l="ru">Проверка состояния батареи и обслуживание электросистемы.</span><span data-l="en">Battery health checks and electrical system service.</span></p>
+      </li>
+      <li class="imx-r">
+        <div class="imx-srv__top"><svg class="imx-srv__ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M26 16a10 10 0 0 1-17.3 6.8M6 16A10 10 0 0 1 23.3 9.2"/><path d="M23.6 4.5v5h-5M8.4 27.5v-5h5M16 11.5v7M13 15.5l3 3 3-3"/></svg><span class="imx-srv__n">04</span></div>
+        <div class="imx-srv__t"><span data-l="az">Proqram yeniləmələri</span><span data-l="ru">Обновления ПО</span><span data-l="en">Software updates</span></div>
+        <p class="imx-srv__d"><span data-l="az">IM AIOS və avtomobil sistemləri üçün yeniləmələr.</span><span data-l="ru">Обновления IM AIOS и систем автомобиля.</span><span data-l="en">Updates for IM AIOS and vehicle systems.</span></p>
+      </li>
+      <li class="imx-r" data-d="1">
+        <div class="imx-srv__top"><svg class="imx-srv__ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 27 10v12L16 28 5 22V10z"/><path d="M5 10l11 6 11-6M16 16v12"/></svg><span class="imx-srv__n">05</span></div>
+        <div class="imx-srv__t"><span data-l="az">Orijinal ehtiyat hissələri</span><span data-l="ru">Оригинальные запчасти</span><span data-l="en">Genuine parts</span></div>
+        <p class="imx-srv__d"><span data-l="az">Yalnız IM-in orijinal hissələri və aksesuarları.</span><span data-l="ru">Только оригинальные запчасти и аксессуары IM.</span><span data-l="en">Only genuine IM parts and accessories.</span></p>
+      </li>
+      <li class="imx-r" data-d="2">
+        <div class="imx-srv__top"><svg class="imx-srv__ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5v-3.2l3-1.3 3.4-5h11l4.6 5 2 .8v3.7H4z"/><circle cx="9.5" cy="21" r="2.5"/><circle cx="22.5" cy="21" r="2.5"/><path d="M13 11v5M4 16h24"/></svg><span class="imx-srv__n">06</span></div>
+        <div class="imx-srv__t"><span data-l="az">Kuzov və boya işləri</span><span data-l="ru">Кузовной ремонт и покраска</span><span data-l="en">Body and paint</span></div>
+        <p class="imx-srv__d"><span data-l="az">Zavod texnologiyası ilə bərpa və rəngin dəqiq seçimi.</span><span data-l="ru">Восстановление по заводской технологии и точный подбор цвета.</span><span data-l="en">Factory-standard repair and precise colour matching.</span></p>
+      </li>
+    </ul>
+  </div>
+
+  <div class="imx-srv__lb" id="imxSrvLb" role="dialog" aria-modal="true" aria-label="Video">
+    <button class="imx-srv__lb-x" type="button" aria-label="Bağla">×</button>
+    <div class="imx-srv__lb-box"></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var box=document.getElementById('imxSrvVideo'); if(!box) return;
+  var id=box.getAttribute('data-yt');
+  // в превью-ссылке чужие плееры не открываются: остаётся обложка, кнопка ведёт на YouTube
+  var preview=document.documentElement.hasAttribute('data-imx-preview');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // фоновое видео без звука, по кругу; грузится, только когда блок рядом с экраном
+  if(!preview && !reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      if(!es[0].isIntersecting) return; io.disconnect();
+      var f=document.createElement('iframe');
+      f.className='imx-srv__frame'; f.title='IM service'; f.setAttribute('tabindex','-1');
+      f.allow='autoplay; encrypted-media';
+      f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute=1&loop=1&playlist='+id+'&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&cc_load_policy=0&enablejsapi=1';
+      // YouTube сам включает субтитры у видео без звука — выключаем их через API плеера
+      function noCc(){try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:'unloadModule',args:['captions']}),'*');}catch(e){}}
+      f.addEventListener('load',function(){[600,1500,3000,6000].forEach(function(t){setTimeout(noCc,t);});setTimeout(function(){f.classList.add('is-on');},1800);});
+      box.insertBefore(f,box.firstChild.nextSibling);
+    },{rootMargin:'300px'});
+    io.observe(box);
+  }
+
+  // по кнопке — видео со звуком поверх страницы
+  var lb=document.getElementById('imxSrvLb'), lbBox=lb.querySelector('.imx-srv__lb-box');
+  function close(){lb.classList.remove('is-open');setTimeout(function(){lbBox.innerHTML='';},400);}
+  document.getElementById('imxSrvPlay').addEventListener('click',function(e){
+    if(preview) return;
+    e.preventDefault();
+    lbBox.innerHTML='<iframe allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="IM Motors Azərbaycan — texniki xidmət mərkəzi" src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1"></iframe>';
+    lb.classList.add('is-open');
+  });
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('imx-srv__lb-x')) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('is-open')) close();});
+})();
+</script>

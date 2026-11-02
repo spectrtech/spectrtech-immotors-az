@@ -1,0 +1,30 @@
+<!-- ════════════════════════════════════
+  e1-404.html — страница 404 (Tilda: Настройки сайта → 404). Отдельный блок, отступы блока = 0.
+════════════════════════════════════ -->
+<style>
+.imx-404{min-height:100vh;min-height:100svh;display:flex;align-items:center;background:radial-gradient(ellipse 60% 50% at 70% 40%,#1c1c20 0%,var(--imx-bg) 70%);}
+.imx-404__in{padding-top:140px;padding-bottom:90px;width:100%;}
+.imx-404__num{font:200 clamp(120px,22vw,320px)/.8 var(--imx-display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(244,242,238,.35);}
+.imx-404__t{font:300 clamp(32px,4vw,56px)/1.05 var(--imx-display);letter-spacing:-.035em;margin:28px 0 16px;}
+.imx-404__t b{font-weight:500;}
+.imx-404__acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px;}
+.imx-404__models{display:flex;gap:8px;flex-wrap:wrap;margin-top:48px;}
+.imx-404__models a{padding:10px 16px;border:1px solid var(--imx-line);border-radius:999px;font:400 15px/1 var(--imx-brand);transition:border-color .3s,background .3s;}
+.imx-404__models a b{font-weight:700;}
+.imx-404__models a:hover{border-color:var(--imx-fg);background:rgba(244,242,238,.06);}
+</style>
+
+<section class="imx imx-404" id="imx404">
+  <div class="imx-wrap imx-404__in">
+    <div class="imx-404__num" aria-hidden="true">404</div>
+    <h1 class="imx-404__t"><span data-l="az">Bu yol <b>bağlıdır.</b></span><span data-l="ru">Эта дорога <b>закрыта.</b></span><span data-l="en">This road <b>is closed.</b></span></h1>
+    <p class="imx-lead"><span data-l="az">Axtardığınız səhifə köçürülüb və ya mövcud deyil. Ana səhifəyə qayıdın və ya modelləri seçin.</span><span data-l="ru">Страница, которую вы ищете, перемещена или не существует. Вернитесь на главную или выберите модель.</span><span data-l="en">The page you're looking for has moved or doesn't exist. Head back home or pick a model.</span></p>
+    <div class="imx-404__acts">
+      <a class="imx-btn imx-btn--solid" href="/"><span data-l="az">Ana səhifə</span><span data-l="ru">На главную</span><span data-l="en">Home</span></a>
+      <a class="imx-btn imx-btn--ghost" href="/testdrive"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+    </div>
+    <div class="imx-404__models">
+      <a href="/ls9">IM <b>LS9</b></a><a href="/ls8">IM <b>LS8</b></a><a href="/ls6">IM <b>LS6</b></a><a href="/ls7">IM <b>LS7</b></a><a href="/l7">IM <b>L7</b></a><a href="/l6">IM <b>L6</b></a>
+    </div>
+  </div>
+</section>

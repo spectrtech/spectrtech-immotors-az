@@ -1,0 +1,20 @@
+# SpectrTech · сайт со встроенным редактором на Cloudflare Workers
+# 1) npx wrangler kv namespace create ST_KV  → вставьте id ниже
+# 2) npx wrangler secret put ST_PASSWORD     → начальный пароль редактора
+# 3) npx wrangler deploy
+name = "{{SLUG}}"
+main = "worker.js"
+compatibility_date = "2026-01-15"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "none"
+# адреса как на обычном хостинге: /via.html открывается без перенаправления на /via
+html_handling = "none"
+# Worker запускается только для главной (/ → index.html), API, контента и фото; остальные файлы Cloudflare отдаёт сам
+run_worker_first = ["/", "/api/*", "/content/site.js", "/uploads/*"]
+
+[[kv_namespaces]]
+binding = "ST_KV"
+id = "ВСТАВЬТЕ_ID_KV"

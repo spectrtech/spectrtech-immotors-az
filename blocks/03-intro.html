@@ -1,0 +1,158 @@
+<!-- ════════════════════════════════════
+  03-intro.html — T123. Отступы блока = 0.
+  Манифест бренда: слова «загораются» по мере скролла. Ниже — цифры со счётчиком.
+════════════════════════════════════ -->
+<style>
+.imx-intro{background:var(--imx-bg);padding:clamp(100px,14vw,200px) 0 clamp(80px,10vw,140px);}
+.imx-intro__grid{display:grid;grid-template-columns:220px 1fr;gap:40px;}
+.imx-intro__text{font:300 clamp(28px,3.9vw,58px)/1.12 var(--imx-display);letter-spacing:-.035em;}
+.imx-intro__text .w{color:rgba(244,242,238,.16);transition:color .5s;}
+.imx-intro__text .w.on{color:var(--imx-fg);}
+.imx-intro__text em{font-style:normal;}
+.imx-intro__text em .w.on{color:var(--imx-accent);}
+
+.imx-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(72px,9vw,130px);border-top:1px solid var(--imx-line);}
+.imx-stat{padding:32px 24px 0 0;}
+.imx-stat + .imx-stat{padding-left:24px;border-left:1px solid var(--imx-line);}
+.imx-stat__n{font:200 clamp(44px,5vw,76px)/1 var(--imx-display);letter-spacing:-.05em;white-space:nowrap;}
+.imx-stat__n sup{font-size:.36em;font-weight:400;letter-spacing:0;color:var(--imx-accent);vertical-align:top;margin-left:4px;position:relative;top:.35em;}
+.imx-stat__l{font-size:13px;color:var(--imx-mute);margin-top:14px;max-width:200px;}
+
+/* ── партнёры: сетка 5×2 из фото-плиток, подпись лежит на фото, края затемнены ── */
+.imx-ally{margin-top:clamp(80px,9vw,130px);}
+.imx-ally__title{font:300 clamp(28px,3vw,44px)/1.05 var(--imx-display);letter-spacing:-.035em;margin:20px 0 0;}
+.imx-ally__title b{font-weight:500;}
+.imx-ally__list{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:clamp(32px,4vw,48px);}
+.imx-ally__list li{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:16/11;background:var(--imx-bg2);isolation:isolate;}
+.imx-ally__ph{position:absolute;inset:0;z-index:-1;}
+.imx-ally__ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.2s var(--imx-ease),filter .6s;filter:brightness(.92);}
+.imx-ally__list li:hover .imx-ally__ph img{transform:scale(1.08);filter:none;}
+/* затемнённые края + тёмный низ под подписью */
+.imx-ally__ph::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 85% 80% at 50% 40%,rgba(10,10,11,0) 40%,rgba(10,10,11,.55) 80%,rgba(10,10,11,.92) 100%),
+             linear-gradient(0deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.35) 38%,rgba(10,10,11,0) 60%);}
+.imx-ally__list li::after{content:"";position:absolute;inset:0;border:1px solid rgba(244,242,238,.08);border-radius:inherit;pointer-events:none;transition:border-color .5s;}
+.imx-ally__list li:hover::after{border-color:rgba(229,115,73,.55);}
+.imx-ally__list div{position:absolute;left:16px;right:16px;bottom:14px;display:flex;flex-direction:column;gap:3px;}
+.imx-ally__list b{font:500 17px/1.15 var(--imx-display);letter-spacing:-.01em;color:var(--imx-fg);}
+.imx-ally__list span{font-size:12px;line-height:1.35;color:var(--imx-mute);}
+@media (max-width:1100px){.imx-ally__list{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:420px){.imx-ally__list{gap:8px;}.imx-ally__list div{left:12px;right:12px;bottom:10px;}.imx-ally__list b{font-size:15px;}.imx-ally__list span{font-size:11px;}}
+@media (max-width:900px){
+  .imx-intro__grid{grid-template-columns:1fr;gap:28px;}
+  .imx-stats{grid-template-columns:1fr 1fr;}
+  .imx-stat{padding:26px 16px 26px 0;}
+  .imx-stat + .imx-stat{padding-left:16px;}
+  .imx-stat:nth-child(3){padding-left:0;border-left:0;}
+  .imx-stat:nth-child(n+3){border-top:1px solid var(--imx-line);}
+}
+</style>
+
+<section class="imx imx-intro" id="imxIntro">
+  <div class="imx-wrap">
+    <div class="imx-intro__grid">
+      <div><span class="imx-eyebrow imx-r"><span data-l="az">IM Motors</span><span data-l="ru">IM Motors</span><span data-l="en">IM Motors</span></span></div>
+      <p class="imx-intro__text" id="imxIntroText">
+        <span data-l="az">SAIC, Alibaba və Zhangjiang Hi-Tech-in birgə yaratdığı premium elektrik brendi. Hər model bir məqsədlə qurulub: <em>intellekti hərəkətə gətirmək.</em> İndi rəsmi olaraq Azərbaycanda.</span>
+        <span data-l="ru">Премиальный электробренд, созданный SAIC, Alibaba и Zhangjiang Hi-Tech. Каждая модель построена ради одной цели: <em>привести интеллект в движение.</em> Теперь официально в Азербайджане.</span>
+        <span data-l="en">A premium electric brand created by SAIC, Alibaba and Zhangjiang Hi-Tech. Every model is built for one purpose: <em>to put intelligence in motion.</em> Now officially in Azerbaijan.</span>
+      </p>
+    </div>
+
+    <div class="imx-stats">
+      <div class="imx-stat imx-r">
+        <div class="imx-stat__n"><span data-count="43.6" data-dec="1">43.6</span><sup>km</sup></div>
+        <div class="imx-stat__l"><span data-l="az">Ginnes rekordu: elektromobilin ən uzun drifti (IM L7, Porsche Taycan-ı geridə qoyub)</span><span data-l="ru">рекорд Гиннесса: самый длинный дрифт электромобиля (IM L7, обошёл Porsche Taycan)</span><span data-l="en">Guinness World Record: longest EV drift (IM L7, beating the Porsche Taycan)</span></div>
+      </div>
+      <div class="imx-stat imx-r" data-d="1">
+        <div class="imx-stat__n"><span data-count="800">800</span><sup>V</sup></div>
+        <div class="imx-stat__l"><span data-l="az">yüksəkgərginlikli arxitektura — EV və EREV modellərində</span><span data-l="ru">высоковольтная архитектура — и у EV, и у EREV</span><span data-l="en">high-voltage architecture — on both EV and EREV models</span></div>
+      </div>
+      <div class="imx-stat imx-r" data-d="2">
+        <div class="imx-stat__n">4<sup>WS</sup></div>
+        <div class="imx-stat__l"><span data-l="az">dörd təkərin elektron sükanı (steer-by-wire) — Lingxi şassisi</span><span data-l="ru">электронное рулевое всех четырёх колёс (steer-by-wire) — шасси Lingxi</span><span data-l="en">four-wheel steer-by-wire — Lingxi chassis</span></div>
+      </div>
+      <div class="imx-stat imx-r" data-d="3">
+        <div class="imx-stat__n"><span data-count="5">5</span><sup>★</sup></div>
+        <div class="imx-stat__l"><span data-l="az">Euro NCAP təhlükəsizlik reytinqi</span><span data-l="ru">рейтинг безопасности Euro NCAP</span><span data-l="en">Euro NCAP safety rating</span></div>
+      </div>
+    </div>
+
+    <!-- Партнёры IM — сетка 5×2 из фото-плиток с подписью на фото.
+         Источники: Gasgoo, CarNewsChina, 42how, EqualOcean. Nappa — по данным ONVOLT. Фото — официальный сайт IM. -->
+    <div class="imx-ally">
+      <div class="imx-ally__text">
+        <span class="imx-eyebrow imx-r"><span data-l="az">Texnoloji tərəfdaşlar</span><span data-l="ru">Технологические партнёры</span><span data-l="en">Technology partners</span></span>
+        <h3 class="imx-ally__title imx-r"><span data-l="az">Ən yaxşıların<br><b>ittifaqı.</b></span><span data-l="ru">IM создают —<br><b>лучшие в мире.</b></span><span data-l="en">IM is built by —<br><b>the world&rsquo;s best.</b></span></h3>
+      </div>
+      <ul class="imx-ally__list imx-r" data-d="1">
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:50% 60%" src="https://portal-static.immotors.com/images/portal/1784185404350%2540m1idtye3.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>Alibaba</b><span data-l="az">AIOS və Qwen süni intellekti</span><span data-l="ru">AIOS и ИИ Qwen</span><span data-l="en">AIOS and Qwen AI</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:62% 55%" src="https://portal-static.immotors.com/images/portal/1776305090858%254017w3pnl3.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>Momenta</b><span data-l="az">IM AD sürücüyə yardım</span><span data-l="ru">помощь водителю IM AD</span><span data-l="en">IM AD driver assistance</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:42% 45%" src="https://portal-static.immotors.com/images/portal/1784185376114%2540o6mn3yeg.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>NVIDIA</b><span data-l="az">DRIVE Thor · Orin-X</span><span data-l="ru">DRIVE Thor · Orin-X</span><span data-l="en">DRIVE Thor · Orin-X</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:55% 55%" src="https://portal-static.immotors.com/images/portal/1708769221794%2540yhgbwwnf.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1000/resize,w_720/quality,q_80/format,webp" /></span><div><b>Snapdragon</b><span data-l="az">8295 kabin çipi</span><span data-l="ru">чип салона 8295</span><span data-l="en">8295 cabin chip</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:50% 50%" src="https://portal-static.immotors.com/images/portal/1784182954136%2540py2gjh4m.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1080/resize,w_720/quality,q_80/format,webp" /></span><div><b>Bang &amp; Olufsen</b><span data-l="az">25 dinamikli audio</span><span data-l="ru">аудио на 25 динамиков</span><span data-l="en">25-speaker audio</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:50% 45%" src="https://portal-static.immotors.com/images/portal/1776305273801%2540hgyi4cjg.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>Nappa</b><span data-l="az">dəri salon</span><span data-l="ru">кожаный салон</span><span data-l="en">leather interior</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:72% 40%" src="https://portal-static.immotors.com/images/portal/1784183733239%2540i06tehxg.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>CATL</b><span data-l="az">batareyalar</span><span data-l="ru">батареи</span><span data-l="en">batteries</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:48% 38%" src="https://portal-static.immotors.com/images/portal/1784183528651%2540bwr49vir.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>Continental</b><span data-l="az">hava asqısı</span><span data-l="ru">пневмоподвеска</span><span data-l="en">air suspension</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:40% 55%" src="https://portal-static.immotors.com/images/portal/1784185229057%2540f2uztmpm.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>Brembo</b><span data-l="az">əyləclər</span><span data-l="ru">тормоза</span><span data-l="en">brakes</span></div></li>
+        <li><span class="imx-ally__ph"><img loading="lazy" alt="" style="object-position:62% 40%" src="https://portal-static.immotors.com/images/portal/1776342678687%2540q5qocx1i.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1150/resize,w_720/quality,q_80/format,webp" /></span><div><b>Bosch</b><span data-l="az">sükan sistemi</span><span data-l="ru">рулевое управление</span><span data-l="en">steering</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var box=document.getElementById('imxIntroText'); if(!box) return;
+
+  // разбиваем текст каждого языка на слова
+  function split(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part) return;
+          if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));return;}
+          var s=document.createElement('span'); s.className='w'; s.textContent=part; frag.appendChild(s);
+        });
+        n.parentNode.replaceChild(frag,n);
+      } else if(n.nodeType===1){ split(n); }
+    });
+  }
+  split(box);
+
+  function paint(){
+    var words=box.querySelectorAll('[data-l]:not([style*="none"]) .w');
+    var visible=Array.prototype.filter.call(words,function(w){return w.offsetParent!==null;});
+    var r=box.getBoundingClientRect(), vh=window.innerHeight;
+    // 0 когда верх текста у 85% экрана, 1 когда низ текста у 45%
+    var p=(vh*.85-r.top)/(r.height+vh*.4);
+    p=Math.max(0,Math.min(1,p));
+    var n=Math.round(p*visible.length);
+    visible.forEach(function(w,i){w.classList.toggle('on',i<n);});
+  }
+  window.addEventListener('scroll',paint,{passive:true});
+  window.addEventListener('resize',paint);
+  document.addEventListener('imx:lang',paint);
+  paint();
+
+  // счётчики
+  var nums=document.querySelectorAll('.imx-intro [data-count]');
+  function count(el){
+    var to=parseFloat(el.getAttribute('data-count')), dec=+(el.getAttribute('data-dec')||0), t0=null, D=1600;
+    function step(t){
+      if(!t0) t0=t;
+      var k=Math.min(1,(t-t0)/D), e=1-Math.pow(1-k,4);
+      el.textContent=(to*e).toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+      if(k<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){count(e.target);io.unobserve(e.target);}});
+    },{threshold:.6});
+    nums.forEach(function(n){io.observe(n);});
+  }
+})();
+</script>

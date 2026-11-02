@@ -1,0 +1,141 @@
+<!-- ════════════════════════════════════
+  05-tech.html — T123. Отступы блока = 0.
+  Три технологии IM: на десктопе — раскрывающиеся панели (hover/клик), на мобильных — карточки.
+════════════════════════════════════ -->
+<style>
+.imx-tech{background:#f5f4f1;padding:clamp(60px,7vw,110px) 0 clamp(80px,9vw,140px);}
+/* светлый фон: заголовок и подзаголовок тёмные, панели с фото остаются тёмными */
+.imx-tech__head{--imx-fg:#0a0a0b;--imx-mute:rgba(10,10,11,.62);color:var(--imx-fg);}
+.imx-tech__head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(40px,5vw,64px);}
+.imx-tech__head .imx-h2{margin-top:22px;}
+
+.imx-tech__row{display:flex;gap:2px;height:min(78vh,720px);min-height:560px;}
+.imx-tech__p{position:relative;flex:1;overflow:hidden;border-radius:4px;cursor:pointer;transition:flex 1s var(--imx-ease);background:var(--imx-bg2);}
+.imx-tech__p.is-open{flex:2.8;cursor:default;}
+.imx-tech__p img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.6s var(--imx-ease),filter 1s;filter:grayscale(.6) brightness(.55);}
+.imx-tech__p.is-open img{transform:scale(1);filter:none;}
+.imx-tech__p::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.35) 45%,rgba(10,10,11,.1) 100%);}
+.imx-tech__in{position:absolute;inset:0;z-index:1;padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;}
+.imx-tech__num{font:300 14px/1 var(--imx-display);color:var(--imx-dim);letter-spacing:.1em;}
+.imx-tech__bottom{margin-top:auto;}
+.imx-tech__tag{font:500 11px/1 var(--imx-text);letter-spacing:.2em;text-transform:uppercase;color:var(--imx-accent);}
+.imx-tech__title{font:300 clamp(28px,2.8vw,44px)/1.02 var(--imx-display);letter-spacing:-.035em;margin-top:14px;}
+.imx-tech__more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .9s var(--imx-ease);}
+.imx-tech__p.is-open .imx-tech__more{grid-template-rows:1fr;}
+.imx-tech__more > div{overflow:hidden;min-height:0;}
+.imx-tech__more p{font-size:15px;line-height:1.6;color:var(--imx-mute);max-width:520px;margin-top:18px;opacity:0;transition:opacity .6s .2s;}
+.imx-tech__more ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-top:24px;padding-top:22px;border-top:1px solid var(--imx-line);max-width:620px;opacity:0;transition:opacity .6s .3s;}
+.imx-tech__p.is-open .imx-tech__more p,.imx-tech__p.is-open .imx-tech__more ul{opacity:1;}
+.imx-tech__more li{font-size:13px;color:var(--imx-fg);display:flex;gap:10px;}
+.imx-tech__more li::before{content:'';flex:0 0 5px;height:5px;margin-top:7px;border-radius:50%;background:var(--imx-accent);}
+.imx-tech__plus{position:absolute;top:clamp(24px,3vw,44px);right:clamp(24px,3vw,44px);width:36px;height:36px;border:1px solid var(--imx-line);border-radius:50%;display:grid;place-items:center;transition:opacity .4s,transform .6s var(--imx-ease);}
+.imx-tech__plus::before,.imx-tech__plus::after{content:'';position:absolute;width:12px;height:1px;background:var(--imx-fg);}
+.imx-tech__plus::after{transform:rotate(90deg);}
+.imx-tech__p.is-open .imx-tech__plus{opacity:0;transform:rotate(90deg);}
+
+@media (max-width:900px){
+  .imx-tech__head{flex-direction:column;align-items:flex-start;gap:20px;}
+  .imx-tech__row{flex-direction:column;height:auto;min-height:0;gap:12px;}
+  .imx-tech__p,.imx-tech__p.is-open{flex:none;height:auto;cursor:default;}
+  /* кадр телефона: свой сдвиг/увеличение (--mp, --mz, --mo) — у LS9 в кадр не попадает табличка с номером */
+  .imx-tech__p img,.imx-tech__p.is-open img{position:relative;height:260px;filter:none;object-position:var(--mp,50% 50%);transform:scale(var(--mz,1));transform-origin:var(--mo,50% 50%);}
+  .imx-tech__p::after{display:none;}
+  .imx-tech__in{position:relative;padding:24px 22px 28px;}
+  .imx-tech__num{position:absolute;top:-236px;left:22px;color:var(--imx-fg);}
+  .imx-tech__more{grid-template-rows:1fr;}
+  .imx-tech__more p,.imx-tech__more ul{opacity:1;}
+  .imx-tech__more ul{grid-template-columns:1fr;}
+  .imx-tech__plus{display:none;}
+  .imx-tech__title{white-space:normal;}
+}
+</style>
+
+<section class="imx imx-tech" id="imxTech">
+  <div class="imx-wrap">
+    <div class="imx-tech__head">
+      <div class="imx-r">
+        <span class="imx-eyebrow"><span data-l="az">Texnologiya</span><span data-l="ru">Технологии</span><span data-l="en">Technology</span></span>
+        <h2 class="imx-h2"><span data-l="az">Üç sütun üzərində<br><b>qurulub.</b></span><span data-l="ru">Построено на<br><b>трёх опорах.</b></span><span data-l="en">Built on<br><b>three pillars.</b></span></h2>
+      </div>
+      <p class="imx-lead imx-r" data-d="1"><span data-l="az">Ağıllı kabin, rəqəmsal şassi və müstəqil sürücülük — hər IM avtomobilinin əsasında dayanan platformalar.</span><span data-l="ru">Умный салон, цифровое шасси и автономное вождение — платформы, на которых построен каждый IM.</span><span data-l="en">An intelligent cabin, a digital chassis and autonomous driving — the platforms beneath every IM.</span></p>
+    </div>
+
+    <div class="imx-tech__row imx-r" id="imxTechRow">
+      <article class="imx-tech__p is-open">
+        <img loading="lazy" alt="IM AIOS" src="https://portal-static.immotors.com/images/portal/1708769221794%2540yhgbwwnf.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1000/resize,w_1600/quality,q_80/format,webp" />
+        <span class="imx-tech__plus"></span>
+        <div class="imx-tech__in">
+          <span class="imx-tech__num">01</span>
+          <div class="imx-tech__bottom">
+            <span class="imx-tech__tag"><span data-l="az">Ağıllı kabin</span><span data-l="ru">Умный салон</span><span data-l="en">Intelligent cabin</span></span>
+            <h3 class="imx-tech__title">IM AIOS</h3>
+            <div class="imx-tech__more"><div>
+              <p><span data-l="az">Alibaba ilə birgə yaradılmış «No Touch, No App» ekosistemi. Avtomobil sizi səsdən, jestdən və vərdişlərinizdən tanıyır.</span><span data-l="ru">Экосистема «No Touch, No App», созданная вместе с Alibaba. Автомобиль понимает вас по голосу, жестам и привычкам.</span><span data-l="en">A "No Touch, No App" ecosystem created with Alibaba. The car understands you by voice, gesture and habit.</span></p>
+              <ul>
+                <li><span data-l="az">Səs və jestlə idarəetmə</span><span data-l="ru">Управление голосом и жестами</span><span data-l="en">Voice and gesture control</span></li>
+                <li><span data-l="az">AI köməkçi və böyük dil modelləri</span><span data-l="ru">AI-ассистент и большие языковые модели</span><span data-l="en">AI assistant and large language models</span></li>
+                <li><span data-l="az">Yorğunluğun aşkarlanması</span><span data-l="ru">Распознавание усталости</span><span data-l="en">Fatigue detection</span></li>
+                <li>Snapdragon 8295</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="imx-tech__p">
+        <img loading="lazy" alt="Lingxi Digital Chassis" src="https://portal-static.immotors.com/images/portal/1749987577461%25400ocemw9h.jpeg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1080/resize,w_1600/quality,q_80/format,webp" />
+        <span class="imx-tech__plus"></span>
+        <div class="imx-tech__in">
+          <span class="imx-tech__num">02</span>
+          <div class="imx-tech__bottom">
+            <span class="imx-tech__tag"><span data-l="az">Rəqəmsal şassi</span><span data-l="ru">Цифровое шасси</span><span data-l="en">Digital chassis</span></span>
+            <h3 class="imx-tech__title">Lingxi Chassis</h3>
+            <div class="imx-tech__more"><div>
+              <p><span data-l="az">Asqı, sükan və əyləci vahid sistemdə birləşdirən şassi: avtomobil yola özü uyğunlaşır.</span><span data-l="ru">Шасси, объединяющее подвеску, рулевое управление и тормоза в одну систему: автомобиль сам подстраивается под дорогу.</span><span data-l="en">A chassis that unites suspension, steering and braking in one system: the car adapts to the road by itself.</span></p>
+              <ul>
+                <li><span data-l="az">Hava asqısı</span><span data-l="ru">Пневмоподвеска</span><span data-l="en">Air suspension</span></li>
+                <li><span data-l="az">Dörd təkərli sükan</span><span data-l="ru">Полноуправляемое шасси</span><span data-l="en">Four-wheel steering</span></li>
+                <li><span data-l="az">Təkər partlamasında sabitlik</span><span data-l="ru">Стабилизация при разрыве шины</span><span data-l="en">Tyre-blowout stability</span></li>
+                <li><span data-l="az">Çevrilməyə qarşı sistem</span><span data-l="ru">Система против опрокидывания</span><span data-l="en">Anti-rollover system</span></li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="imx-tech__p">
+        <img loading="lazy" alt="IM LS9 LiDAR" style="--mp:100% 50%;--mz:1.12;--mo:100% 100%" src="https://portal-static.immotors.com/images/portal/1784182866897%2540c51jlp1j.jpg?x-oss-process=image/crop,x_0,y_0,w_2592,h_1080/resize,w_1600/quality,q_80/format,webp" />
+        <span class="imx-tech__plus"></span>
+        <div class="imx-tech__in">
+          <span class="imx-tech__num">03</span>
+          <div class="imx-tech__bottom">
+            <span class="imx-tech__tag"><span data-l="az">Sürücüyə yardım</span><span data-l="ru">Помощь водителю</span><span data-l="en">Driver assistance</span></span>
+            <h3 class="imx-tech__title">IM AD</h3>
+            <div class="imx-tech__more"><div>
+              <p><span data-l="az">Momenta ilə hazırlanmış «end-to-end» sistem: LiDAR, kameralar və NVIDIA prosessoru yolu 360° görür.</span><span data-l="ru">Сквозная («end-to-end») система, созданная с Momenta: LiDAR, камеры и процессор NVIDIA видят дорогу на 360°.</span><span data-l="en">An end-to-end system developed with Momenta: LiDAR, cameras and an NVIDIA processor see the road in 360°.</span></p>
+              <ul>
+                <li><span data-l="az">520 kanallı LiDAR (LS9, LS8)</span><span data-l="ru">520-канальный LiDAR (LS9, LS8)</span><span data-l="en">520-channel LiDAR (LS9, LS8)</span></li>
+                <li>NVIDIA Thor / Orin X</li>
+                <li><span data-l="az">Avtomatik parklanma</span><span data-l="ru">Автоматическая парковка</span><span data-l="en">Automated parking</span></li>
+                <li><span data-l="az">Adaptiv kruiz və zolaq köməkçisi</span><span data-l="ru">Адаптивный круиз и удержание полосы</span><span data-l="en">Adaptive cruise and lane assist</span></li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var row=document.getElementById('imxTechRow'); if(!row) return;
+  var ps=row.querySelectorAll('.imx-tech__p');
+  function open(p){ps.forEach(function(x){x.classList.toggle('is-open',x===p);});}
+  var desk=matchMedia('(min-width:901px) and (hover:hover)');
+  ps.forEach(function(p){
+    p.addEventListener('click',function(){open(p);});
+    p.addEventListener('mouseenter',function(){if(desk.matches) open(p);});
+  });
+})();
+</script>

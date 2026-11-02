@@ -1,0 +1,235 @@
+<!-- ════════════════════════════════════
+  04-models.html — T123. Отступы блока = 0.
+  Витрина моделей: большая «сцена» с фото + переключатель из 6 моделей.
+  Характеристики — проверьте перед публикацией (CLTC, данные производителя).
+════════════════════════════════════ -->
+<style>
+.imx-models{position:relative;background:var(--imx-bg);padding:clamp(80px,9vw,140px) 0 clamp(150px,15vw,260px);}
+/* низ блока плавно светлеет в фон следующего (белого) блока технологий */
+.imx-models::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,12vw,210px);pointer-events:none;
+  background:linear-gradient(180deg,rgba(245,244,241,0) 0%,rgba(245,244,241,.04) 18%,rgba(245,244,241,.14) 36%,rgba(245,244,241,.32) 54%,rgba(245,244,241,.56) 70%,rgba(245,244,241,.8) 84%,rgba(245,244,241,.95) 94%,#f5f4f1 100%);}
+.imx-models__head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(40px,5vw,64px);}
+.imx-models__head .imx-h2{margin-top:22px;}
+
+.imx-stage{position:relative;aspect-ratio:16/8;min-height:520px;}
+.imx-stage__img{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--imx-ease);}
+.imx-stage__img.is-on{opacity:1;}
+.imx-stage__img img{width:100%;height:100%;object-fit:cover;object-position:var(--dp,50% 50%);transform:scale(1.06);transition:transform 1.6s var(--imx-ease);}
+.imx-stage__img.is-on img{transform:scale(1);}
+/* у кадра с надписью сверху (L6) верхний край уходит в тень */
+.imx-stage__img--fadetop::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,var(--imx-bg2) 0%,var(--imx-bg2) 19%,rgba(17,17,19,.6) 27%,rgba(17,17,19,0) 38%);}
+.imx-stage::after{content:none;}
+
+.imx-stage__info{position:absolute;z-index:2;left:0;bottom:clamp(8px,1.5vw,24px);top:clamp(8px,1.5vw,24px);display:grid;width:min(440px,32%);}
+.imx-stage__panel{grid-area:1/1;display:flex;flex-direction:column;justify-content:flex-end;visibility:hidden;}
+.imx-stage__panel > *{opacity:0;transform:translateY(18px);transition:opacity .6s var(--imx-ease),transform .8s var(--imx-ease);}
+.imx-stage__panel.is-on{visibility:visible;}
+.imx-stage__panel.is-on > *{opacity:1;transform:none;}
+.imx-stage__panel.is-on > :nth-child(2){transition-delay:.07s;}
+.imx-stage__panel.is-on > :nth-child(3){transition-delay:.14s;}
+.imx-stage__panel.is-on > :nth-child(4){transition-delay:.21s;}
+.imx-stage__panel.is-on > :nth-child(5){transition-delay:.28s;}
+.imx-stage__badge{align-self:flex-start;font:600 10px/1 var(--imx-text);letter-spacing:.16em;text-transform:uppercase;background:var(--imx-accent);color:#fff;padding:7px 10px;border-radius:2px;margin-bottom:auto;}
+.imx-stage__type{font:500 11px/1 var(--imx-text);letter-spacing:.2em;text-transform:uppercase;color:var(--imx-accent);}
+.imx-stage__name{font:400 clamp(50px,6vw,88px)/.92 var(--imx-brand);letter-spacing:-.02em;margin:14px 0 16px;}
+.imx-stage__name b{font-weight:700;}
+.imx-stage__desc{font-size:15px;line-height:1.6;color:var(--imx-mute);max-width:380px;}
+.imx-stage__specs{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:30px;margin:28px 0 30px;padding-top:24px;border-top:1px solid var(--imx-line);}
+.imx-stage__specs div{font:300 26px/1 var(--imx-display);letter-spacing:-.03em;white-space:nowrap;}
+.imx-stage__specs small{display:block;font:400 10px/1.3 var(--imx-text);letter-spacing:.14em;text-transform:uppercase;color:var(--imx-dim);margin-top:8px;white-space:normal;max-width:12em;}
+.imx-stage__acts{display:flex;gap:10px;flex-wrap:wrap;}
+
+.imx-picker{display:grid;grid-template-columns:repeat(6,1fr);margin-top:2px;gap:2px;}
+.imx-picker button{position:relative;text-align:left;padding:22px 20px 24px;background:var(--imx-bg2);color:var(--imx-dim);transition:background .4s,color .4s;}
+.imx-picker button:hover{background:var(--imx-bg3);color:var(--imx-mute);}
+.imx-picker button.is-on{background:var(--imx-bg3);color:var(--imx-fg);}
+.imx-picker button::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:var(--imx-accent);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--imx-ease);}
+.imx-picker button.is-on::before{transform:scaleX(1);}
+.imx-picker b{display:block;font:700 20px/1 var(--imx-brand);letter-spacing:0;}
+.imx-picker small{display:block;font-size:12px;margin-top:8px;}
+
+.imx-models__note{font-size:11px;color:var(--imx-dim);margin-top:18px;}
+
+@media (max-width:1024px){
+  .imx-stage{aspect-ratio:auto;height:640px;}
+  .imx-picker{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:700px){
+  .imx-models__head{flex-direction:column;align-items:flex-start;gap:20px;}
+  .imx-stage{height:auto;min-height:0;display:flex;flex-direction:column;margin:0 calc(var(--imx-pad) * -1);background:var(--imx-bg2);}
+  /* overflow:hidden — иначе увеличенные фото вылезали за экран и страница «плыла» вбок */
+  .imx-stage__media{position:relative;aspect-ratio:4/3;overflow:hidden;}
+  /* кадр телефона: у каждого фото свой сдвиг и увеличение (--mp, --mz, --mtx, --mty) — машины одного размера и по центру */
+  .imx-stage__img > img{object-position:var(--mp,50% 50%);transform:translate(var(--mtx,0),var(--mty,0)) scale(calc(var(--mz,1) * 1.06));}
+  .imx-stage__img.is-on > img{transform:translate(var(--mtx,0),var(--mty,0)) scale(var(--mz,1));}
+  .imx-stage::after{display:none;}
+  .imx-stage__media::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--imx-bg2) 0%,rgba(17,17,19,0) 45%);}
+  .imx-stage__info{position:relative;inset:auto;width:auto;padding:0 var(--imx-pad) 28px;margin-top:-56px;}
+  .imx-stage__badge{margin-bottom:14px;}
+  .imx-stage__specs{gap:20px;}
+  .imx-stage__specs div{font-size:21px;}
+  .imx-stage__acts .imx-btn{flex:1;}
+  .imx-picker{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:2px calc(var(--imx-pad) * -1) 0;padding:0 var(--imx-pad);scrollbar-width:none;}
+  .imx-picker::-webkit-scrollbar{display:none;}
+  .imx-picker button{flex:0 0 132px;scroll-snap-align:start;padding:18px 16px 20px;}
+}
+/* на компьютере: фото на всю ширину, слева тёмный полупрозрачный слой (80%, т.е. 20% прозрачности) под текстом */
+@media (min-width:701px){
+  .imx-stage__media{position:absolute;inset:0;border-radius:6px;overflow:hidden;background:var(--imx-bg2);}
+  .imx-stage__media::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(244,242,238,.06);
+    background:linear-gradient(90deg,rgba(10,10,11,.8) 0%,rgba(10,10,11,.8) 30%,rgba(10,10,11,0) 52%),linear-gradient(0deg,rgba(10,10,11,.35) 0%,rgba(10,10,11,0) 30%);}
+  .imx-stage__info{left:clamp(24px,3vw,48px);}
+  /* чёткое фото — правые 62%, слева то же фото размыто и затемнено: машина не уходит под текст */
+  .imx-stage__img::before{content:"";position:absolute;inset:-40px;background:var(--bg) center/cover no-repeat;filter:blur(30px) brightness(.5) saturate(1.1);}
+  .imx-stage__img > img{position:absolute;top:0;right:0;bottom:0;width:62%;height:100%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%);mask-image:linear-gradient(90deg,transparent 0,#000 32%);}
+  /* LS8 — широкий кадр, машина справа: остаётся на всю ширину */
+  .imx-stage__img--full::before{display:none;}
+  .imx-stage__img--full > img{width:100%;-webkit-mask-image:none;mask-image:none;transform:scale(var(--zoom,1));transform-origin:var(--zo,50% 50%);}
+}
+</style>
+
+<section class="imx imx-models" id="imxModels">
+  <div class="imx-wrap">
+    <div class="imx-models__head">
+      <div class="imx-r">
+        <span class="imx-eyebrow"><span data-l="az">Model sırası</span><span data-l="ru">Модельный ряд</span><span data-l="en">Line-up</span></span>
+        <h2 class="imx-h2"><span data-l="az">Altı model.<br><b>Bir fəlsəfə.</b></span><span data-l="ru">Шесть моделей.<br><b>Одна философия.</b></span><span data-l="en">Six models.<br><b>One philosophy.</b></span></h2>
+      </div>
+      <p class="imx-lead imx-r" data-d="1"><span data-l="az">Tam elektrik sedan və SUV-lardan yürüş artırıcılı (EREV) flaqmanlara qədər — hər birində eyni intellekt.</span><span data-l="ru">От полностью электрических седанов и SUV до флагманов с увеличителем запаса хода (EREV) — в каждом один и тот же интеллект.</span><span data-l="en">From fully electric sedans and SUVs to range-extended (EREV) flagships — the same intelligence in every one.</span></p>
+    </div>
+
+    <div class="imx-stage imx-r" id="imxStage">
+      <div class="imx-stage__media">
+        <figure class="imx-stage__img is-on imx-stage__img--full" style="margin:0"><img loading="lazy" alt="IM L7" style="--mp:100% 50%;--mz:1.55;--mtx:-20.5%;--mty:9.2%" src="photos/model-l7.jpg" /></figure>
+        <figure class="imx-stage__img imx-stage__img--full" style="margin:0"><img loading="lazy" alt="IM LS7" style="--mp:100% 50%;--mz:1.27;--mtx:-13.7%;--mty:-6.5%" src="photos/model-ls7.jpg" /></figure>
+        <figure class="imx-stage__img imx-stage__img--full" style="margin:0"><img loading="lazy" alt="IM L6" style="--dp:50% 96%;--mp:100% 50%;--mz:1.61;--mtx:-30.5%;--mty:-38.5%" src="photos/model-l6.jpg" /></figure>
+        <figure class="imx-stage__img imx-stage__img--full" style="margin:0"><img loading="lazy" alt="IM LS6" style="--dp:50% 67%;--mp:50% 100%;--mz:2.06;--mtx:-45.3%;--mty:4.2%" src="photos/model-ls6.jpg" /></figure>
+        <figure class="imx-stage__img imx-stage__img--full" style="margin:0"><img loading="lazy" alt="IM LS9" style="--mz:1.22;--mty:-5.2%" src="photos/model-ls9.jpg" /></figure>
+        <figure class="imx-stage__img imx-stage__img--full" style="margin:0"><img loading="lazy" alt="IM LS8" style="--mp:64% 50%;--mz:1.09;--mty:-12.3%" src="photos/model-ls8.jpg" /></figure>
+      </div>
+
+      <div class="imx-stage__info">
+        <!-- L7 -->
+        <div class="imx-stage__panel is-on">
+          <span class="imx-stage__type"><span data-l="az">Sedan · EV</span><span data-l="ru">Седан · EV</span><span data-l="en">Sedan · EV</span></span>
+          <div class="imx-stage__name">IM <b>L7</b></div>
+          <p class="imx-stage__desc"><span data-l="az">Brendin ilk sedanı: uzun baza, sakit salon və təmiz, axıcı xətlər.</span><span data-l="ru">Первый седан бренда: длинная база, тихий салон и чистые, плавные линии.</span><span data-l="en">The brand's first sedan: long wheelbase, a quiet cabin and clean, flowing lines.</span></p>
+          <div class="imx-stage__specs">
+            <div>708 km<small><span data-l="az">Yürüş, maks.</span><span data-l="ru">Запас хода, до</span><span data-l="en">Range, up to</span></small></div>
+            <div>3.87 s<small><span data-l="az">0–100 km/saat, min.</span><span data-l="ru">0–100 км/ч, от</span><span data-l="en">0–100 km/h, from</span></small></div>
+            <div>90 kWh<small><span data-l="az">Batareya</span><span data-l="ru">Батарея</span><span data-l="en">Battery</span></small></div>
+          </div>
+          <div class="imx-stage__acts">
+            <a href="/l7" class="imx-btn imx-btn--solid imx-btn--sm"><span data-l="az">Ətraflı</span><span data-l="ru">Подробнее</span><span data-l="en">Discover</span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+            <a href="/testdrive" class="imx-btn imx-btn--ghost imx-btn--sm"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+          </div>
+        </div>
+        <!-- LS7 -->
+        <div class="imx-stage__panel">
+          <span class="imx-stage__type"><span data-l="az">Böyük SUV · EV</span><span data-l="ru">Большой SUV · EV</span><span data-l="en">Large SUV · EV</span></span>
+          <div class="imx-stage__name">IM <b>LS7</b></div>
+          <p class="imx-stage__desc"><span data-l="az">Geniş salon, panoram dam və ailə üçün yaradılmış rahatlıq — tam elektrik.</span><span data-l="ru">Просторный салон, панорамная крыша и комфорт для всей семьи — полностью на электричестве.</span><span data-l="en">A spacious cabin, panoramic roof and comfort made for family — fully electric.</span></p>
+          <div class="imx-stage__specs">
+            <div>700 km<small><span data-l="az">Yürüş</span><span data-l="ru">Запас хода</span><span data-l="en">Range</span></small></div>
+            <div>3.9 s<small><span data-l="az">0–100 km/saat</span><span data-l="ru">0–100 км/ч</span><span data-l="en">0–100 km/h</span></small></div>
+            <div>100 kWh<small><span data-l="az">Batareya</span><span data-l="ru">Батарея</span><span data-l="en">Battery</span></small></div>
+          </div>
+          <div class="imx-stage__acts">
+            <a href="/ls7" class="imx-btn imx-btn--solid imx-btn--sm"><span data-l="az">Ətraflı</span><span data-l="ru">Подробнее</span><span data-l="en">Discover</span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+            <a href="/testdrive" class="imx-btn imx-btn--ghost imx-btn--sm"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+          </div>
+        </div>
+        <!-- L6 -->
+        <div class="imx-stage__panel">
+          <span class="imx-stage__type"><span data-l="az">İcraçı sedan · EV</span><span data-l="ru">Бизнес-седан · EV</span><span data-l="en">Executive sedan · EV</span></span>
+          <div class="imx-stage__name">IM <b>L6</b></div>
+          <p class="imx-stage__desc"><span data-l="az">Dörd təkərli sükan, ağıllı şassi və superkar dinamikası — gündəlik istifadə üçün.</span><span data-l="ru">Полноуправляемое шасси, интеллектуальная подвеска и динамика суперкара — на каждый день.</span><span data-l="en">Four-wheel steering, an intelligent chassis and supercar pace — for every day.</span></p>
+          <div class="imx-stage__specs">
+            <div>850 km<small><span data-l="az">Yürüş, maks.</span><span data-l="ru">Запас хода, до</span><span data-l="en">Range, up to</span></small></div>
+            <div>2.74 s<small><span data-l="az">0–100 km/saat, min.</span><span data-l="ru">0–100 км/ч, от</span><span data-l="en">0–100 km/h, from</span></small></div>
+            <div>76–103 kWh<small><span data-l="az">Batareya</span><span data-l="ru">Батарея</span><span data-l="en">Battery</span></small></div>
+          </div>
+          <div class="imx-stage__acts">
+            <a href="/l6" class="imx-btn imx-btn--solid imx-btn--sm"><span data-l="az">Ətraflı</span><span data-l="ru">Подробнее</span><span data-l="en">Discover</span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+            <a href="/testdrive" class="imx-btn imx-btn--ghost imx-btn--sm"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+          </div>
+        </div>
+        <!-- LS6 -->
+        <div class="imx-stage__panel">
+          <span class="imx-stage__type"><span data-l="az">Kupe SUV · EREV</span><span data-l="ru">Купе-кроссовер · EREV</span><span data-l="en">Coupe SUV · EREV</span></span>
+          <div class="imx-stage__name">IM <b>LS6</b></div>
+          <p class="imx-stage__desc"><span data-l="az">İdman siluetli SUV: şəhərdə elektriklə, uzun yolda yürüş artırıcı ilə — doldurma narahatlığı olmadan.</span><span data-l="ru">SUV со спортивным силуэтом: в городе — на электричестве, в дальней дороге — с увеличителем запаса хода, без поиска зарядок.</span><span data-l="en">An SUV with a sporting silhouette: electric in the city, range-extended on long trips — no charging anxiety.</span></p>
+          <div class="imx-stage__specs">
+            <div>1500 km<small><span data-l="az">Ümumi yürüş, maks.</span><span data-l="ru">Общий запас, до</span><span data-l="en">Total range, up to</span></small></div>
+            <div>450 km<small><span data-l="az">Elektriklə, maks.</span><span data-l="ru">На электричестве, до</span><span data-l="en">Electric, up to</span></small></div>
+            <div>6.4 s<small><span data-l="az">0–100 km/saat</span><span data-l="ru">0–100 км/ч</span><span data-l="en">0–100 km/h</span></small></div>
+          </div>
+          <div class="imx-stage__acts">
+            <a href="/ls6" class="imx-btn imx-btn--solid imx-btn--sm"><span data-l="az">Ətraflı</span><span data-l="ru">Подробнее</span><span data-l="en">Discover</span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+            <a href="/testdrive" class="imx-btn imx-btn--ghost imx-btn--sm"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+          </div>
+        </div>
+        <!-- LS9 -->
+        <div class="imx-stage__panel">
+          <span class="imx-stage__badge"><span data-l="az">Yeni</span><span data-l="ru">Новинка</span><span data-l="en">New</span></span>
+          <span class="imx-stage__type"><span data-l="az">Flaqman SUV · EREV</span><span data-l="ru">Флагманский кроссовер · EREV</span><span data-l="en">Flagship SUV · EREV</span></span>
+          <div class="imx-stage__name">IM <b>LS9</b></div>
+          <p class="imx-stage__desc"><span data-l="az">Altı oturacaqlı flaqman: elektrik sürüşü, yürüş artırıcı və 520 kanallı LiDAR.</span><span data-l="ru">Шестиместный флагман: электрическая тяга, увеличитель запаса хода и 520-канальный LiDAR.</span><span data-l="en">A six-seat flagship: electric drive, a range extender and 520-channel LiDAR.</span></p>
+          <div class="imx-stage__specs">
+            <div>1460 km<small><span data-l="az">Ümumi yürüş, maks.</span><span data-l="ru">Общий запас, до</span><span data-l="en">Total range, up to</span></small></div>
+            <div>390 km<small><span data-l="az">Elektriklə, maks.</span><span data-l="ru">На электричестве, до</span><span data-l="en">Electric, up to</span></small></div>
+            <div>3.9 s<small><span data-l="az">0–100 km/saat, min.</span><span data-l="ru">0–100 км/ч, от</span><span data-l="en">0–100 km/h, from</span></small></div>
+          </div>
+          <div class="imx-stage__acts">
+            <a href="/ls9" class="imx-btn imx-btn--solid imx-btn--sm"><span data-l="az">Ətraflı</span><span data-l="ru">Подробнее</span><span data-l="en">Discover</span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+            <a href="/testdrive" class="imx-btn imx-btn--ghost imx-btn--sm"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+          </div>
+        </div>
+        <!-- LS8 -->
+        <div class="imx-stage__panel">
+          <span class="imx-stage__badge">2026</span>
+          <span class="imx-stage__type"><span data-l="az">Premium SUV · EREV</span><span data-l="ru">Премиум-кроссовер · EREV</span><span data-l="en">Premium SUV · EREV</span></span>
+          <div class="imx-stage__name">IM <b>LS8</b></div>
+          <p class="imx-stage__desc"><span data-l="az">Uzaq səfərlər üçün yaradılıb: altı geniş oturacaq, dörd təkərin idarəsi və 1600 km-dən çox ümumi yürüş.</span><span data-l="ru">Создан для дальних поездок: шесть просторных мест, полноуправляемое шасси и более 1600 км общего запаса хода.</span><span data-l="en">Built for long journeys: six spacious seats, four-wheel steering and over 1600 km of total range.</span></p>
+          <div class="imx-stage__specs">
+            <div>1605 km<small><span data-l="az">Ümumi yürüş, maks.</span><span data-l="ru">Общий запас, до</span><span data-l="en">Total range, up to</span></small></div>
+            <div>430 km<small><span data-l="az">Elektriklə, maks.</span><span data-l="ru">На электричестве, до</span><span data-l="en">Electric, up to</span></small></div>
+            <div>4.7 s<small><span data-l="az">0–100 km/saat, min.</span><span data-l="ru">0–100 км/ч, от</span><span data-l="en">0–100 km/h, from</span></small></div>
+          </div>
+          <div class="imx-stage__acts">
+            <a href="/ls8" class="imx-btn imx-btn--solid imx-btn--sm"><span data-l="az">Ətraflı</span><span data-l="ru">Подробнее</span><span data-l="en">Discover</span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></a>
+            <a href="/testdrive" class="imx-btn imx-btn--ghost imx-btn--sm"><span data-l="az">Test sürüşü</span><span data-l="ru">Тест-драйв</span><span data-l="en">Test drive</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="imx-picker" id="imxPicker" role="tablist">
+      <button class="is-on" role="tab"><b>L7</b><small data-l="az">Sedan · EV</small><small data-l="ru">Седан · EV</small><small data-l="en">Sedan · EV</small></button>
+      <button role="tab"><b>LS7</b><small data-l="az">Böyük SUV · EV</small><small data-l="ru">Большой SUV · EV</small><small data-l="en">Large SUV · EV</small></button>
+      <button role="tab"><b>L6</b><small data-l="az">İcraçı sedan · EV</small><small data-l="ru">Бизнес-седан · EV</small><small data-l="en">Executive sedan · EV</small></button>
+      <button role="tab"><b>LS6</b><small data-l="az">Kupe SUV · EREV</small><small data-l="ru">Купе-SUV · EREV</small><small data-l="en">Coupe SUV · EREV</small></button>
+      <button role="tab"><b>LS9</b><small data-l="az">Flaqman SUV · EREV</small><small data-l="ru">Флагман SUV · EREV</small><small data-l="en">Flagship SUV · EREV</small></button>
+      <button role="tab"><b>LS8</b><small data-l="az">Premium SUV · EREV</small><small data-l="ru">Премиум SUV · EREV</small><small data-l="en">Premium SUV · EREV</small></button>
+    </div>
+    <p class="imx-models__note"><span data-l="az">* İstehsalçı məlumatları, CLTC tsikli. «Maks.» və «min.» — modelin versiyaları arasında ən yaxşı göstərici. Real göstəricilər şəraitdən asılıdır.</span><span data-l="ru">* Данные производителя по циклу CLTC. «До» и «от» — лучший показатель среди версий модели. Реальные значения зависят от условий.</span><span data-l="en">* Manufacturer data, CLTC cycle. “Up to” and “from” show the best figure across a model’s versions. Real-world figures depend on conditions.</span></p>
+  </div>
+</section>
+
+<script>
+(function(){
+  var stage=document.getElementById('imxStage'), picker=document.getElementById('imxPicker');
+  if(!stage||!picker) return;
+  var imgs=stage.querySelectorAll('.imx-stage__img'), panels=stage.querySelectorAll('.imx-stage__panel'),
+      btns=picker.querySelectorAll('button');
+  function show(i){
+    [imgs,panels,btns].forEach(function(list){list.forEach(function(el,k){el.classList.toggle('is-on',k===i);});});
+    btns.forEach(function(b,k){b.setAttribute('aria-selected',String(k===i));});
+    // на мобильных докручиваем активную кнопку в видимую область
+    var b=btns[i]; if(picker.scrollWidth>picker.clientWidth){picker.scrollTo({left:b.offsetLeft-picker.clientWidth/2+b.clientWidth/2,behavior:'smooth'});}
+  }
+  btns.forEach(function(b,k){b.addEventListener('click',function(){show(k);});});
+  // предзагрузка остальных фото после первой отрисовки
+  window.addEventListener('load',function(){imgs.forEach(function(f){var im=f.querySelector('img');im.loading='eager';});});
+})();
+</script>
