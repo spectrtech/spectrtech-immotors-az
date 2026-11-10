@@ -5,7 +5,8 @@
 #    скачиваются один раз в public/img/ (имя = 8 знаков id Tilda + имя файла — не меняется между сборками);
 #  - тексты: каждой тройке <span data-l="az|ru|en"> — ключ data-i18n-html для редактора (см. cms/imx-cms.js);
 #  - SEO: canonical, og/twitter, favicon, JSON-LD, sitemap.xml, robots.txt; _redirects (301 со старых адресов), _headers;
-#  - редактор: mainedit.html, assets/st-*.js|css (cms/kit, версия в cms/kit/VERSION), st-config.js, content/site.js (пустой).
+#  - редактор: mainedit.html, assets/st-*.js|css (cms/kit, версия в cms/kit/VERSION), st-config.js, content/site.js (пустой);
+#  - статистика: assets/imx-stat.js (cms/imx-stat.js) — Google Analytics и Яндекс Метрика, только на immotors.az.
 # Запуск: bash build.sh && perl build-cf.pl
 use strict; use warnings;
 use Digest::MD5 qw(md5_hex);
@@ -143,7 +144,7 @@ my $ld = sub { my $og = shift; '<script type="application/ld+json">' . join('', 
 make_path("$PUB/img", "$PUB/assets", "$PUB/content");
 # версии скриптов в адресах (?v=…): /assets/* кешируются на час — после выкладки браузер берёт новый файл сразу
 my $ver = sub { substr(md5_hex(slurp(shift)), 0, 8) };
-my ($VCMS, $VCON) = ($ver->('cms/imx-cms.js'), $ver->('cms/kit/assets/st-content.js'));
+my ($VCMS, $VCON, $VSTAT) = ($ver->('cms/imx-cms.js'), $ver->('cms/kit/assets/st-content.js'), $ver->('cms/imx-stat.js'));
 my (%seenpage, $ogdefault);
 for my $p (@PAGES) {
   my ($id, $file, $path) = @$p;
@@ -184,7 +185,7 @@ for my $p (@PAGES) {
     '<script src="/content/site.js"></script>',
     qq(<script src="/assets/st-content.js?v=$VCON"></script>), '';
   $h =~ s{</head>}{$head</head>} or die "$file: нет </head>";
-  $h =~ s{</body>}{<script src="/assets/imx-cms.js?v=$VCMS" data-page="$id"></script>\n</body>} or die "$file: нет </body>";
+  $h =~ s{</body>}{<script src="/assets/imx-cms.js?v=$VCMS" data-page="$id"></script>\n<script src="/assets/imx-stat.js?v=$VSTAT" async></script>\n</body>} or die "$file: нет </body>";
   spit("$PUB/$file", $h);
   $seenpage{$id} = () = $h =~ /data-i18n-html="/g;
 }
@@ -202,6 +203,7 @@ unlink map { "$PUB/img/$_" } @stale;
 # редактор SpectrTech
 copy("cms/kit/assets/$_", "$PUB/assets/$_") or die "$_: $!" for qw(st-content.js st-editor.js st-editor.css st-empty.svg);
 copy('cms/imx-cms.js', "$PUB/assets/imx-cms.js") or die $!;
+copy('cms/imx-stat.js', "$PUB/assets/imx-stat.js") or die $!;
 my $js = sub { my $s = shift; $s =~ s/\\/\\\\/g; $s =~ s/'/\\'/g; "'$s'" };
 my $lb3 = sub { '[' . join(', ', map { $js->($_) } @{$_[0]}) . ']' };
 spit("$PUB/assets/st-config.js", join '',
