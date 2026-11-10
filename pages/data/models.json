@@ -61,8 +61,8 @@
       "hs": [["708 km", ["Yürüş, maks.", "Запас хода, до", "Range, up to"]], ["3.87 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]], ["90 kWh", ["Batareya", "Батарея", "Battery"]]],
       "ov": {
         "t": ["Sakitlik. Sürət. <b>Dəqiqlik.</b>", "Тишина. Скорость. <b>Точность.</b>", "Silence. Speed. <b>Precision.</b>"],
-        "d": ["5,1 metrlik sedan küləyi demək olar ki, hiss etmir: müqavimət əmsalı cəmi 0,21-dir. Tam ötürücülü versiya 425 kW güclə 100 km/saata 3,87 saniyədə çatır, dörd təkərin idarəsi isə virtual təkər bazasını 2580-dən 3250 mm-ə qədər dəyişir — dar küçədə çevik, trassada sabit.", "5,1-метровый седан почти не замечает ветра: коэффициент сопротивления всего 0,21. Полноприводная версия мощностью 425 кВт разгоняется до 100 км/ч за 3,87 с, а полноуправляемое шасси меняет виртуальную базу от 2580 до 3250 мм — манёвренный в переулке, стабильный на трассе.", "This 5.1-metre sedan barely notices the wind, with a drag coefficient of just 0.21. The 425 kW all-wheel-drive version reaches 100 km/h in 3.87 s, while four-wheel steering varies the virtual wheelbase from 2,580 to 3,250 mm — nimble in town, planted on the motorway."],
-        "f": [["708", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["3.87", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["425", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["0.21", "Cd", ["aerodinamik müqavimət", "аэродинамика", "drag coefficient"]]]
+        "d": ["5,1 metrlik sedan küləyi demək olar ki, hiss etmir: müqavimət əmsalı cəmi 0,21-dir. Tam ötürücülü versiya 578 hp güclə 100 km/saata 3,87 saniyədə çatır, dörd təkərin idarəsi isə virtual təkər bazasını 2580-dən 3250 mm-ə qədər dəyişir — dar küçədə çevik, trassada sabit.", "5,1-метровый седан почти не замечает ветра: коэффициент сопротивления всего 0,21. Полноприводная версия мощностью 578 л.с. разгоняется до 100 км/ч за 3,87 с, а полноуправляемое шасси меняет виртуальную базу от 2580 до 3250 мм — манёвренный в переулке, стабильный на трассе.", "This 5.1-metre sedan barely notices the wind, with a drag coefficient of just 0.21. The 578 hp all-wheel-drive version reaches 100 km/h in 3.87 s, while four-wheel steering varies the virtual wheelbase from 2,580 to 3,250 mm — nimble in town, planted on the motorway."],
+        "f": [["708", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["3.87", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["578", "hp", ["maksimal güc", "максимальная мощность", "peak power"]], ["0.21", "Cd", ["aerodinamik müqavimət", "аэродинамика", "drag coefficient"]]]
       },
       "design": {
         "t": ["Axıcı xətlər, <b>dəqiq detallar.</b>", "Плавные линии, <b>точные детали.</b>", "Flowing lines, <b>precise details.</b>"],
@@ -92,9 +92,9 @@
          "d": ["Aşağı sürətdə arxa təkərlər əks istiqamətə dönür və virtual baza 2580 mm-ə qədər qısalır. Yüksək sürətdə eyni istiqamətə dönür — baza 3250 mm-ə qədər «uzanır» və avtomobil zolaq dəyişəndə sabit qalır.", "На малой скорости задние колёса поворачивают в противоположную сторону, и виртуальная база сокращается до 2580 мм. На высокой — в ту же сторону: база «вырастает» до 3250 мм, и автомобиль стабилен при перестроении.", "At low speed the rear wheels turn the opposite way and the virtual wheelbase shrinks to 2,580 mm. At speed they turn the same way, stretching it to 3,250 mm for stable lane changes."],
          "li": [["Virtual baza 2580–3250 mm", "Виртуальная база 2580–3250 мм", "Virtual wheelbase 2,580–3,250 mm"], ["Adaptiv amortizatorlar", "Адаптивные амортизаторы", "Adaptive dampers"], ["Ağıllı tam ötürücü", "Интеллектуальный полный привод", "Intelligent all-wheel drive"]]},
         {"tab": ["Güc", "Мощность", "Power"], "img": "photos/model-l7.jpg", "tag": ["Elektrik ötürücü", "Электропривод", "Electric drive"],
-         "t": ["425 kW <b>sakit güc.</b>", "425 кВт <b>тихой силы.</b>", "425 kW of <b>quiet force.</b>"],
-         "d": ["İki elektrik mühərriki: öndə 175 kW, arxada 250 kW. Ümumi moment 725 N·m, 0–100 km/saat — 3,87 saniyə. Arxa ötürücülü versiya isə bir şarjla 708 km-ə qədər yol gedir.", "Два электромотора: 175 кВт спереди и 250 кВт сзади, суммарно 725 Н·м и 3,87 с до 100 км/ч. Заднеприводная версия проезжает на одной зарядке до 708 км.", "Two electric motors — 175 kW front and 250 kW rear — deliver 725 Nm and 0–100 km/h in 3.87 s. The rear-drive version covers up to 708 km on a charge."],
-         "li": [["425 kW, 725 N·m", "425 кВт, 725 Н·м", "425 kW, 725 Nm"], ["0–100 km/saat: 3,87 s", "0–100 км/ч: 3,87 с", "0–100 km/h: 3.87 s"], ["708 km-ə qədər yürüş", "До 708 км запаса хода", "Up to 708 km of range"]]},
+         "t": ["578 hp <b>sakit güc.</b>", "578 л.с. <b>тихой силы.</b>", "578 hp of <b>quiet force.</b>"],
+         "d": ["İki elektrik mühərriki: öndə 238 hp, arxada 340 hp. Ümumi moment 725 N·m, 0–100 km/saat — 3,87 saniyə. Arxa ötürücülü versiya isə bir şarjla 708 km-ə qədər yol gedir.", "Два электромотора: 238 л.с. спереди и 340 л.с. сзади, суммарно 725 Н·м и 3,87 с до 100 км/ч. Заднеприводная версия проезжает на одной зарядке до 708 км.", "Two electric motors — 238 hp front and 340 hp rear — deliver 725 Nm and 0–100 km/h in 3.87 s. The rear-drive version covers up to 708 km on a charge."],
+         "li": [["578 hp, 725 N·m", "578 л.с., 725 Н·м", "578 hp, 725 Nm"], ["0–100 km/saat: 3,87 s", "0–100 км/ч: 3,87 с", "0–100 km/h: 3.87 s"], ["708 km-ə qədər yürüş", "До 708 км запаса хода", "Up to 708 km of range"]]},
         {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "l7:15.3", "tag": ["IM AD", "IM AD", "IM AD"],
          "t": ["Yolu <b>sizinlə birlikdə görür.</b>", "Видит дорогу <b>вместе с вами.</b>", "Sees the road <b>with you.</b>"],
          "d": ["İki uzaq məsafəli LiDAR, kameralar və radarlar NVIDIA DRIVE Orin X prosessoru ilə işləyir: adaptiv kruiz, zolaqda saxlama, avtomatik parklanma və toqquşma riskində avtomatik əyləc.", "Два дальнобойных лидара, камеры и радары работают с процессором NVIDIA DRIVE Orin X: адаптивный круиз, удержание в полосе, автопарковка и автоматическое торможение при угрозе столкновения.", "Two long-range LiDARs, cameras and radars run on an NVIDIA DRIVE Orin X: adaptive cruise, lane keeping, automated parking and automatic emergency braking."],
@@ -109,7 +109,7 @@
         "rows": [
           ["#dim"], ["dims", "5108 × 1960 × 1485 mm"], ["wb", "3100 mm"], ["vwb", "2580–3250 mm"], ["seats", "5"], ["cd", "0.21"],
           ["#energy"], ["energy", "$EV"], ["battery", "90 kWh"], ["range", ["708 km", "625 km"]],
-          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["250 kW", "425 kW"]], ["torque", ["475 Nm", "725 Nm"]], ["accel", ["5.9 s", "3.87 s"]],
+          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["340 hp", "578 hp"]], ["torque", ["475 Nm", "725 Nm"]], ["accel", ["5.9 s", "3.87 s"]],
           ["#chassis"], ["4ws", "$YES"], ["damp", "$YES"],
           ["#cabin"], ["screens", "26.3″ + 15.5″ + 10.5″"], ["adas", "2 × LiDAR · NVIDIA Orin X"], ["audio", "22"]
         ]
@@ -118,15 +118,15 @@
     "ls7": {
       "name": "LS7",
       "type": ["Böyük SUV · EV", "Большой SUV · EV", "Large SUV · EV"],
-      "seo": ["IM LS7 — böyük elektrik SUV | IM Motors Azərbaycan", "IM LS7: 700 km yürüş, 579 kW, 0–100 km/saat 3,9 s, pnevmatik asqı və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
+      "seo": ["IM LS7 — böyük elektrik SUV | IM Motors Azərbaycan", "IM LS7: 700 km yürüş, 579 hp, 0–100 km/saat 3,9 s, pnevmatik asqı və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
       "card": "c:ls7:athena",
       "hero": {"img": "photos/model-ls7.jpg", "dpos": "80% 60%", "pos": "72% 62%"},
       "tag": ["Geniş salon, panorama dam və ailə üçün yaradılmış rahatlıq — tam elektrik.", "Просторный салон, панорамная крыша и комфорт для всей семьи — полностью на электричестве.", "A spacious cabin, a panoramic roof and comfort made for families — fully electric."],
-      "hs": [["700 km", ["Yürüş, maks.", "Запас хода, до", "Range, up to"]], ["3.9 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]], ["100 kWh", ["Batareya", "Батарея", "Battery"]]],
+      "hs": [["625 km", ["Yürüş", "Запас хода", "Range"]], ["4.5 s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["100 kWh", ["Batareya", "Батарея", "Battery"]]],
       "ov": {
         "t": ["Geniş. Sakit. <b>Sürətli.</b>", "Просторный. Тихий. <b>Быстрый.</b>", "Spacious. Quiet. <b>Fast.</b>"],
-        "d": ["5 metrlik SUV, 3060 mm baza və beş nəfər üçün «divan» rahatlığı. Ultra versiyada 875 V platforma, 579 kW güc və 0–100 km/saat 3,9 saniyə; şarj 10%-dən 80%-ə 16,8 dəqiqədə. Pnevmatik asqı və dörd təkərin idarəsi böyük avtomobili yüngül idarə olunan edir.", "Пятиметровый SUV с базой 3060 мм и диванным комфортом для пятерых. В версии Ultra — платформа 875 В, 579 кВт и 3,9 с до 100 км/ч; зарядка с 10 до 80% за 16,8 минуты. Пневмоподвеска и полноуправляемое шасси делают большой автомобиль лёгким в управлении.", "A five-metre SUV with a 3,060 mm wheelbase and sofa-like comfort for five. The Ultra adds an 875 V platform, 579 kW and 0–100 km/h in 3.9 s, charging from 10 to 80% in 16.8 minutes. Air suspension and four-wheel steering make a big car feel light."],
-        "f": [["700", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["579", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["3.9", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["16.8", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]]]
+        "d": ["5 metrlik SUV, 3060 mm baza və beş nəfər üçün «divan» rahatlığı. Ultra versiyada 875 V platforma, 579 hp güc və 0–100 km/saat 3,9 saniyə; şarj 10%-dən 80%-ə 16,8 dəqiqədə. Pnevmatik asqı və dörd təkərin idarəsi böyük avtomobili yüngül idarə olunan edir.", "Пятиметровый SUV с базой 3060 мм и диванным комфортом для пятерых. В версии Ultra — платформа 875 В, 579 л.с. и 3,9 с до 100 км/ч; зарядка с 10 до 80% за 16,8 минуты. Пневмоподвеска и полноуправляемое шасси делают большой автомобиль лёгким в управлении.", "A five-metre SUV with a 3,060 mm wheelbase and sofa-like comfort for five. The Ultra adds an 875 V platform, 579 hp and 0–100 km/h in 3.9 s, charging from 10 to 80% in 16.8 minutes. Air suspension and four-wheel steering make a big car feel light."],
+        "f": [["625", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["579", "hp", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.5", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["16.8", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]]]
       },
       "design": {
         "t": ["Böyük ölçü, <b>yüngül xətlər.</b>", "Большой размер, <b>лёгкие линии.</b>", "Big proportions, <b>light lines.</b>"],
@@ -173,7 +173,7 @@
         "rows": [
           ["#dim"], ["dims", "5049 × 2002 × 1784 mm"], ["wb", "3060 mm"], ["seats", "5"],
           ["#energy"], ["energy", "$EV"], ["battery", ["83 kWh", "100 kWh"]], ["btype", "NMC"], ["range", ["640 km", "700 km"]], ["ch80", "16.8 min"], ["ch15", ["450 km", "500 km"]], ["volt", ["800 V", "875 V"]],
-          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["248 kW", "579 kW"]], ["torque", ["500 Nm", "800 Nm"]], ["accel", ["6.1 s", "3.9 s"]], ["vmax", ["220 km/h", "239 km/h"]],
+          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["337 hp", "579 hp"]], ["torque", ["500 Nm", "800 Nm"]], ["accel", ["6.1 s", "3.9 s"]], ["vmax", ["220 km/h", "239 km/h"]],
           ["#chassis"], ["turn", "5.3 m"], ["4ws", "$YES"], ["air", "$YES"], ["wheels", "20″ / 22″"],
           ["#cabin"], ["screens", "26.3″ + 15.5″ + 12.8″"], ["chip", "Snapdragon 8295P"], ["audio", "24"]
         ]
@@ -189,8 +189,8 @@
       "hs": [["850 km", ["Yürüş, maks.", "Запас хода, до", "Range, up to"]], ["2.74 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]], ["76–103 kWh", ["Batareya", "Батарея", "Battery"]]],
       "ov": {
         "t": ["Gündəlik <b>superavtomobil.</b>", "Суперкар <b>на каждый день.</b>", "An everyday <b>supercar.</b>"],
-        "d": ["Yeni nəsil L6 bütün versiyalarda tam elektron sükanla gəlir: sükan çarxı ilə təkərlər arasında mexaniki əlaqə yoxdur. Dörd təkərin idarəsi dönmə radiusunu 4,39 m-ə qədər endirir, Ultra versiya isə 500 kW güclə 100 km/saata 2,74 saniyədə çatır.", "Новое поколение L6 во всех версиях получило электронное рулевое управление: механической связи между рулём и колёсами нет. Полноуправляемое шасси сокращает радиус разворота до 4,39 м, а версия Ultra мощностью 500 кВт разгоняется до 100 км/ч за 2,74 с.", "Every new-generation L6 has full steer-by-wire, with no mechanical link between the wheel and the tyres. Four-wheel steering cuts the turning radius to as little as 4.39 m, and the 500 kW Ultra reaches 100 km/h in 2.74 s."],
-        "f": [["850", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["2.74", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["500", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.39", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
+        "d": ["Yeni nəsil L6 bütün versiyalarda tam elektron sükanla gəlir: sükan çarxı ilə təkərlər arasında mexaniki əlaqə yoxdur. Dörd təkərin idarəsi dönmə radiusunu 4,39 m-ə qədər endirir, Ultra versiya isə 787 hp güclə 100 km/saata 2,74 saniyədə çatır.", "Новое поколение L6 во всех версиях получило электронное рулевое управление: механической связи между рулём и колёсами нет. Полноуправляемое шасси сокращает радиус разворота до 4,39 м, а версия Ultra мощностью 787 л.с. разгоняется до 100 км/ч за 2,74 с.", "Every new-generation L6 has full steer-by-wire, with no mechanical link between the wheel and the tyres. Four-wheel steering cuts the turning radius to as little as 4.39 m, and the 787 hp Ultra reaches 100 km/h in 2.74 s."],
+        "f": [["850", "km", ["yürüş, CLTC", "запас хода, CLTC", "range, CLTC"]], ["2.74", "s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]], ["787", "hp", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.39", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
       },
       "design": {
         "t": ["Kupe siluetli <b>sedan.</b>", "Седан <b>с силуэтом купе.</b>", "A sedan <b>with a coupé silhouette.</b>"],
@@ -225,8 +225,8 @@
          "li": [["76 / 93 / 103 kWh", "76 / 93 / 103 кВт·ч", "76 / 93 / 103 kWh"], ["10–80%: 16,8 dəq-dən", "10–80%: от 16,8 мин", "10–80% from 16.8 min"], ["725–850 km yürüş", "725–850 км запаса хода", "725–850 km of range"]], "note": 2},
         {"tab": ["Güc", "Мощность", "Power"], "img": "l6:47.1", "tag": ["Ultra", "Ultra", "Ultra"],
          "t": ["2,74 saniyə — <b>100 km/saat.</b>", "2,74 секунды — <b>до 100 км/ч.</b>", "2.74 seconds <b>to 100 km/h.</b>"],
-         "d": ["İki mühərrikli Ultra 500 kW və 800 N·m verir, maksimal sürət 268 km/saat. Arxa ötürücülü versiyalar — 245 və 300 kW.", "Двухмоторная Ultra выдаёт 500 кВт и 800 Н·м, максимальная скорость 268 км/ч. Заднеприводные версии — 245 и 300 кВт.", "The dual-motor Ultra makes 500 kW and 800 Nm with a 268 km/h top speed. Rear-drive versions offer 245 and 300 kW."],
-         "li": [["500 kW, 800 N·m", "500 кВт, 800 Н·м", "500 kW, 800 Nm"], ["268 km/saat", "268 км/ч", "268 km/h"], ["Tam ötürücü", "Полный привод", "All-wheel drive"]]},
+         "d": ["İki mühərrikli Ultra 787 hp və 800 N·m verir, maksimal sürət 268 km/saat. Arxa ötürücülü versiyalar — 333 və 408 hp.", "Двухмоторная Ultra выдаёт 787 л.с. и 800 Н·м, максимальная скорость 268 км/ч. Заднеприводные версии — 333 и 408 л.с.", "The dual-motor Ultra makes 787 hp and 800 Nm with a 268 km/h top speed. Rear-drive versions offer 333 and 408 hp."],
+         "li": [["787 hp, 800 N·m", "787 л.с., 800 Н·м", "787 hp, 800 Nm"], ["268 km/saat", "268 км/ч", "268 km/h"], ["Tam ötürücü", "Полный привод", "All-wheel drive"]]},
         {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "l6:51.0@x0.32-1,y0-0.7", "tag": ["IM AD", "IM AD", "IM AD"],
          "t": ["Ağıllı köməkçi <b>yolda.</b>", "Умный помощник <b>в пути.</b>", "A smart helper <b>on the road.</b>"],
          "d": ["LiDAR, kameralar və NVIDIA DRIVE Orin X prosessoru trassada və şəhərdə sürücüyə kömək edir, avtomatik parklanma isə dar yerlərdə işi asanlaşdırır.", "Лидар, камеры и процессор NVIDIA DRIVE Orin X помогают водителю на трассе и в городе, а автопарковка выручает в тесных местах.", "LiDAR, cameras and an NVIDIA DRIVE Orin X assist on motorways and in town, while automated parking handles tight spots."],
@@ -237,7 +237,7 @@
         "rows": [
           ["#dim"], ["dims", "4924 × 1960 × 1474 mm"], ["wb", "2950 mm"], ["trunk", "457–1300 L"], ["seats", "5"],
           ["#energy"], ["energy", "$EV"], ["battery", ["76 kWh", "93 kWh", "103 kWh"]], ["btype", ["LFP", "LFP", "NMC"]], ["range", ["725 km", "850 km", "840 km"]], ["ch80", ["18 min", "20.3 min", "16.8 min"]], ["ch15", ["460 km", "510 km", "580 km"]],
-          ["#power"], ["drive", ["$RWD", "$RWD", "$AWD"]], ["power", ["245 kW", "300 kW", "500 kW"]], ["torque", ["430 Nm", "500 Nm", "800 Nm"]], ["accel", ["5.9 s", "4.9 s", "2.74 s"]], ["vmax", ["200 km/h", "220 km/h", "268 km/h"]],
+          ["#power"], ["drive", ["$RWD", "$RWD", "$AWD"]], ["power", ["333 hp", "408 hp", "787 hp"]], ["torque", ["430 Nm", "500 Nm", "800 Nm"]], ["accel", ["5.9 s", "4.9 s", "2.74 s"]], ["vmax", ["200 km/h", "220 km/h", "268 km/h"]],
           ["#chassis"], ["turn", ["4.69 m", "4.69 m", "4.39 m"]], ["sbw", "$YES"], ["4ws", "$YES"], ["air", "$OPT"],
           ["#cabin"], ["screens", "27.1″ + 16.2″"], ["chip", "Snapdragon 8295P"], ["adas", "LiDAR · NVIDIA Orin X"]
         ]
@@ -246,7 +246,7 @@
     "ls6": {
       "name": "LS6",
       "type": ["Kupe SUV · EREV", "Купе-SUV · EREV", "Coupé SUV · EREV"],
-      "seo": ["IM LS6 EREV — kupe SUV | IM Motors Azərbaycan", "IM LS6 EREV: 450 km elektriklə, 1500 km-ə qədər ümumi yürüş, 230 kW, 0–100 km/saat 6,4 s. Bakıda rəsmi idxalçı ONVOLT."],
+      "seo": ["IM LS6 EREV — kupe SUV | IM Motors Azərbaycan", "IM LS6 EREV: 450 km elektriklə, 1500 km-ə qədər ümumi yürüş, 313 hp, 0–100 km/saat 6,4 s. Bakıda rəsmi idxalçı ONVOLT."],
       "card": "c:ls6:athena",
       "hero": {"near": "photos/ls6-hero-near.jpg", "wide": "photos/ls6-hero-wide.jpg", "dpos": "100% 50%", "pos": "99% 50%"},
       "tag": ["Cəsur siluet, idman xarakteri və 1500 km sərbəstlik.", "Смелый силуэт, спортивный характер и 1500 км свободы.", "A bold silhouette, a sporting character and 1,500 km of freedom."],
@@ -254,7 +254,7 @@
       "ov": {
         "t": ["Elektrik kimi sürür, <b>uzağa benzinlə gedir.</b>", "Едет как электромобиль, <b>далеко — на бензине.</b>", "Drives like an EV, <b>goes the distance on petrol.</b>"],
         "d": ["Gündəlik yollarda LS6 tam elektromobildir: 66 kWh batareya ilə 450 km-ə qədər səssiz yürüş. Uzaq səfərdə 1,5 litrlik turbo generator işə düşür və təkərləri deyil, batareyanı doldurur — ümumi yürüş 1500 km-ə çatır, sürüş hissi isə elektrik olaraq qalır.", "В повседневных поездках LS6 — полноценный электромобиль: до 450 км тишины на батарее 66 кВт·ч. В дальней дороге включается 1,5-литровый турбогенератор — он заряжает батарею, а не крутит колёса. Общий запас хода достигает 1500 км, а ощущения остаются электрическими.", "Day to day, the LS6 is a full EV, with up to 450 silent kilometres from its 66 kWh battery. On long trips a 1.5-litre turbo generator charges the battery rather than driving the wheels — total range reaches 1,500 km, and the drive still feels electric."],
-        "f": [["1500", "km", ["ümumi yürüş", "общий запас хода", "total range"]], ["450", "km", ["elektriklə, CLTC", "на электричестве, CLTC", "electric, CLTC"]], ["230", "kW", ["elektrik mühərriki", "электромотор", "electric motor"]], ["16", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]]]
+        "f": [["1500", "km", ["ümumi yürüş", "общий запас хода", "total range"]], ["450", "km", ["elektriklə, CLTC", "на электричестве, CLTC", "electric, CLTC"]], ["313", "hp", ["elektrik mühərriki", "электромотор", "electric motor"]], ["16", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]]]
       },
       "design": {
         "t": ["Kupe xətləri, <b>SUV rahatlığı.</b>", "Линии купе, <b>комфорт SUV.</b>", "Coupé lines, <b>SUV comfort.</b>"],
@@ -281,8 +281,8 @@
       "tech": [
         {"tab": ["EREV", "EREV", "EREV"], "img": "ls6:57.4", "tag": ["Yürüş artırıcı", "Генератор", "Range extender"],
          "t": ["Benzin — <b>yalnız enerji üçün.</b>", "Бензин — <b>только для энергии.</b>", "Petrol — <b>only for energy.</b>"],
-         "d": ["Təkərləri həmişə 230 kW elektrik mühərriki fırladır. 1,5 litrlik turbo mühərrik yalnız generator kimi işləyir və batareyanı doldurur, ona görə də sürüş hamar və səssiz qalır.", "Колёса всегда вращает электромотор мощностью 230 кВт. 1,5-литровый турбомотор работает только как генератор и заряжает батарею, поэтому езда остаётся плавной и тихой.", "The wheels are always driven by a 230 kW electric motor. The 1.5-litre turbo engine works only as a generator, charging the battery, so the drive stays smooth and quiet."],
-         "li": [["Elektriklə 450 km-ə qədər", "До 450 км на электричестве", "Up to 450 km electric"], ["Ümumi 1500 km-ə qədər", "До 1500 км в сумме", "Up to 1,500 km in total"], ["1,5T generator, 114 kW", "Генератор 1,5T, 114 кВт", "1.5T generator, 114 kW"]]},
+         "d": ["Təkərləri həmişə 313 hp elektrik mühərriki fırladır. 1,5 litrlik turbo mühərrik yalnız generator kimi işləyir və batareyanı doldurur, ona görə də sürüş hamar və səssiz qalır.", "Колёса всегда вращает электромотор мощностью 313 л.с. 1,5-литровый турбомотор работает только как генератор и заряжает батарею, поэтому езда остаётся плавной и тихой.", "The wheels are always driven by a 313 hp electric motor. The 1.5-litre turbo engine works only as a generator, charging the battery, so the drive stays smooth and quiet."],
+         "li": [["Elektriklə 450 km-ə qədər", "До 450 км на электричестве", "Up to 450 km electric"], ["Ümumi 1500 km-ə qədər", "До 1500 км в сумме", "Up to 1,500 km in total"], ["1,5T generator, 155 hp", "Генератор 1,5T, 155 л.с.", "1.5T generator, 155 hp"]]},
         {"tab": ["Şarj", "Зарядка", "Charging"], "img": "ls6:57.2", "tag": ["Şarj", "Зарядка", "Charging"],
          "t": ["Evdə — rozetka, <b>yolda — sürətli şarj.</b>", "Дома — розетка, <b>в пути — быстрая зарядка.</b>", "A socket at home, <b>fast charging on the road.</b>"],
          "d": ["66 kWh batareya sürətli şarj stansiyasında 16 dəqiqəyə 10%-dən 80%-ə dolur. Gündəlik məsafələr üçün gecə ev şarjı kifayətdir.", "Батарея 66 кВт·ч заряжается с 10 до 80% за 16 минут на быстрой станции. Для ежедневных поездок достаточно ночной зарядки дома.", "The 66 kWh battery charges from 10 to 80% in 16 minutes on a fast charger. For daily driving, overnight home charging is enough."],
@@ -290,7 +290,7 @@
         {"tab": ["Dinamika", "Динамика", "Performance"], "img": "ls6:50.0", "tag": ["Arxa ötürücü", "Задний привод", "Rear-wheel drive"],
          "t": ["Böyük, amma <b>çevik.</b>", "Большой, но <b>манёвренный.</b>", "Big, yet <b>agile.</b>"],
          "d": ["Arxa ötürücü, 430 N·m və aşağı ağırlıq mərkəzi: 0–100 km/saat 6,4 saniyə, döngədə sabit və inamlı.", "Задний привод, 430 Н·м и низкий центр тяжести: 6,4 с до 100 км/ч, устойчивость и уверенность в поворотах.", "Rear-wheel drive, 430 Nm and a low centre of gravity: 0–100 km/h in 6.4 s, stable and confident in corners."],
-         "li": [["230 kW, 430 N·m", "230 кВт, 430 Н·м", "230 kW, 430 Nm"], ["0–100 km/saat: 6,4 s", "0–100 км/ч: 6,4 с", "0–100 km/h: 6.4 s"], ["Maksimal sürət 200 km/saat", "Максимальная скорость 200 км/ч", "Top speed 200 km/h"]]},
+         "li": [["313 hp, 430 N·m", "313 л.с., 430 Н·м", "313 hp, 430 Nm"], ["0–100 km/saat: 6,4 s", "0–100 км/ч: 6,4 с", "0–100 km/h: 6.4 s"], ["Maksimal sürət 200 km/saat", "Максимальная скорость 200 км/ч", "Top speed 200 km/h"]]},
         {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "ls6:61.1", "tag": ["IM AD", "IM AD", "IM AD"],
          "t": ["Yolda <b>əlavə göz.</b>", "Дополнительные глаза <b>на дороге.</b>", "Extra eyes <b>on the road.</b>"],
          "d": ["Kameralar və radarlar adaptiv kruiz, zolaqda saxlama, avtomatik parklanma və təhlükə anında avtomatik əyləc üçün işləyir.", "Камеры и радары обеспечивают адаптивный круиз, удержание в полосе, автопарковку и автоматическое торможение при опасности.", "Cameras and radars handle adaptive cruise, lane keeping, automated parking and automatic emergency braking."],
@@ -300,8 +300,8 @@
         "trims": ["EREV · 66 kWh"],
         "rows": [
           ["#dim"], ["dims", "4904 × 1988 × 1669 mm"], ["wb", "2950 mm"], ["seats", "5"],
-          ["#energy"], ["energy", "$EREV"], ["battery", "66 kWh"], ["btype", "NMC"], ["rev", "450 km"], ["rtotal", "1500 km"], ["ch80", "16 min"], ["eng", "1.5T · 114 kW"],
-          ["#power"], ["drive", "$RWD"], ["power", "230 kW"], ["torque", "430 Nm"], ["accel", "6.4 s"], ["vmax", "200 km/h"]
+          ["#energy"], ["energy", "$EREV"], ["battery", "66 kWh"], ["btype", "NMC"], ["rev", "450 km"], ["rtotal", "1500 km"], ["ch80", "16 min"], ["eng", "1.5T · 155 hp"],
+          ["#power"], ["drive", "$RWD"], ["power", "313 hp"], ["torque", "430 Nm"], ["accel", "6.4 s"], ["vmax", "200 km/h"]
         ],
         "note": ["LS6 EREV məlumatları istehsalçının 2025-ci il açıqlamalarına əsaslanır.", "Данные LS6 EREV основаны на сведениях производителя 2025 года.", "LS6 EREV data are based on the manufacturer's 2025 figures."]
       }
@@ -310,15 +310,15 @@
       "name": "LS9",
       "badge": ["Yeni", "Новинка", "New"],
       "type": ["Flaqman SUV · EREV", "Флагманский SUV · EREV", "Flagship SUV · EREV"],
-      "seo": ["IM LS9 — flaqman SUV | IM Motors Azərbaycan", "IM LS9: altı yerlik flaqman SUV, 1460 km ümumi yürüş, 550 kW, 520 kanallı LiDAR və NVIDIA Thor. Bakıda rəsmi idxalçı ONVOLT."],
+      "seo": ["IM LS9 — flaqman SUV | IM Motors Azərbaycan", "IM LS9: altı yerlik flaqman SUV, 1460 km ümumi yürüş, 748 hp, 520 kanallı LiDAR və NVIDIA Thor. Bakıda rəsmi idxalçı ONVOLT."],
       "card": "c:ls9:caucasus",
       "hero": {"near": "photos/ls9-hero-near.jpg", "wide": "photos/ls9-hero-wide.jpg", "dpos": "100% 50%", "pos": "97% 50%"},
       "tag": ["Altı oturacaqlı flaqman: elektrik sürüşü, yürüş artırıcı və 520 kanallı LiDAR.", "Шестиместный флагман: электрический привод, генератор и лидар на 520 каналов.", "A six-seat flagship: electric drive, a range extender and a 520-line LiDAR."],
-      "hs": [["1460 km", ["Ümumi yürüş, maks.", "Общий запас, до", "Total range, up to"]], ["390 km", ["Elektriklə, maks.", "На электричестве, до", "Electric, up to"]], ["3.9 s", ["0–100 km/saat, min.", "0–100 км/ч, от", "0–100 km/h, from"]]],
+      "hs": [["1454 km", ["Ümumi yürüş", "Общий запас", "Total range"]], ["320 km", ["Elektriklə", "На электричестве", "Electric"]], ["4.9 s", ["0–100 km/saat", "0–100 км/ч", "0–100 km/h"]]],
       "ov": {
         "t": ["Flaqman — <b>hər mənada.</b>", "Флагман — <b>во всём.</b>", "A flagship <b>in every sense.</b>"],
-        "d": ["5,3 metrlik gövdə, üç cərgədə altı oturacaq və ikinci cərgədə «sıfır cazibə» kresloları. Hyper versiyada 550 kW güc və 0–100 km/saat 3,9 saniyə; 800 V platforma batareyanı 16,5 dəqiqəyə 10%-dən 80%-ə doldurur, uzun yolda isə 1,5T generator ümumi yürüşü 1460 km-ə çatdırır.", "Кузов 5,3 метра, шесть мест в трёх рядах и кресла «нулевой гравитации» во втором ряду. В версии Hyper — 550 кВт и 3,9 с до 100 км/ч; платформа 800 В заряжает батарею с 10 до 80% за 16,5 минуты, а в дальней дороге генератор 1,5T увеличивает общий запас хода до 1460 км.", "A 5.3-metre body, six seats in three rows and zero-gravity chairs in the second row. The Hyper delivers 550 kW and 0–100 km/h in 3.9 s; its 800 V platform charges 10–80% in 16.5 minutes, and on long trips a 1.5T range extender stretches total range to 1,460 km."],
-        "f": [["1460", "km", ["ümumi yürüş, CLTC", "общий запас хода, CLTC", "total range, CLTC"]], ["550", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["16.5", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]], ["4.77", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
+        "d": ["5,3 metrlik gövdə, üç cərgədə altı oturacaq və ikinci cərgədə «sıfır cazibə» kresloları. Hyper versiyada 748 hp güc və 0–100 km/saat 3,9 saniyə; 800 V platforma batareyanı 16,5 dəqiqəyə 10%-dən 80%-ə doldurur, uzun yolda isə 1,5T generator ümumi yürüşü 1460 km-ə çatdırır.", "Кузов 5,3 метра, шесть мест в трёх рядах и кресла «нулевой гравитации» во втором ряду. В версии Hyper — 748 л.с. и 3,9 с до 100 км/ч; платформа 800 В заряжает батарею с 10 до 80% за 16,5 минуты, а в дальней дороге генератор 1,5T увеличивает общий запас хода до 1460 км.", "A 5.3-metre body, six seats in three rows and zero-gravity chairs in the second row. The Hyper delivers 748 hp and 0–100 km/h in 3.9 s; its 800 V platform charges 10–80% in 16.5 minutes, and on long trips a 1.5T range extender stretches total range to 1,460 km."],
+        "f": [["1460", "km", ["ümumi yürüş, CLTC", "общий запас хода, CLTC", "total range, CLTC"]], ["748", "hp", ["maksimal güc", "максимальная мощность", "peak power"]], ["16.5", "min", ["şarj 10–80%", "зарядка 10–80%", "charge 10–80%"]], ["4.77", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
       },
       "design": {
         "t": ["Bir baxışda <b>flaqman.</b>", "Флагман <b>с первого взгляда.</b>", "A flagship <b>at first glance.</b>"],
@@ -350,8 +350,8 @@
          "li": [["Tam elektron sükan", "Полностью электронный руль", "Full steer-by-wire"], ["Dönmə radiusu 4,77 m", "Радиус разворота 4,77 м", "4.77 m turning radius"], ["İki kameralı pnevmatik asqı", "Двухкамерная пневмоподвеска", "Dual-chamber air suspension"]]},
         {"tab": ["EREV · 800 V", "EREV · 800 В", "EREV · 800 V"], "img": "ls9:58.0", "tag": ["Güc", "Мощность", "Power"],
          "t": ["Elektrik gücü, <b>benzin sərbəstliyi.</b>", "Сила электричества, <b>свобода бензина.</b>", "Electric force, <b>petrol freedom.</b>"],
-         "d": ["Təkərləri elektrik mühərrikləri fırladır: Hyper versiyada 550 kW və 730 N·m. 66 kWh batareya ilə 390 km-ə qədər elektriklə gedir, 1,5T generator isə uzun yolda batareyanı doldurur.", "Колёса вращают электромоторы: в версии Hyper — 550 кВт и 730 Н·м. На батарее 66 кВт·ч — до 390 км на электричестве, а в дальней дороге генератор 1,5T подзаряжает батарею.", "Electric motors drive the wheels — 550 kW and 730 Nm in the Hyper. The 66 kWh battery gives up to 390 km of electric range, and a 1.5T generator recharges it on long trips."],
-         "li": [["550 kW, 730 N·m", "550 кВт, 730 Н·м", "550 kW, 730 Nm"], ["10–80%: 16,5 dəq", "10–80%: 16,5 мин", "10–80%: 16.5 min"], ["60 l çən, AI-92", "Бак 60 л, АИ-92", "60 L tank, 92 RON"]], "note": 2},
+         "d": ["Təkərləri elektrik mühərrikləri fırladır: Hyper versiyada 748 hp və 730 N·m. 66 kWh batareya ilə 390 km-ə qədər elektriklə gedir, 1,5T generator isə uzun yolda batareyanı doldurur.", "Колёса вращают электромоторы: в версии Hyper — 748 л.с. и 730 Н·м. На батарее 66 кВт·ч — до 390 км на электричестве, а в дальней дороге генератор 1,5T подзаряжает батарею.", "Electric motors drive the wheels — 748 hp and 730 Nm in the Hyper. The 66 kWh battery gives up to 390 km of electric range, and a 1.5T generator recharges it on long trips."],
+         "li": [["748 hp, 730 N·m", "748 л.с., 730 Н·м", "748 hp, 730 Nm"], ["10–80%: 16,5 dəq", "10–80%: 16,5 мин", "10–80%: 16.5 min"], ["60 l çən, AI-92", "Бак 60 л, АИ-92", "60 L tank, 92 RON"]], "note": 2},
         {"tab": ["Sürücüyə yardım", "Помощь водителю", "Driver assistance"], "img": "ls9:78.0", "tag": ["IM AD Max", "IM AD Max", "IM AD Max"],
          "t": ["520 kanallı LiDAR <b>və NVIDIA Thor.</b>", "Лидар на 520 каналов <b>и NVIDIA Thor.</b>", "A 520-line LiDAR <b>and NVIDIA Thor.</b>"],
          "d": ["Momenta ilə hazırlanmış sürücüyə yardım sistemi LiDAR, yüksək dəqiqlikli kameralar və radarlarla ətrafı 360° görür. Prosessor — NVIDIA DRIVE AGX Thor.", "Система помощи водителю, созданная с Momenta, видит всё вокруг на 360° с помощью лидара, камер высокого разрешения и радаров. Процессор — NVIDIA DRIVE AGX Thor.", "Developed with Momenta, the driver-assistance system sees 360° with LiDAR, high-resolution cameras and radars, powered by an NVIDIA DRIVE AGX Thor."],
@@ -366,7 +366,7 @@
         "rows": [
           ["#dim"], ["dims", "5279 × 2000 × 1806 mm"], ["wb", "3160 mm"], ["trunk", "372–1030 L"], ["seats", "6"],
           ["#energy"], ["energy", "$EREV"], ["battery", ["52 kWh", "66 kWh"]], ["btype", ["LFP", "NMC"]], ["rtotal", ["1454 km", "1460 km"]], ["rev", ["320 km", "390 km"]], ["ch80", ["19 min", "16.5 min"]], ["ch15", ["211 km", "265 km"]], ["volt", "800 V"], ["eng", "1.5T"], ["tank", "60 L"],
-          ["#power"], ["drive", "$AWD"], ["power", ["380 kW", "550 kW"]], ["torque", ["670 Nm", "730 Nm"]], ["accel", ["4.9 s", "3.9 s"]], ["vmax", "220 km/h"],
+          ["#power"], ["drive", "$AWD"], ["power", ["517 hp", "748 hp"]], ["torque", ["670 Nm", "730 Nm"]], ["accel", ["4.9 s", "3.9 s"]], ["vmax", "220 km/h"],
           ["#chassis"], ["turn", ["4.95 m", "4.77 m"]], ["sbw", "$YES"], ["4ws", "$YES"], ["air", "$AIR2"], ["wheels", "21″ / 22″"],
           ["#cabin"], ["screens", "27.1″ + 15.6″ + 21.5″"], ["chip", "Snapdragon 8295P"], ["adas", "LiDAR 520 · NVIDIA Thor"], ["audio", "B&O · 25"]
         ]
@@ -376,7 +376,7 @@
       "name": "LS8",
       "badge": ["2026", "2026", "2026"],
       "type": ["Premium SUV · EREV", "Премиальный SUV · EREV", "Premium SUV · EREV"],
-      "seo": ["IM LS8 — premium SUV | IM Motors Azərbaycan", "IM LS8: altı yerlik premium SUV, 1605 km ümumi yürüş, 430 km elektriklə, 390 kW və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
+      "seo": ["IM LS8 — premium SUV | IM Motors Azərbaycan", "IM LS8: altı yerlik premium SUV, 1605 km ümumi yürüş, 430 km elektriklə, 530 hp və dörd təkərin idarəsi. Bakıda rəsmi idxalçı ONVOLT."],
       "card": "c:ls8:alps",
       "hero": {"near": "photos/ls8-hero-near.jpg", "wide": "photos/ls8-hero-wide.jpg", "dpos": "100% 50%", "pos": "96% 50%"},
       "tag": ["Uzaq səfərlər üçün yaradılıb: altı geniş oturacaq, dörd təkərin idarəsi və 1600 km-dən çox ümumi yürüş.", "Создан для дальних поездок: шесть просторных мест, полноуправляемое шасси и более 1600 км общего запаса хода.", "Built for long journeys: six spacious seats, four-wheel steering and more than 1,600 km of total range."],
@@ -384,7 +384,7 @@
       "ov": {
         "t": ["Hər gün elektrik, <b>hər yolda sərbəst.</b>", "Каждый день — электричество, <b>любая дорога — свободно.</b>", "Electric every day, <b>free on any road.</b>"],
         "d": ["Şəhərdə LS8 tam elektromobildir: 66 kWh batareya ilə 430 km-ə qədər bir damla benzin yandırmadan. Uzun yolda 1,5T generator batareyanı doldurur və ümumi yürüş 1605 km-ə çatır. Altı geniş oturacaq, B&O səsi, 800 V sürətli şarj və dörd təkərin idarəsi.", "В городе LS8 — полноценный электромобиль: до 430 км на батарее 66 кВт·ч без капли бензина. В дальней дороге генератор 1,5T подзаряжает батарею, и общий запас хода достигает 1605 км. Шесть просторных мест, звук B&O, быстрая зарядка 800 В и полноуправляемое шасси.", "In town the LS8 is a full EV, covering up to 430 km on its 66 kWh battery without a drop of petrol. On long trips a 1.5T generator recharges the battery for a total range of 1,605 km. Six spacious seats, B&O sound, 800 V fast charging and four-wheel steering."],
-        "f": [["1605", "km", ["ümumi yürüş, CLTC", "общий запас хода, CLTC", "total range, CLTC"]], ["430", "km", ["elektriklə, CLTC", "на электричестве, CLTC", "electric, CLTC"]], ["390", "kW", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.85", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
+        "f": [["1605", "km", ["ümumi yürüş, CLTC", "общий запас хода, CLTC", "total range, CLTC"]], ["430", "km", ["elektriklə, CLTC", "на электричестве, CLTC", "electric, CLTC"]], ["530", "hp", ["maksimal güc", "максимальная мощность", "peak power"]], ["4.85", "m", ["dönmə radiusu", "радиус разворота", "turning radius"]]]
       },
       "design": {
         "t": ["Təmkinli <b>güc.</b>", "Сдержанная <b>сила.</b>", "Understated <b>power.</b>"],
@@ -431,7 +431,7 @@
         "rows": [
           ["#dim"], ["dims", "5085 × 2000 × 1807 mm"], ["wb", "3060 mm"], ["seats", "6"], ["trunk", "938–2576 L"], ["weight", ["2540 kg", "2620 kg"]],
           ["#energy"], ["energy", "$EREV"], ["battery", ["52 kWh", "66 kWh"]], ["btype", ["LFP", "NMC"]], ["rtotal", ["1573 km", "1605 km"]], ["rev", ["355 km", "430 km"]], ["ch80", ["19 min", "16.5 min"]], ["ch15", ["230 km", "292 km"]], ["volt", "800 V"], ["eng", "1.5T"], ["tank", "60 L"],
-          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["230 kW", "390 kW"]], ["torque", ["430 Nm", "670 Nm"]], ["accel", ["7.3 s", "4.7 s"]], ["vmax", ["190 km/h", "220 km/h"]],
+          ["#power"], ["drive", ["$RWD", "$AWD"]], ["power", ["313 hp", "530 hp"]], ["torque", ["430 Nm", "670 Nm"]], ["accel", ["7.3 s", "4.7 s"]], ["vmax", ["190 km/h", "220 km/h"]],
           ["#chassis"], ["turn", "4.85 m"], ["4ws", "$YES"], ["wheels", "20″ – 22″"],
           ["#cabin"], ["screens", "27.1″ + 15.6″ + 21.5″"], ["chip", "Snapdragon 8295P"], ["adas", "LiDAR · Momenta"], ["audio", "B&O · 18 / 25"]
         ]
